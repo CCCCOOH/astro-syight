@@ -1,4 +1,14 @@
-# Astro Starter Kit: Minimal
+# AstroSyight 🚀
+
+![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310413326.png)
+
+![](https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=github&logoColor=white)
+![](https://img.shields.io/github/license/ccccooh/astro-theme-syight.svg)
+
+
+
+
+
 
 ```sh
 npm create astro@latest -- --template minimal
