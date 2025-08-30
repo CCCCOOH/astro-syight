@@ -1,0 +1,14 @@
+---
+import {music} from "../config/player"
+function album(src) {
+  return "https://embed.music.apple.com/cn/album/"+src.split('/').slice(5, 7).join('/')
+}
+---
+
+<aside>
+  <div class="flex flex-col gap-5">
+    {music.enabled && 
+  music.list.map(m => <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height={m.album ? "450" : "150"} style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src={album(m.src)}></iframe>)}
+  </div>
+</aside>
+

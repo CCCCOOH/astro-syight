@@ -1,0 +1,8 @@
+---
+const { title, url, month } = Astro.props;
+---
+
+<li class="list-none! text-xl">
+  <span>{month}月</span>
+  <a class="text-slate-500!" href={url}>{title}</a>
+</li>

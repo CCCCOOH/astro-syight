@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HomeBackground from "../components/HomeBackground.astro"
+import HomeArticleContainer from '../components/HomeArticleContainer.astro'
+import { getCollection } from "astro:content";
+import AuthorCard from "../components/AuthorCard.astro";
+import MusicPlayer from "../components/MusicPlayer.astro";
+import VideoPlayer from "../components/VideoPlayer.astro";
+const allPosts = await getCollection('blog');
+---
+
+<BaseLayout>
+  <HomeBackground />
+  <div class="flex gap-5 justify-center mt-10">
+    { allPosts.length > 0 && <HomeArticleContainer posts={allPosts} />}
+    <div id="right-container" class="flex flex-col gap-5">
+      <AuthorCard />
+      <MusicPlayer />
+      <VideoPlayer />
+    </div>
+  </div>
+</BaseLayout>

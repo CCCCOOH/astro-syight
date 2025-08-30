@@ -1,0 +1,13 @@
+<div class="fixed right-10 bottom-10">
+  <div id="to-top" class="rounded-full w-[50px] bg-fuchsia-200 h-[50px] hover:bg-amber-200 flex justify-center items-center transition cursor-pointer">
+    <i class="fa-solid fa-arrow-up animate-bounce"></i>  
+  </div>
+</div>
+
+<script>
+  const toTop = document.querySelector('#to-top');
+  const top = document.documentElement.offsetTop;
+  toTop?.addEventListener('click', () => {
+    document.documentElement.scrollTop = top;
+  })
+</script>
