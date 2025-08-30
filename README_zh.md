@@ -6,6 +6,9 @@
 ![](https://img.shields.io/github/license/ccccooh/astro-theme-syight.svg)
 
 
+## README.md
+
+- [English](./README.md)
 
 ## 🔥 功能
 
