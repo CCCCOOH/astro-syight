@@ -1,20 +1,44 @@
-Okay, here is the English translation of your README:
+Okay, here is the translation of your README content into English:
 
 # AstroSyight 🚀
 
 ![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310413326.png)
-
+![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310504660.png)
 ![](https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=github&logoColor=white)
 ![](https://img.shields.io/github/license/ccccooh/astro-theme-syight.svg)
 
 ## 🔥 Features
 
 - [x] Immersive grid background on article pages
-- [x] Small but feature-rich (Lit. "Small as a sparrow but has all vital organs")
+- [x] Small but feature-packed (Lit. "Small as a sparrow but has all vital organs")
 - [x] Apple Music album showcase on the homepage
 - [x] Tech stack display on the About page
-- [ ] Light color theme toggle
+- [x] LaTeX support
+- [ ] Light theme toggle
 - [ ] Responsive design
+
+## 📄 Pages
+
+### Homepage
+![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310413326.png)
+
+### Article Page
+![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310458801.png)
+
+### Footer
+![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310459732.png)
+
+### About
+![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310500164.png)
+
+### Archive
+![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310500915.png)
+
+### Tags
+![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310501883.png)
+
+### LaTeX
+![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310502619.png)
 
 ## 🚀 Project Structure
 
