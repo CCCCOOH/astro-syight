@@ -1,5 +1,3 @@
-Okay, here is the English translation of your README:
-
 # AstroSyight 🚀
 
 ![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310413326.png)
@@ -7,16 +5,18 @@ Okay, here is the English translation of your README:
 ![](https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=github&logoColor=white)
 ![](https://img.shields.io/github/license/ccccooh/astro-theme-syight.svg)
 
-## 🔥 Features
 
-- [x] Immersive grid background on article pages
-- [x] Small but feature-rich (Lit. "Small as a sparrow but has all vital organs")
-- [x] Apple Music album showcase on the homepage
-- [x] Tech stack display on the About page
-- [ ] Light color theme toggle
-- [ ] Responsive design
 
-## 🚀 Project Structure
+## 🔥 功能
+
+- [x] 文章页沉浸式网格背景
+- [x] 麻雀虽小五脏俱全
+- [x] 首页 Apple Music 专辑展示
+- [x] About页技术栈展示
+- [ ] 明亮色主题切换
+- [ ] 响应式
+
+## 🚀 项目结构
 
 ```
 astro-theme-syight
@@ -75,24 +75,24 @@ astro-theme-syight
 |   └favicon.svg
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Astro 在目录中查找.astro或.md文件src/pages/。每个页面都会根据其文件名显示为一条路由。
 
-Any static assets, like images, can be placed in the `public/` directory.
+任何静态资产（例如图像）都可以放置在public/目录中。
 
-All blog posts are stored in the `src/content/blog` directory.
+所有博客文章都存储在src/data/blog目录中。
 
-## 💻 Tech Stack
+## 💻 技术栈
 
--   Main Framework - [Astro](https://astro.build/)
--   Type Checking - [TypeScript](https://www.typescriptlang.org/)
--   Deployment - [Vercel](https://vercel.com/)
--   Tooling - [VsCode](https://code.visualstudio.com/)
+- 主要框架 - [Astro](https://astro.build/)
+- 类型检查 - [TypeScript](https://www.typescriptlang.org/)
+- 部署 - [Vercel](https://vercel.com/)
+- 工具 - [VsCode](https://code.visualstudio.com/)
 
-## 💗 Local Installation
+## 💗 本地安装
 
-(The author cannot afford an npm subscription to publish the package, but you can install this theme manually. Please understand.)
+作者没钱订阅 npm 发包，但你可以手动安装本主题，请谅解。
 
--   Install the framework
+- 安装框架
 
 ```
 # pnpm
@@ -108,26 +108,27 @@ yarn create astro --template satnaing/astro-paper
 bun create astro@latest -- --template satnaing/astro-paper
 ```
 
--   Start the project 🚀
+- 启动项目 🚀
 
 ```
-# Be sure to install dependencies the first time you start
+# 第一次启动请务必安装依赖
 pnpm install
 
-# Genshin Impact, start! (Lit. "Original God, start!")
+# 原神，启动！
 pnpm run dev
 ```
 
--   Build 🏠
+- 构建 🏠
 
 ```
-# Generate static files
+# 生成静态文件
 npm run build
 ```
 
-## 📜 License
+## 📜 协议
 
 Licensed under the MIT License, Copyright © 2025
+
 
 ## 🪓 Personal Contributions:
 
@@ -135,4 +136,4 @@ Licensed under the MIT License, Copyright © 2025
 
 ---
 
-Made with 🤍 by Sy 👨🏻‍💻
+Made with 🤍 Sy 👨🏻‍💻
