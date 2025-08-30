@@ -2,14 +2,16 @@ Okay, here is the translation of your README content into English:
 
 # AstroSyight 🚀
 
-## README.md
-
-- [简体中文](./README_zh.md)
-
 ![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310413326.png)
 ![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310504660.png)
 ![](https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=github&logoColor=white)
 ![](https://img.shields.io/github/license/ccccooh/astro-theme-syight.svg)
+
+
+## README.md
+
+- [简体中文](./README_zh.md)
+
 
 ## 🔥 Features
 
