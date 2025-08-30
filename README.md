@@ -1,5 +1,3 @@
-Okay, here is the translation of your README content into English:
-
 # AstroSyight 🚀
 
 ![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310413326.png)
