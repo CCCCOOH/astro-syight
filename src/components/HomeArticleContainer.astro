@@ -4,13 +4,9 @@ import {article} from "../config/site"
 import ArticleContainerItem from './ArticleContainerItem.astro';
 let size = article.home_size;
 ---
-<div class="flex flex-col">
+<div id="article-container" class="flex flex-col">
   <ul class="flex rounded flex-col gap-5 shadow p-10 bg-white backdrop-blur-xl">
-    {posts.slice(0, size).map((p:any) => 
-      <div class="item">
-        <ArticleContainerItem post={p} />
-      </div>
-    )}
+    {posts.slice(0, article.show_all ? posts.length : size ).map((p:any) => <div class="item"><ArticleContainerItem post={p} /></div>)}
   </ul>
-  <a href="/blog" class="shadow flex justify-center items-center bg-white h-20 hover:cursor-pointer rounded transition"><span class="text-xl text-slate-500 hover:text-slate-400 transition">Read More</span></a>
+  {!article.show_all && <a href="/blog" class="shadow flex justify-center items-center bg-white h-20 hover:cursor-pointer rounded transition"><span class="text-xl text-slate-500 hover:text-slate-400 transition">Read More</span></a>}
 </div>

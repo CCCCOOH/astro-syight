@@ -11,12 +11,14 @@ const allPosts = await getCollection('blog');
 
 <BaseLayout>
   <HomeBackground />
-  <div class="flex gap-5 justify-center mt-10">
-    { allPosts.length > 0 && <HomeArticleContainer posts={allPosts} />}
-    <div id="right-container" class="flex flex-col gap-5">
+  <div class="flex px-50 gap-5 justify-center mt-10">
+    <div id="left-container" class="flex-2">
+      { allPosts.length > 0 && <HomeArticleContainer posts={allPosts} />}
+    </div>
+    <aside id="right-container" class="flex flex-1 flex-col gap-5">
       <AuthorCard />
       <MusicPlayer />
       <VideoPlayer />
-    </div>
+    </aside>
   </div>
 </BaseLayout>

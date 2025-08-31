@@ -4,18 +4,20 @@ import { article } from '../config/site.js'
 const cover_default = article.default_cover;
 const title = p?.id.split('/')?.at(-1)?.split('.')[0];
 ---
-<li class="flex gap-5">
-  <a class="shadow hover:shadow-md hover:transition transition" href={p.url}>
+<li class="list-none!">
+  <a class="float-left p-5 mr-5 shadow hover:shadow-md hover:transition transition" href={p.url}>
     <!-- 文章封面 -->
     <img class="w-50 max-w-50! h-30 object-cover" src={p.data?.thumb || p.data?.index_img || cover_default} alt="文章封面">
   </a>
-  <div class="flex-2">
+  <div class="">
     <h2 class="cursor-pointer text-xl hover:transition text-shadow-2xs">
     {/* 文章标题 */}
-      <a href={'/posts/'+p.slug}>{title}</a>
+      <a href={'/posts/'+p.slug}>{article.use_frontmatter_title ? p.frontmatter?.title || title : title}</a>
     </h2>
     {/* 文章摘要 */}
-    <p class="text-sm text-slate-500">{p.data?.excerpt || p.data?.description}</p>
+    {<p class="text-sm text-slate-500">{
+      p.body.split('<!-- more -->')[0].slice(0,article.excerpt_size)
+    }</p>}
   </div>
 </li>
 
