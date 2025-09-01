@@ -12,7 +12,8 @@ const title = p?.id.split('/')?.at(-1)?.split('.')[0];
   <div class="">
     <h2 class="cursor-pointer text-xl hover:transition text-shadow-2xs">
     {/* 文章标题 */}
-      <a href={'/posts/'+p.slug}>{article.use_frontmatter_title ? p.data?.title || title : title}</a>
+    <a href={'/posts/'+p.slug}>{article.use_frontmatter_title ? p.data?.title || title : title}</a>
+    {p.data?.sticky && <i class="fa-solid fa-thumbtack"></i>}
     </h2>
     {/* 文章摘要 */}
     {<p class="text-sm text-slate-500">{

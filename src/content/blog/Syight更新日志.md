@@ -1,6 +1,7 @@
 ---
 title: 🚀 Astro-Syight 更新日志
 date: 2025-09-01 
+sticky: 999
 ---
 
 ## 1. 前言 📄
@@ -51,10 +52,16 @@ date: 2025-09-01
 - 优化TOC模块，增加折叠功能，并赋予动画。
 - 修改代码块样式，鼠标悬浮时文代码富有红色背景高亮。
 - 通过frontmatter.photos可加入多个图片作为文章的 Gallery Post，点击可滑动。
-- 适配 bilibili 和 Youtube 的iframe嵌入式视频代码，提供专属演示，见演示站点 Videos 一文
+- 适配 bilibili 和 Youtube 的iframe嵌入式视频代码，提供专属演示，见演示站点 Videos 一文。
+- 文章frontmatter.sticky可以设置文章优先级，默认为0不显示置顶图钉📌，大于0时按照其值大小排序。
+- 文章frontmatter.visible可以设置文章首页可见性
 ```
 
 ## 3. 安装 🚀
+
+依赖:
+- npm
+- node.js
 
 只需要在 Github clone 本项目的仓库，进入项目文件夹安装相关依赖即可，是不是超级简单！
 

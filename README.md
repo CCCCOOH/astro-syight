@@ -1,6 +1,6 @@
 # AstroSyight 🚀
 
-- Exhibition Site: [https://astro-theme-syight.vercel.app/](https://astro-theme-syight.vercel.app/)
+- Exhibition Site: [https://www.syight.site/](https://www.syight.site/)
 
 ![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310413326.png)
 ![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310504660.png)

@@ -1,6 +1,6 @@
 # AstroSyight 🚀
 
-- 演示站点：[https://astro-theme-syight.vercel.app/](https://astro-theme-syight.vercel.app/)
+- 演示站点：[https://www.syight.site/](https://www.syight.site/)
 
 ![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310413326.png)
 ![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310504660.png)
