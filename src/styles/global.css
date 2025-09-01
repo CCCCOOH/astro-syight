@@ -324,11 +324,24 @@ iframe[title='YouTube video player']:hover, iframe[title="bilibili"]:hover {
 }
 
 .born-full {
-  animation: born-full .4s ease-out;
+  animation: born-full .3s ease-out;
 }
 
 .fade-in {
-  animation: fade-in .4ss ease-in;
+  animation: fade-in .4s ease-in;
+}
+
+.born-blur {
+  animation: born-blur .3s ease-in;
+}
+
+@keyframes born-blur {
+  from {
+    filter: blur(var(--blur-sm));
+  }
+  to {
+    filter: blur(0);
+  }
 }
 
 @keyframes born {
