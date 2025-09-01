@@ -6,16 +6,16 @@ const cover_default = article.default_cover;
 const title = get_title(p);
 ---
 { p.data?.visible !== false &&
-<li class="list-none!">
+<li class="list-none! born">
   <a class="float-left p-5 mr-5 shadow hover:shadow-md hover:transition transition" href={p.url}>
     <!-- 文章封面 -->
-    <img class="w-50 max-w-50! h-30 object-cover" src={p.data?.thumb || p.data?.index_img || cover_default} alt="文章封面">
+    <img loading="lazy" class="w-50 max-w-50! h-30 object-cover" src={p.data?.thumb || p.data?.index_img || cover_default} alt="文章封面">
   </a>
   <div class="">
     <h2 class="cursor-pointer text-xl hover:transition text-shadow-2xs">
     {/* 文章标题 */}
     <a href={'/posts/'+p.slug}>{article.use_frontmatter_title ? p.data?.title || title : title}</a>
-    {p.data?.sticky && <i class="fa-solid fa-thumbtack"></i>}
+    {p.data?.sticky && <i class="fa-solid fa-thumbtack born-full"></i>}
     </h2>
     {/* 文章摘要 */}
     {<p class="text-sm text-slate-500">{

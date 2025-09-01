@@ -18,12 +18,12 @@ const { pageTitle } = Astro.props;
   </head>
   <body>
     <ToTop />
-    <div class="content min-h-[calc(100vh-70px)]">
+    <div class="content min-page-y">
       <Header />
       <slot />
     </div>
 
-    <footer class="footer h-[50px]">
+    <footer class="h-[50px]">
       <Footer />
     </footer>
   </body>

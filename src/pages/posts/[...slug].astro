@@ -1,8 +1,11 @@
 ---
 // 第一部分：导入需要的功能
 import { getCollection } from 'astro:content';
+import {article} from "../../config/site.js"
 import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro';
+import Giscus from "../../components/Giscus.astro";
 import TOC from '../../components/TOC.astro';
+const ifComment = article.comment;
 
 // 第二部分：告诉 Astro 要生成哪些页面
 export async function getStaticPaths() {
@@ -27,7 +30,12 @@ const headings = post?.rendered?.metadata?.headings;
 <!-- 第四部分：使用布局渲染页面 -->
 <MarkdownPostLayout post={post} frontmatter={post?.rendered?.metadata?.frontmatter}>
   <div id="main" class="flex justify-center gap-10">
-    <article class="flex-2 max-w-[70vw]"><Content /></article>
+    <article class="flex-2 max-w-[70vw]">
+      <div class="min-article-y">
+        <Content />
+      </div>
+      {ifComment && <Giscus />}
+    </article>
     <aside class="">
       <TOC headings={headings}/>
     </aside>

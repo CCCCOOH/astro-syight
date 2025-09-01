@@ -310,3 +310,49 @@ iframe[title='YouTube video player']:hover, iframe[title="bilibili"]:hover {
   background-size: 30px 30px;
   background-repeat: repeat;
 }
+
+.min-page-y {
+  min-height: calc(100vh - 70px);
+}
+
+.min-article-y {
+  min-height: calc(100vh - 500px);
+}
+
+.born {
+  animation: born .4s ease-out;
+}
+
+.born-full {
+  animation: born-full .4s ease-out;
+}
+
+.fade-in {
+  animation: fade-in .4ss ease-in;
+}
+
+@keyframes born {
+  from {
+    transform: scale(.8);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes born-full {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

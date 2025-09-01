@@ -13,7 +13,8 @@ const blog = defineCollection({
     author: z.string().optional(),
     photos: z.array(z.string()).optional(),
     ph_height: z.string().optional(),
-    latex: z.boolean().optional()
+    latex: z.boolean().optional(),
+    visible: z.boolean().optional()
   })
 });
 
@@ -24,6 +25,7 @@ const says = defineCollection({
     says: z.boolean(),
     photos: z.array(z.string()).optional(),
     author: z.string().optional(),
+    avatar: z.string().optional(),
     description: z.string().optional(),
     img_width: z.string().optional(),
     height: z.string().optional(),

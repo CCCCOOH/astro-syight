@@ -3,7 +3,7 @@ import {about} from '../config/about'
 const tech_stack = about.tech_stack;
 ---
 
-<ul class="*:list-none! w-full p-0! h-50 m-auto mt-60! relative z-2">
+<ul class="born *:list-none! w-full p-0! h-50 m-auto mt-60! relative z-2">
   {tech_stack.map(t => <img src={t.icon} class="animate-pulse cursor-pointer w-30 h-30 rounded-3xl! bg-cover absolute left-[50%] -translate-x-[50%] bg-transparent" title={t.title} />) }
 </ul>
 

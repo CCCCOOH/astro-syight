@@ -3,9 +3,12 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { get_title, format_say_date } from "../scripts/utils";
 import { info } from "../config/says.js"
+import { date_sort } from "../scripts/utils"
 import ImagesGallery from "../components/ImagesGallery.astro";
-const says = await getCollection('says');
-const author_style = `background-image: url(${info.avatar});`
+const says = date_sort(await getCollection('says')); 
+function avatar_style(say) {
+  return `background-image: url(${say.data?.avatar || info.avatar});`;
+}
 ---
 
 <BaseLayout>
@@ -13,10 +16,11 @@ const author_style = `background-image: url(${info.avatar});`
     <ul class="w-[50vw] py-2">
       {
         says.map(say => 
-        <li class="">
+        <li class="born">
           <aside class="flex pb-5">
-            <div style={author_style} class="bg-cover size-20"></div>
-            <div class="flex flex-col justify-center">
+            {/* 头像 */}
+            <div style={avatar_style(say)} class="bg-cover size-20 rounded"></div>
+            <div class="pl-5 flex flex-col justify-center">
               <span class="text-xl! font-mono! text-slate-800">{say.data?.author || info.author}</span>
               <span class="text-sm! font-mono text-slate-500">{say.data?.description || info.description}</span>
             </div>

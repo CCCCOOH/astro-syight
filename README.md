@@ -1,17 +1,22 @@
 # AstroSyight 🚀
 
 - Exhibition Site: [https://www.syight.site/](https://www.syight.site/)
+- README: [简体中文](./README_zh.md)
 
-![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310413326.png)
-![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310504660.png)
+
+<!-- 展示 -->
+![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509020540653.png)
+
+
+<!-- 徽章 -->
 ![](https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=github&logoColor=white)
 ![](https://img.shields.io/github/license/ccccooh/astro-theme-syight.svg)
 
 
-## README.md
 
-- [简体中文](./README_zh.md)
+## SaySay
 
+![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509020543957.png)
 
 ## 🔥 Features
 
@@ -22,29 +27,6 @@
 - [x] LaTeX support
 - [ ] Light theme toggle
 - [ ] Responsive design
-
-## 📄 Pages
-
-### Homepage
-![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310413326.png)
-
-### Article Page
-![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310458801.png)
-
-### Footer
-![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310459732.png)
-
-### About
-![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310500164.png)
-
-### Archive
-![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310500915.png)
-
-### Tags
-![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310501883.png)
-
-### LaTeX
-![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310502619.png)
 
 ## 🚀 Project Structure
 

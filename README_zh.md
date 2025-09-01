@@ -1,16 +1,22 @@
 # AstroSyight 🚀
 
 - 演示站点：[https://www.syight.site/](https://www.syight.site/)
+- README: [English](./README.md)
 
-![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310413326.png)
-![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310504660.png)
+<!-- 展示 -->
+![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509020540653.png)
+
+
+
+<!-- 徽章 -->
 ![](https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=github&logoColor=white)
 ![](https://img.shields.io/github/license/ccccooh/astro-theme-syight.svg)
 
 
-## README.md
+## 说说
 
-- [English](./README.md)
+![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509020543957.png)
+
 
 ## 🔥 功能
 
@@ -21,34 +27,6 @@
 - [x] Latex支持
 - [ ] 明亮色主题切换
 - [ ] 响应式
-
-## 📄 页面
-
-### 首页
-![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310413326.png)
-
-### 文章页
-![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310458801.png)
-
-### 页脚
-
-![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310459732.png)
-
-### 关于
-
-![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310500164.png)
-
-### 归档
-
-![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310500915.png)
-
-### 标签
-
-![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310501883.png)
-
-### Latex
-
-![](https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508310502619.png)
 
 ## 🚀 项目结构
 

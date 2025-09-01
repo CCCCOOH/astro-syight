@@ -169,13 +169,29 @@
       "bases:创建新数据库": false
     }
   },
-  "active": "ea9559c2ac602d2d",
+  "active": "115eeca3c23af60b",
   "lastOpenFiles": [
-    "blog/测试文章/videos.md",
-    "blog/测试文章/日本語テスト.md",
-    "blog/测试文章/中文測試.md",
-    "blog/测试文章",
     "says/测试说说功能.md",
-    "says/也是返上校了.md"
+    "says/为什么每条说说都可以设置单独的Avatar.md",
+    "says/也是返上校了.md",
+    "says/说说时间排序测试.md",
+    "says/测试时间排序.md",
+    "未命名",
+    "blog/测试文章/gallery-post.md",
+    "blog/Syight更新日志.md",
+    "blog/测试文章/videos.md",
+    "blog/测试文章/markdown.md",
+    "blog/测试文章/日本語テスト.md",
+    "blog/测试文章/excerpts.md",
+    "blog/测试文章/no-title.md",
+    "blog/测试文章/tags.md",
+    "blog/测试文章/long-title.md",
+    "blog/测试文章/images.md",
+    "blog/测试文章/hello-world.md",
+    "blog/测试文章/elements.md",
+    "blog/测试文章/code-highlight.md",
+    "blog/测试文章/categories.md",
+    "blog/测试文章/中文測試.md",
+    "blog/测试文章"
   ]
 }

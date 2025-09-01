@@ -1,22 +1,27 @@
 export const nav = [
   {
     title: '首页',
-    src: '/'
+    src: '/',
+    icon: "fa-solid fa-house"
   },
   {
     title: '关于',
-    src: '/about'
+    src: '/about',
+    icon: 'fa-solid fa-user'
   },
   {
     title: '归档',
-    src: '/blog'
+    src: '/blog',
+    icon: 'fa-solid fa-inbox'
   },
   {
     title: '标签',
-    src: '/tags'
+    src: '/tags',
+    icon: 'fa-solid fa-tag'
   },
   {
-    title: '灌水',
-    src: '/says'
+    title: '说说',
+    src: '/says',
+    icon: 'fa-solid fa-comment'
   }
 ];

@@ -32,7 +32,6 @@ const photos_height = frontmatter?.ph_height
     <p class="text-slate-400 text-sm text-center">作者：{frontmatter?.author || author_info?.name}</p>
 
     <slot />
-
   
     <div class="flex justify-center gap-5 flex-wrap py-5">
       {
@@ -42,6 +41,7 @@ const photos_height = frontmatter?.ph_height
       }
     </div>
 
+    
   </BaseLayout>
 </div>
 
@@ -55,4 +55,3 @@ h1 {
   margin: 0;
 }
 </style>
-

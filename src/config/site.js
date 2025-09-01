@@ -1,9 +1,10 @@
 export const article = {
   default_cover: 'https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508041157020.gif',
-  home_size: 5,
-  show_all: true,
+  page_size: 5,
+  show_all: false,
   // excerpt_size: 50
-  use_frontmatter_title: true
+  use_frontmatter_title: true,
+  comment: true
 }
 
 export const author_info = {
