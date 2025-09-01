@@ -5,7 +5,7 @@ import ArticleContainerItem from './ArticleContainerItem.astro';
 import Pagination from "./Pagination.astro";
 ---
 <div id="article-container" class="flex flex-col">
-  <ul class="flex rounded flex-col gap-5 shadow p-10 bg-white backdrop-blur-xl">
+  <ul class="flex rounded flex-col gap-5 shadow p-10 bg-white backdrop-blur-xl m-0!">
     {posts.filter(p => !p.data?.hidden).map((p:any) => <div class="item"><ArticleContainerItem post={p} /></div>)}
   </ul>
   <Pagination page={page} maxSize={maxSize} isHome={isHome} />
