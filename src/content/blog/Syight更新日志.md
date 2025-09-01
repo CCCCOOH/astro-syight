@@ -5,6 +5,7 @@ author: Sy_
 sticky: 999
 ---
 
+
 ## 1. 前言 📄
 
 首页的单元测试文章来自 Hexo。
@@ -119,3 +120,64 @@ vercel
 	添加完成后`source ~/.zsh`编译生效，就可以通过`ph "提交描述..."`来一键推送到仓库并且自动更新到你的 vercel 站点了，也挺方便的对吧？
 
 
+## 6. frontmatter
+
+在`src/content.config.ts`中定义了所有 frontmatter 的范式：
+
+```js
+// src/content/config.js
+import { defineCollection, getCollection, z } from 'astro:content';
+// 普通博客文章 frontmatter
+const blog = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string().optional(), // 文章标题，可选
+    excerpt: z.string().optional(), // 优先使用的摘要，可选
+    date: z.coerce.date(), // 日期：2025-05-22
+    sticky: z.number().optional(), // 置顶级别，可选
+    tags: z.array(z.string()).optional(), // 标签数组
+    author: z.string().optional(), // 作者
+    photos: z.array(z.string()).optional(), // 文章内Image Gallery图片序列
+    ph_height: z.string().optional(), // Image Gallery 高度
+    latex: z.boolean().optional(), // 是否启用 Latex，启用则为页面加载Latex相关资源
+    visible: z.boolean().optional() // 是否在首页可见
+  })
+});
+
+
+// 说说的 frontmatter
+const says = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string().optional(), // 标题
+    says: z.boolean(), // 必须项，设置为 true 即可，否则无法被检测
+    photos: z.array(z.string()).optional(), // 同上
+    author: z.string().optional(), // 作者
+    avatar: z.string().optional(), // 头像链接
+    description: z.string().optional(), // 描述
+    img_width: z.string().optional(), // Image Gallery 图像宽度
+    height: z.string().optional(), // Image Gallery 高度
+    radius: z.string().optional(), // Image Gallery 圆角尺寸
+    date: z.coerce.date().optional(), // 日期，不建议缺省
+  })
+})
+
+
+// 导出注册的集合
+export const collections = {
+  blog, says
+};
+
+```
+
+举个例子，文章的标题 `frontmatter.title` 就是文章中下：
+
+```markdown
+---
+title: 文章标题是我
+---
+
+内容...
+```
+
+所有能够正常使用的 frontmatter 都定义在这里。
