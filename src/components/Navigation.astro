@@ -3,9 +3,9 @@ import { nav } from '../config/nav.js'
 ---
 <div id="top-holder" class="w-full h-15"> </div>
 
-<div id="navigation" class="born opacity-100 shadow scale-100 py-2 z-10 fixed top-2 left-[50%] -translate-x-[50%] bg-white flex gap-2 outline-1 outline-indigo-400/50 rounded-2xl px-2 text-slate-500" >
+<div id="navigation" class="born opacity-100 shadow scale-100 py-2 z-10 fixed top-2 left-[50%] -translate-x-[50%] bg-white flex gap-2 outline-1 outline-indigo-400/50 rounded-3xl px-2 text-slate-500" >
   <nav id="nav-item" class="flex gap-2">
-    {nav.map(item => <a class="text-2xl" href={item.src}>
+    {nav.map(item => <a class="text-2xl px-1" href={item.src}>
       {item?.icon && <i class={item.icon+" born"}></i>}
       <span class="">{item.title}</span>
     </a>)}
@@ -20,6 +20,9 @@ a {
   transition: color 0.2s ease-out;
   color: var(--color-slate-600);
   text-decoration: none !important;
+}
+a::after {
+  border-radius: var(--radius-2xl);
 }
 a:hover {
   color: var(--color-blue-400);
