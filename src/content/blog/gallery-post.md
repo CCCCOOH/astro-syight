@@ -2,10 +2,11 @@
 title: Gallery Post
 date: 2013-12-25 00:16:18
 photos:
-- /assets/wallpaper-2572384.jpg
-- /assets/wallpaper-2311325.jpg
-- /assets/wallpaper-878514.jpg
-- https://via.placeholder.com/350x150.jpg
+- https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509010550159.png
+- https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509010550655.jpg
+- https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509010550474.jpeg
+- https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509010550047.jpg
+ph_height: 300px
 ---
 
 This post contains 4 photos:

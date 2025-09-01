@@ -1,33 +1,41 @@
 ---
 const {headings} = Astro.props;
+const show = headings.length > 0;
 ---
 
-<ul class="inline-flex max-w-50 overflow-x-scroll flex-col bg-white outline-1 outline-gray-100 p-5! rounded">
-  <!-- 存在一级标题时 -->
-  {headings.find((item:any) => item.depth===1) && headings.map((heading:any) => <div>
-    {heading.depth === 1 && <a href={`#${heading.slug}`}>{heading.text}</a>}
-    {heading.depth === 2 && <a class="relative left-5" href={`#${heading.slug}`}>{heading.text}</a>}
-    {heading.depth === 3 && <a class="relative left-10" href={`#${heading.slug}`}>{heading.text}</a>}
-    {heading.depth === 4 && <a class="relative left-15" href={`#${heading.slug}`}>{heading.text}</a>}
-  </div> )
-  || 
-  // 不存在一级标题
-    headings.map((heading:any) => <div>
-    {heading.depth === 1 && <a href={`#${heading.slug}`}>{heading.text}</a>}
-    {heading.depth === 2 && <a class="relative" href={`#${heading.slug}`}>{heading.text}</a>}
-    {heading.depth === 3 && <a class="relative left-5" href={`#${heading.slug}`}>{heading.text}</a>}
-    {heading.depth === 4 && <a class="relative left-10" href={`#${heading.slug}`}>{heading.text}</a>}
-  </div>)
-  || 
-  // 不存在二级标题
-    headings.map((heading:any) => <div>
-    {heading.depth === 1 && <a href={`#${heading.slug}`}>{heading.text}</a>}
-    {heading.depth === 2 && <a class="relative" href={`#${heading.slug}`}>{heading.text}</a>}
-    {heading.depth === 3 && <a class="relative" href={`#${heading.slug}`}>{heading.text}</a>}
-    {heading.depth === 4 && <a class="relative left-5" href={`#${heading.slug}`}>{heading.text}</a>}
-  </div>)
-  }
-</ul>
+{ show &&
+<div class="fixed">
+  <div class="flex justify-end w-50">
+    <button id="toc-button" class="transition-all w-50 -translate-y-2 h-10 outline-2 text-slate-500 bg-white rounded px-2 py-1 hover:text-slate-600 cursor-pointer">收起</button>
+  </div>
+  <ul id="toc-container" class="transition inline-flex max-w-50 overflow-x-scroll flex-col bg-white outline-1 outline-gray-100 p-5! rounded">
+    <!-- 存在一级标题时 -->
+    {headings.find((item:any) => item.depth===1) && headings.map((heading:any) => <div>
+      {heading.depth === 1 && <a href={`#${heading.slug}`}>{heading.text}</a>}
+      {heading.depth === 2 && <a class="relative left-5" href={`#${heading.slug}`}>{heading.text}</a>}
+      {heading.depth === 3 && <a class="relative left-10" href={`#${heading.slug}`}>{heading.text}</a>}
+      {heading.depth === 4 && <a class="relative left-15" href={`#${heading.slug}`}>{heading.text}</a>}
+    </div> )
+    || 
+    // 不存在一级标题
+      headings.map((heading:any) => <div>
+      {heading.depth === 1 && <a href={`#${heading.slug}`}>{heading.text}</a>}
+      {heading.depth === 2 && <a class="relative" href={`#${heading.slug}`}>{heading.text}</a>}
+      {heading.depth === 3 && <a class="relative left-5" href={`#${heading.slug}`}>{heading.text}</a>}
+      {heading.depth === 4 && <a class="relative left-10" href={`#${heading.slug}`}>{heading.text}</a>}
+    </div>)
+    || 
+    // 不存在二级标题
+      headings.map((heading:any) => <div>
+      {heading.depth === 1 && <a href={`#${heading.slug}`}>{heading.text}</a>}
+      {heading.depth === 2 && <a class="relative" href={`#${heading.slug}`}>{heading.text}</a>}
+      {heading.depth === 3 && <a class="relative" href={`#${heading.slug}`}>{heading.text}</a>}
+      {heading.depth === 4 && <a class="relative left-5" href={`#${heading.slug}`}>{heading.text}</a>}
+    </div>)
+    }
+  </ul>
+</div>
+}
 
 <style>
   * {
@@ -42,4 +50,34 @@ const {headings} = Astro.props;
     background: var(--color-indigo-300);
     color: white;
   }
+
+  .collapse {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  .btn-collapse {
+    width: 50px;
+    opacity: 0.4;
+    transition: all .4s ease-out;
+  }
 </style>
+
+<script>
+  const toc = document.querySelector("#toc-container")
+  const toc_btn = document.querySelector('#toc-button')
+
+  function deal_collapse() {
+    toc?.classList.toggle('collapse');
+    toc_btn?.classList.toggle('btn-collapse')
+    if (toc_btn?.textContent == '收起') {
+      toc_btn.textContent = '展开'
+    } else if (toc_btn?.textContent == '展开') {
+      toc_btn.textContent = '收起'
+    }
+  }
+
+  toc_btn?.addEventListener('click', () => {
+    deal_collapse();
+  })
+  
+</script>

@@ -83,37 +83,53 @@ h6 {
 h1 {
   font-size: 1.8em;
   padding-bottom: 0.3em;
-  color: rgb(33, 120, 183);
+  color: var(--color-slate-700);
 }
 
 h2 {
   font-size: 1.5em;
   padding-bottom: 0.3em;
-  color: rgba(12, 111, 197, 0.703);
+  color: var(--color-emerald-700);
+}
+
+h2::after {
+  content: ' ##';
+}
+h3::after {
+  content: ' ###';
+}
+h4::after {
+  content: ' ####';
 }
 
 h2:hover::after {
-  content: ' ##';
+  content: '';
+}
+h3:hover::after {
+  content: '';
+}
+h4:hover::after {
+  content: '';
 }
 
 h3 {
   font-size: 1.25em;
-  color: rgb(175, 96, 0);
+  color: var(--color-pink-700);
 }
 
 h4 {
   font-size: 1em;
-  color: #5c65bb;
+  color: var(--color-purple-700);
 }
 
 h5 {
   font-size: 0.875em;
-  color: #6a737d;
+  color: var(--color-yellow-700);
 }
 
 h6 {
   font-size: 0.85em;
-  color: #6a737d;
+  color: var(--color-red-700);
 }
 
 p {
@@ -146,14 +162,31 @@ a:hover::after {
 
 ul,
 ol {
-  margin-top: 0;
-  margin-bottom: 16px;
+  margin: 5px 0;
   padding-left: 2em;
 }
 
+ul,ol p {
+  margin: 2px 0;
+}
+
 li {
-  margin-bottom: 0.25em;
-  list-style: circle;
+  list-style: none;
+}
+
+ul>li::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: var(--color-slate-600);
+  transform: translateY(7px);
+  float: left;
+}
+
+ol>li {
+  list-style: decimal;
 }
 
 blockquote {
@@ -166,10 +199,8 @@ blockquote {
 pre {
   padding: 16px;
   overflow: auto;
-  font-size: 85%;
-  line-height: 1.45;
-  background-color: #f6f8fa;
-  border-radius: 3px;
+  font-size: var(--text-xl);
+  border-radius: 5px;
   margin-bottom: 16px;
 }
 
@@ -186,7 +217,15 @@ pre code {
   background: none;
   padding: 0;
   margin: 0;
-  border-radius: 0;
+  border-radius: 0px;
+}
+
+code span.line:hover {
+  background: var(--color-red-800);
+}
+code span::selection {
+  color: var(--color-slate-700);
+  background-color: var(--color-white);
 }
 
 table {
@@ -247,4 +286,16 @@ img {
   pre {
     padding: 10px;
   }
+}
+
+iframe[title='YouTube video player'], iframe[title="bilibili"] {
+  margin: auto;
+  border-radius: 10px;
+  width: 50vw;
+  height: 450px;
+  transition: all .4s ease-out;
+}
+
+iframe[title='YouTube video player']:hover, iframe[title="bilibili"]:hover {
+  box-shadow: var(--shadow-2xl);
 }
