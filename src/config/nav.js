@@ -15,4 +15,8 @@ export const nav = [
     title: '标签',
     src: '/tags'
   },
+  {
+    title: '灌水',
+    src: '/says'
+  }
 ];

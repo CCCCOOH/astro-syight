@@ -299,3 +299,14 @@ iframe[title='YouTube video player'], iframe[title="bilibili"] {
 iframe[title='YouTube video player']:hover, iframe[title="bilibili"]:hover {
   box-shadow: var(--shadow-2xl);
 }
+
+/* 工具css */
+
+.back-grid {
+  --color: rgb(241, 241, 241);
+  background-image: 
+    linear-gradient(to bottom,transparent 29px,var(--color) 1px),
+    linear-gradient(to right,transparent 29px,var(--color) 1px) ;
+  background-size: 30px 30px;
+  background-repeat: repeat;
+}

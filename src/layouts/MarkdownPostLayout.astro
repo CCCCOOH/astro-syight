@@ -2,11 +2,12 @@
 import BaseLayout from "./BaseLayout.astro";
 import {author_info, article} from '../config/site.js';
 import Tag from "../components/Tag.astro";
+import ImagesGallery from "../components/ImagesGallery.astro";
 const { frontmatter, post } = Astro.props;
 const title = post?.id.split('/')?.at(-1)?.split('.')[0];
-const photos_height = frontmatter.ph_height
+const photos_height = frontmatter?.ph_height
 ---
-{ frontmatter.latex &&
+{ frontmatter?.latex &&
   <head>
   <meta charset="utf-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -18,18 +19,13 @@ const photos_height = frontmatter.ph_height
 </head>
 }
 <!-- 加入head是为了为每一篇文章单独引入latex包 -->
-<div id="markdown-container" class="my-2 p-2 rounded">
+<div id="markdown-container" class="back-grid my-2 p-2 rounded">
   <BaseLayout>
-    <div class="flex justify-center items-center mb-10">
-      <!-- 文章内 photos 滑动头图 -->
-      <ul class="flex w-[90vw] gap-0! justify-center items-center">
-        {frontmatter.photos?.length > 0 && frontmatter.photos.map((url:any) => <li class="post-img hover:cursor-pointer list-none! bg-cover bg-center" style={`background-image: url(${url});`}></li>) }
-      </ul>
-    </div>
+    {frontmatter?.photos?.length > 0 && <div class="w-full h-50 my-30 px-50"><ImagesGallery img_width={frontmatter?.img_width} height={frontmatter?.height} radius={frontmatter?.radius} photos={frontmatter?.photos}/></div>}
 
     {frontmatter?.image?.url && <img src={frontmatter?.image?.url} width="300" alt={frontmatter?.image?.alt} />}
     <!-- 文章标题 -->
-    <h1 class="text-center border-b-0!"><span class="inset-shadow-sm bg-gray-50 inset-shadow-gray-200 px-2">{article.use_frontmatter_title ? frontmatter.title || title : title}</span></h1>
+    <h1 class="text-center border-b-0!"><span class="inset-shadow-sm bg-gray-50 inset-shadow-gray-200 px-2">{article.use_frontmatter_title ? frontmatter?.title || title : title}</span></h1>
     <p><em>{frontmatter?.description}</em></p>
     <p>{frontmatter?.pubDate?.toString().slice(0, 10)}</p>
     <!-- 作者名 -->
@@ -45,6 +41,7 @@ const photos_height = frontmatter.ph_height
         ))
       }
     </div>
+
   </BaseLayout>
 </div>
 
@@ -53,54 +50,9 @@ a {
   color: #00539f;
 }
 
-li::before {
-  content: none;
-}
-
-#markdown-container {
-  --color: rgb(241, 241, 241);
-  background-image: 
-    linear-gradient(to bottom,transparent 29px,var(--color) 1px),
-    linear-gradient(to right,transparent 29px,var(--color) 1px) ;
-  background-size: 30px 30px;
-  background-repeat: repeat;
-}
-
 h1 {
   padding: 0;
   margin: 0;
 }
-
-.post-img {
-  height: var(--photos_height);
-  flex: 1;
-  transition: all 1s ease-out;
-}
-
-.post-img:nth-child(1) {
-  flex: 5;
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-}
-.post-img:nth-last-child(1) {
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-}
 </style>
 
-<script>
-  const imgs = document.querySelectorAll('.post-img');
-
-  imgs.forEach((img: any) => {
-    img.addEventListener('click', () => {
-      minimizeAllImages();
-      img.style.flex = '5';
-    })
-  })
-
-  function minimizeAllImages() {
-    imgs.forEach((img: any) => {
-      img.style.flex = '1';
-    })
-  }
-</script>

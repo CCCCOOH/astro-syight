@@ -1,20 +1,24 @@
 {
   "main": {
-    "id": "4ad7888def3dd738",
+    "id": "ed8abc7e494b0166",
     "type": "split",
     "children": [
       {
-        "id": "05b8c22eed2f3db0",
+        "id": "4a31a3fdb6af3e7a",
         "type": "tabs",
         "children": [
           {
-            "id": "15d4dbcb12bf6ea7",
+            "id": "ea9559c2ac602d2d",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "blog/Syight更新日志.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "Syight更新日志"
             }
           }
         ]
@@ -23,15 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "d206449e9bd0ff79",
+    "id": "3ed0e2517ccf09a6",
     "type": "split",
     "children": [
       {
-        "id": "565e048861287488",
+        "id": "424ad2d9524294e5",
         "type": "tabs",
         "children": [
           {
-            "id": "beeee063a2bbb813",
+            "id": "115eeca3c23af60b",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -44,7 +48,7 @@
             }
           },
           {
-            "id": "1b1f4836d0d8295f",
+            "id": "c5507b13a749c4c8",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -61,7 +65,7 @@
             }
           },
           {
-            "id": "b80ce9a09f23bff9",
+            "id": "422e4480a60778dc",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -77,20 +81,20 @@
     "width": 300
   },
   "right": {
-    "id": "2d9f0de90cc13868",
+    "id": "c136e7a2e1554094",
     "type": "split",
     "children": [
       {
-        "id": "63bb292ff1664bc7",
+        "id": "870113a48128fe06",
         "type": "tabs",
         "children": [
           {
-            "id": "3273db59ac845bee",
+            "id": "d5f4c5fc6f91a845",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "categories.md",
+                "file": "blog/Syight更新日志.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,25 +104,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "categories 的反向链接列表"
+              "title": "Syight更新日志 的反向链接列表"
             }
           },
           {
-            "id": "972126eb4f26ef31",
+            "id": "56b8133cbd78a2dd",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "categories.md",
+                "file": "blog/Syight更新日志.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "categories 的出链列表"
+              "title": "Syight更新日志 的出链列表"
             }
           },
           {
-            "id": "1e9eba8308bd1c2f",
+            "id": "ecfb2277824f9f6e",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -133,18 +137,18 @@
             }
           },
           {
-            "id": "059845df6f17297e",
+            "id": "bf025c455cdf43f7",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "categories.md",
+                "file": "blog/Syight更新日志.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "categories 的大纲"
+              "title": "Syight更新日志 的大纲"
             }
           }
         ]
@@ -165,13 +169,13 @@
       "bases:创建新数据库": false
     }
   },
-  "active": "15d4dbcb12bf6ea7",
+  "active": "ea9559c2ac602d2d",
   "lastOpenFiles": [
-    "Syight更新日志.md",
-    "says",
-    "other/test.md",
-    "other",
-    "categories.md",
-    "中文測試.md"
+    "blog/测试文章/videos.md",
+    "blog/测试文章/日本語テスト.md",
+    "blog/测试文章/中文測試.md",
+    "blog/测试文章",
+    "says/测试说说功能.md",
+    "says/也是返上校了.md"
   ]
 }

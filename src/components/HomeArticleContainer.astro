@@ -4,7 +4,6 @@ import {article} from "../config/site"
 import ArticleContainerItem from './ArticleContainerItem.astro';
 let size = article.home_size;
 const sort_posts = posts.sort((a, b) =>  b.data?.sticky || 0 - a.data?.sticky || 0);
-console.log(sort_posts);
 
 ---
 <div id="article-container" class="flex flex-col">

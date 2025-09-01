@@ -7,6 +7,7 @@ photos:
 - https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509010550474.jpeg
 - https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509010550047.jpg
 ph_height: 300px
+radius: 30px
 ---
 
 This post contains 4 photos:

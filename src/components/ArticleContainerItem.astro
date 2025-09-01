@@ -1,9 +1,11 @@
 ---
 const {post: p} = Astro.props;
+import { get_title } from "../scripts/utils.js";
 import { article } from '../config/site.js'
 const cover_default = article.default_cover;
-const title = p?.id.split('/')?.at(-1)?.split('.')[0];
+const title = get_title(p);
 ---
+{ p.data?.visible !== false &&
 <li class="list-none!">
   <a class="float-left p-5 mr-5 shadow hover:shadow-md hover:transition transition" href={p.url}>
     <!-- 文章封面 -->
@@ -17,10 +19,11 @@ const title = p?.id.split('/')?.at(-1)?.split('.')[0];
     </h2>
     {/* 文章摘要 */}
     {<p class="text-sm text-slate-500">{
-      p.body?.split('<!-- more -->')[0].slice(0,article.excerpt_size)
+      p.data?.excerpt || p.data?.description || p.body?.split('<!-- more -->')[0].slice(0,article.excerpt_size)
     }</p>}
   </div>
 </li>
+}
 
 <style>
   h2 {

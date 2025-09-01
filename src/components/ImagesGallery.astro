@@ -1,0 +1,55 @@
+---
+const {photos, img_width, height, radius} = Astro.props;
+const width_style = img_width || "300px";
+const height_style = height || "300px"
+const radius_style = radius || "0px";
+---
+
+<div class="flex justify-center items-center h-full">
+  <!-- 文章内 photos 滑动头图 -->
+  <ul class="flex gap-0! w-full h-full p-0! justify-center items-center">
+    {photos?.length > 0 && photos.map((url:any) => <li class="post-img h-full hover:cursor-pointer list-none! bg-cover bg-center" style={`background-image: url(${url});`}></li>) }
+  </ul>
+</div>
+
+<style define:vars={{width_style, height_style, radius_style}}>
+  li::before {
+    content: none;
+  }
+  li {
+    height: var(--height_style);
+    width: var(--width_style);
+  }
+  
+  .post-img {
+    flex: 1;
+    transition: all 1s ease-out;
+  }
+
+  .post-img:nth-child(1) {
+    flex: 5;
+    border-top-left-radius: var(--radius_style);
+    border-bottom-left-radius: var(--radius_style);
+  }
+  .post-img:nth-last-child(1) {
+    border-top-right-radius: var(--radius_style);
+    border-bottom-right-radius: var(--radius_style);
+  }
+</style>
+
+<script>
+  const imgs = document.querySelectorAll('.post-img');
+
+  imgs.forEach((img: any) => {
+    img.addEventListener('click', () => {
+      minimizeAllImages();
+      img.style.flex = '5';
+    })
+  })
+
+  function minimizeAllImages() {
+    imgs.forEach((img: any) => {
+      img.style.flex = '1';
+    })
+  }
+</script>

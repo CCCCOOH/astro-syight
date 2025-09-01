@@ -1,6 +1,6 @@
 ---
 const {headings} = Astro.props;
-const show = headings.length > 0;
+const show = headings?.length > 0;
 ---
 
 { show &&
