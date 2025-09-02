@@ -1,12 +1,12 @@
 <div class="flex fixed -z-1 h-full w-full left-0 top-0">
-  <div id="left-bg-block" class="flex-3 bg-gray-200"></div>
+  <div id="left-bg-block" class="flex-4 bg-gray-200"></div>
   <div id="center-bg-block" class="flex-1 bg-gray-800"></div>
   <div id="right-bg-block" class="flex-0 bg-gray-200"></div>
 </div>
 
 <style is:global>
 #left-bg-block, #center-bg-block, #right-bg-block {
-  transition: 1s ease-in-out;
+  transition: .8s ease-in-out;
 }
 .dark #left-bg-block {
   /* background-color: var(--color-gray-800); */
@@ -14,7 +14,7 @@
 }
 .dark #center-bg-block {
   /* background-color: var(--color-gray-200); */
-  flex: 3;
+  flex: 4;
 }
 .dark #right-bg-block {
   flex: 1;

@@ -3,7 +3,7 @@ const { title, url, month } = Astro.props;
 ---
 
 <li class="list-none! text-xl">
-  <span>{month}月</span>
+  <span id="month">{month}月</span>
   <a href={url}>{title}</a>
 </li>
 
@@ -12,6 +12,9 @@ const { title, url, month } = Astro.props;
     color: var(--color-slate-500);
   }
   :global(.dark) a {
+    color: var(--color-slate-200);
+  }
+  :global(.dark) #month {
     color: var(--color-slate-300);
   }
 </style>

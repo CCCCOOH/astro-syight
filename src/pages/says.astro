@@ -21,8 +21,10 @@ function avatar_style(say) {
             {/* 头像 */}
             <div style={avatar_style(say)} class="bg-cover size-20 rounded"></div>
             <div class="pl-5 flex flex-col justify-center">
-              <span class="text-xl! font-mono! text-slate-800">{say.data?.author || info.author}</span>
-              <span class="text-sm! font-mono text-slate-500">{say.data?.description || info.description}</span>
+              {/* 作者名 */}
+              <span class="author-name text-xl! font-mono! text-slate-800">{say.data?.author || info.author}</span>
+              {/* 描述 */}
+              <span class="description text-sm! font-mono text-slate-500">{say.data?.description || info.description}</span>
             </div>
           </aside>
           <h1 class="m-0! text-2xl!">{say.data?.title || get_title(say)}</h1>
@@ -32,7 +34,8 @@ function avatar_style(say) {
             <ImagesGallery img_width={say.data?.img_width} height={say.data?.height} radius={say.data?.radius} photos={say.data?.photos} />
           </div>
           </div>
-          <div class="text-slate-500 text-center">Date: {format_say_date(say.data?.date)}</div>
+          <!-- 日期 -->
+          <div class="date text-slate-500 text-center">Date: {format_say_date(say.data?.date)}</div>
         </li>)
       }
     </ul>
@@ -43,5 +46,14 @@ function avatar_style(say) {
 <style>
   li::before {
     content: none;
+  }
+  :global(.dark) .author-name {
+    color: var(--color-slate-100);
+  }
+  :global(.dark) .description {
+    color: var(--color-slate-400);
+  }
+  :global(.dark) .date {
+    color: var(--color-slate-400);
   }
 </style>

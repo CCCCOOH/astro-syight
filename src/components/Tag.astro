@@ -1,7 +1,7 @@
 ---
 const {tag} = Astro.props;
 ---
-<p class="born rounded-xl p-2 m-0! hover:*:text-white! bg-slate-200 relative hover:bg-slate-800 transition">
+<p class="born rounded-xl p-2 m-0! bg-slate-200 relative transition">
   <a id="tag-text" class="transition" href={`/tags/${tag}`}>{tag}</a>
 </p>
 
@@ -12,16 +12,23 @@ const {tag} = Astro.props;
   :global(.dark) p {
     background-color: var(--color-slate-800);
   }
+  p:hover {
+    cursor: pointer;
+    background: var(--color-slate-800);
+  }
   p>a {
     color: var(--color-slate-600);
   }
-  :global(.dark) p>a {
-    color: var(--color-slate-200);
+  p:hover>a {
+    color: var(--color-slate-300);
+  }
+  :global(.dark) p>a   {
+    color: var(--color-slate-300);
   }
   :global(.dark) p:hover {
     background-color: var(--color-slate-400);
   }
   :global(.dark) p:hover #tag-text {
-    color: var(--color-slate-800);
+    color: var(--color-slate-600);
   }
 </style>

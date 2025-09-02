@@ -44,7 +44,7 @@ const { posts } = Astro.props;
 ---
 
 <BaseLayout pageTitle={tag}>
-  <div class="born mt-10 inset-shadow-sm inset-shadow-gray-200 rounded w-1/2 m-auto p-3">
+  <div class="born transition mt-10 inset-shadow-sm inset-shadow-gray-500 rounded w-1/2 m-auto p-5">
     <p class="text-slate-500 text-sm">标签：「{tag}」</p>
     <ul class="flex flex-col p-0! cursor-pointer ">
       {
@@ -55,3 +55,10 @@ const { posts } = Astro.props;
     </ul>
   </div>
 </BaseLayout>
+
+<style>
+  :global(.dark) div {
+    box-shadow: inset 0px  0px 10px 5px var(--color-slate-800);
+    padding: 20px;
+  }
+</style>
