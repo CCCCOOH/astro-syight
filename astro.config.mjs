@@ -9,7 +9,7 @@ import remarkMath from 'remark-math';
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://example.com",
+  site: "https://syight.site",
   integrations: [mdx(), sitemap(), preact()],
   vite: {
     plugins: [tailwindcss()],

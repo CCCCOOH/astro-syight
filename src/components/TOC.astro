@@ -71,6 +71,21 @@ const show = headings?.length > 0;
       transform: translateX(0);
     }
   }
+  :global(.dark) #toc-button {
+    background-color: var(--color-slate-700);
+    outline-color: var(--color-slate-600);
+  }
+  :global(.dark) #toc-container {
+    background-color: var(--color-slate-700);
+    outline-color: var(--color-slate-600);
+  }
+  :global(.dark) a {
+    color: var(--color-slate-400);
+  }
+  :global(.dark) a:hover {
+    background-color: var(--color-slate-800);
+    color: var(--color-slate-300);
+  }
 </style>
 
 <script>

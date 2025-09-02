@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogPost from "../components/BlogPost.astro";
 import HomeBackground from "../components/HomeBackground.astro";
 import { getCollection } from "astro:content";
-const pageTitle = "博客列表";
+const pageTitle = "Archive";
 
 const allPosts = await getCollection('blog');
 const formatPosts = {};

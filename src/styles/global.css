@@ -148,8 +148,12 @@ ul>li::before {
   border-radius: 50%;
   margin-right: 10px;
   background-color: var(--color-slate-600);
-  transform: translateY(7px);
+  transform: translateY(10px);
   float: left;
+}
+
+.dark ul>li::before {
+  background-color: var(--color-slate-400);
 }
 
 ol>li {

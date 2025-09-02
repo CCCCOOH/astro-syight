@@ -45,10 +45,12 @@
 
 @keyframes born-blur {
   from {
-    filter: blur(var(--blur-sm));
+    filter: blur(3px);
+    transform: scaleY(.8);
   }
   to {
     filter: blur(0);
+    transform: scaleY(1);
   }
 }
 

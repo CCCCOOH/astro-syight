@@ -9,9 +9,10 @@ const says = date_sort(await getCollection('says'));
 function avatar_style(say) {
   return `background-image: url(${say.data?.avatar || info.avatar});`;
 }
+const pageTitle = "says";
 ---
 
-<BaseLayout>
+<BaseLayout pageTitle={pageTitle}>
   <div class="flex justify-center items-center mt-10 back-grid">
     <ul class="w-[50vw] py-2">
       {

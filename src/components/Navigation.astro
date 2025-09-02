@@ -1,10 +1,12 @@
 ---
 import { nav } from '../config/nav.js'
+import { site } from '../config/site'
 ---
 <div id="top-holder" class="w-full h-15"> </div>
 
 <div id="navigation" class="born opacity-100 shadow scale-100 py-2 z-10 fixed top-2 left-[50%] -translate-x-[50%] bg-white flex gap-2 outline-1 outline-indigo-400/50 rounded-3xl px-2 text-slate-500" >
-  <nav id="nav-item" class="flex gap-2">
+  <a href="/" id="site-title" class="font-mono text-2xl cursor-pointer">{site.title}</a>
+  <nav id="nav-item" class="flex justify-center items-center gap-2">
     {nav.map(item => <a class="text-2xl px-1" href={item.src}>
       {item?.icon && <i class={item.icon+" born"}></i>}
       <span class="">{item.title}</span>
@@ -61,5 +63,8 @@ a:hover {
     transition: all .4s ease-out;
     transform: translateY(-200px) scale(0);
     opacity: 0;
+  }
+  #site-title::after {
+    content: none;
   }
 </style>

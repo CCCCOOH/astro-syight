@@ -1,0 +1,58 @@
+---
+import {author_info} from '../config/site.js'
+import BornCard from './BornCard.astro';
+const announcement = author_info.announcement;
+const icon = `${announcement.icon} born`
+const contents = announcement.content;
+---
+
+<div>
+  <BornCard>
+    <h2>
+      <span class="text-slate-600">{announcement.title}</span>
+      <i class={icon}></i>
+    </h2>
+    <p class="text-slate-500">
+      {contents.map((content) => <li class="hidden content-box born-blur text-slate-400">{content}</li>)}
+    </p>
+  </BornCard>
+</div>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  h2::after {
+    content: none;
+  }
+  h2 {
+    padding: 10px 0;
+  }
+  :global(.dark) span {
+    color: var(--color-slate-300);
+  }
+  p {
+    padding: 0px 10px;
+  }
+</style>
+
+<script>
+  const contentBoxs = document.querySelectorAll('.content-box');
+  const len = contentBoxs.length;
+  let cur = 0;
+  contentBoxs[0].classList.remove('hidden')
+  
+
+  const timer = setInterval(() => {
+    cur + 1 >= len ? cur = 0 : cur ++;
+    update();    
+  }, 5000);
+
+  function update() {
+    contentBoxs.forEach(e => {
+      e.classList.add('hidden');
+      contentBoxs[cur].classList.remove('hidden')
+    });
+  }
+</script>

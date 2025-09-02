@@ -1,61 +1,97 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import {author_info, article} from '../config/site.js';
+import { author_info, article } from "../config/site.js";
 import Tag from "../components/Tag.astro";
 import ImagesGallery from "../components/ImagesGallery.astro";
 const { frontmatter, post } = Astro.props;
-const title = post?.id.split('/')?.at(-1)?.split('.')[0];
-const photos_height = frontmatter?.ph_height
+const title = post?.id.split("/")?.at(-1)?.split(".")[0];
+const photos_height = frontmatter?.ph_height;
 ---
-{ frontmatter?.latex &&
-  <head>
-  <meta charset="utf-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-   <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.15.1/dist/katex.css" integrity="sha384-WsHMgfkABRyG494OmuiNmkAOk8nhO1qE+Y6wns6v+EoNoTNxrWxYpl5ZYWFOLPCM" crossorigin="anonymous">
-  <meta name="viewport" content="width=device-width" />
-  <meta name="generator" content={Astro.generator} />
-  <script src="https://kit.fontawesome.com/18093c370e.js" crossorigin="anonymous"></script>
-  <title>{title}</title>
-</head>
+
+{
+  frontmatter?.latex && (
+    <head>
+      <meta charset="utf-8" />
+      <link
+        rel="stylesheet"
+        href="https://fastly.jsdelivr.net/npm/katex@0.15.1/dist/katex.css"
+        integrity="sha384-WsHMgfkABRyG494OmuiNmkAOk8nhO1qE+Y6wns6v+EoNoTNxrWxYpl5ZYWFOLPCM"
+        crossorigin="anonymous"
+      />
+      <meta name="viewport" content="width=device-width" />
+      <meta name="generator" content={Astro.generator} />
+      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      <script
+        src="https://kit.fontawesome.com/18093c370e.js"
+        crossorigin="anonymous"
+      />
+      <title>{title}</title>
+    </head>
+  )
 }
 <!-- 加入head是为了为每一篇文章单独引入latex包 -->
-<div id="markdown-container" class="back-grid my-2 p-2 rounded">
-  <BaseLayout>
-    {frontmatter?.photos?.length > 0 && <div class="w-full h-50 my-30 px-50"><ImagesGallery img_width={frontmatter?.img_width} height={frontmatter?.height} radius={frontmatter?.radius} photos={frontmatter?.photos}/></div>}
+<BaseLayout pageTitle={title}>
+  <div id="markdown-container" class="back-grid my-2 p-2 rounded">
+    {
+      frontmatter?.photos?.length > 0 && (
+        <div class="w-full h-50 my-30 px-50">
+          <ImagesGallery
+            img_width={frontmatter?.img_width}
+            height={frontmatter?.height}
+            radius={frontmatter?.radius}
+            photos={frontmatter?.photos}
+          />
+        </div>
+      )
+    }
 
-    {frontmatter?.image?.url && <img src={frontmatter?.image?.url} width="300" alt={frontmatter?.image?.alt} />}
+    {
+      frontmatter?.image?.url && (
+        <img
+          src={frontmatter?.image?.url}
+          width="300"
+          alt={frontmatter?.image?.alt}
+        />
+      )
+    }
     <!-- 文章标题 -->
-    <h1 class="text-center border-b-0!"><span id="title" class="inset-shadow-sm bg-gray-50 inset-shadow-gray-200 px-2">{article.use_frontmatter_title ? frontmatter?.title || title : title}</span></h1>
+    <h1 class="text-center border-b-0!">
+      <span
+        id="title"
+        class="inset-shadow-sm bg-gray-50 inset-shadow-gray-200 px-2"
+        >{
+          article.use_frontmatter_title ? frontmatter?.title || title : title
+        }</span>
+    </h1>
     <p><em>{frontmatter?.description}</em></p>
     <p>{frontmatter?.pubDate?.toString().slice(0, 10)}</p>
     <!-- 作者名 -->
-    <p class="text-slate-400 text-sm text-center">作者：{frontmatter?.author || author_info?.name}</p>
+    <p class="text-slate-400 text-sm text-center">
+      作者：{frontmatter?.author || author_info?.name}
+    </p>
 
     <slot />
-  
+
     <div class="flex justify-center gap-5 flex-wrap py-5">
       {
-        Array.isArray(frontmatter?.tags) && frontmatter?.tags?.map((tag: string) => (
-          <Tag tag={tag} />
-        ))
+        Array.isArray(frontmatter?.tags) &&
+          frontmatter?.tags?.map((tag: string) => <Tag tag={tag} />)
       }
     </div>
+  </div>
+</BaseLayout>
 
-    
-  </BaseLayout>
-</div>
+<style define:vars={{ photos_height }}>
+  a {
+    color: #00539f;
+  }
 
-<style define:vars={{photos_height}}>
-a {
-  color: #00539f;
-}
-
-h1 {
-  padding: 0;
-  margin: 0;
-}
-:global(.dark) #title {
-  background-color: var(--color-slate-700);
-  box-shadow: none;
-}
+  h1 {
+    padding: 0;
+    margin: 0;
+  }
+  :global(.dark) #title {
+    background-color: var(--color-slate-700);
+    box-shadow: none;
+  }
 </style>
