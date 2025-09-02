@@ -6,9 +6,9 @@ const show = headings?.length > 0;
 { show &&
 <div class="fixed run-left w-50 max-w-50">
   <div class="flex max-w-50 justify-end">
-    <button id="toc-button" class="transition-all w-full -translate-y-2 h-10 outline-2 text-slate-500 bg-white rounded px-2 py-1 hover:text-slate-600 cursor-pointer">收起</button>
+    <button id="toc-button" class="transition-all w-full -translate-y-2 h-10 outline-2 outline-slate-400 text-slate-500 bg-white rounded px-2 py-1 hover:text-slate-600 cursor-pointer">收起</button>
   </div>
-  <ul id="toc-container" class="transition inline-flex w-full overflow-x-scroll flex-col bg-white outline-1 outline-gray-100 p-5! rounded">
+  <ul id="toc-container" class="transition inline-flex w-full overflow-auto flex-col bg-white outline-1 outline-slate-300 p-5! rounded">
     <!-- 存在一级标题时 -->
     {headings.find((item:any) => item.depth===1) && headings.map((heading:any) => <div>
       {heading.depth === 1 && <a href={`#${heading.slug}`}>{heading.text}</a>}
