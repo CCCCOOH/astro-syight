@@ -30,11 +30,11 @@ for (let posts of Object.values(formatPosts) as any[]) {
 <BaseLayout pageTitle={pageTitle}>
   <HomeBackground />
   { allPosts.length > 0 && <article id="archive-container" class="flex mt-20 flex-col items-center">
-    <div class="fade-in bg-white min-w-[50vw] inset-shadow inset-shadow-gray-500 rounded p-5">
+    <div id="blog-container" class="fade-in bg-white min-w-[50vw] inset-shadow inset-shadow-gray-500 rounded p-5">
       {
         Object.keys(formatPosts).map((year: any) => 
           <div class="max-w-cal[100vw-30px] text-xl text-shadow-2xs">
-            <span class="text-slate-600 text-2xl">{year}年</span>
+            <span class="year text-slate-600 text-2xl">{year}年</span>
             <ul>{formatPosts[year].map((post: any) => <BlogPost title={post?.id.split('/')?.at(-1)?.split('.')[0]} url={`/posts/${post.slug}`} month={post.data?.date?.getMonth()+1} />)}</ul>
           </div>
         )
@@ -42,5 +42,14 @@ for (let posts of Object.values(formatPosts) as any[]) {
     </div>
   </article>}
 </BaseLayout>
+
+<style>
+  :global(.dark) #blog-container {
+    background-color: var(--color-slate-600);
+  }
+  :global(.dark) .year {
+    color: var(--color-slate-400);
+  }
+</style>
 
 

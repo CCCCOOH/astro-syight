@@ -13,9 +13,9 @@ const title = get_title(p);
   </a>
   <div class="">
     <h2 class="cursor-pointer text-xl hover:transition text-shadow-2xs">
-    {/* 文章标题 */}
-    <a href={'/posts/'+p.slug}>{article.use_frontmatter_title ? p.data?.title || title : title}</a>
-    {p.data?.sticky && <i class="fa-solid fa-thumbtack born-full"></i>}
+      {/* 文章标题 */}
+      <a href={'/posts/'+p.slug}>{article.use_frontmatter_title ? p.data?.title || title : title}</a>
+      {p.data?.sticky && <i class="fa-solid fa-thumbtack born-full"></i>}
     </h2>
     {/* 文章摘要 */}
     {<p class="text-sm text-slate-500">{
@@ -45,5 +45,14 @@ const title = get_title(p);
   }
   h2:hover::after {
     content: '';
+  }
+  :global(.dark) h2 a {
+    color: var(--color-gray-300);
+  }
+  :global(.dark) h2 a:hover {
+    color: var(--color-gray-400);
+  }
+  :global(.dark) p {
+    color: var(--color-slate-400);
   }
 </style>

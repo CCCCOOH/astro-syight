@@ -1,0 +1,18 @@
+---
+const { tag } = Astro.props;
+---
+<a id="author-tag" class="list-none! p-1! inline text-sm font-mono rounded">
+  <span>{tag}</span>
+</a>
+
+<style>
+  :global(.dark) #author-tag {
+    background-color: var(--color-slate-300);
+    color: var(--color-slate-500);
+  }
+  #author-tag {
+    background-color: var(--color-green-100);
+    color: var(--color-emerald-500);
+  }
+  /* *:even:bg-amber-100! *:even:text-amber-500! */
+</style>

@@ -3,9 +3,10 @@ title: Categories
 date: 2013-12-24 23:30:09
 hidden: true
 categories:
-- Foo
-- Bar
-- Baz
+  - Foo
+  - Bar
+  - Baz
+sticky: 1
 ---
 
 This post contains 3 categories. Make sure your theme can display all of the categories.

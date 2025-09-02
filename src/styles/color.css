@@ -1,0 +1,102 @@
+h1 {
+  color: var(--color-slate-700);
+}
+.dark h1 {
+  color: var(--color-indigo-100);
+}
+
+h2 {
+  color: var(--color-sky-700);
+}
+.dark h2 {
+  color: var(--color-emerald-200);
+}
+
+h3 {
+  color: var(--color-teal-700);
+}
+.dark h3 {
+  color: var(--color-teal-500);
+}
+
+h4 {
+  color: var(--color-cyan-700);
+}
+.dark h4 {
+  color: var(--color-amber-500);
+}
+
+h5 {
+  color: var(--color-yellow-700);
+}
+.dark h5 {
+  color: var(--color-purple-300);
+}
+
+h6 {
+  color: var(--color-lime-600);
+}
+.dark h6 {
+  color: var(--color-slate-300);
+}
+
+/* 引用块 */
+blockquote {
+  color: #6a737d;
+  background-color: var(--color-slate-100);
+  border-left: 0.25em solid #dfe2e5;
+}
+.dark blockquote {
+  background-color: var(--color-slate-600);
+  color: var(--color-stone-400);
+}
+
+/* 表格 */
+th {
+  background-color: #f6f8fa;
+}
+th,
+td {
+  border: 1px solid #dfe2e5;
+}
+
+.dark th,
+.dark td {
+  border: 1px solid var(--color-slate-500);
+}
+tr:nth-child(even) {
+  background-color: #f6f8fa;
+}
+.dark tr:nth-child(even) {
+  background-color: var(--color-slate-800);
+}
+.dark tr:nth-child(odd) {
+  background-color: var(--color-slate-700);
+}
+tr:nth-child(odd) {
+  background-color: #fff;
+}
+tr:hover {
+  background: #eeeeee;
+}
+.dark tr:hover {
+  background-color: var(--color-slate-600);
+}
+.dark th {
+  background-color: var(--color-slate-500);
+}
+
+/* Markdown */
+a {
+  color: var(--color-sky-700);
+}
+.dark a {
+  color: var(--color-sky-500);
+}
+
+hr {
+  background-color: #e1e4e8;
+}
+.dark hr {
+  background-color: var(--color-slate-500);
+}

@@ -10,3 +10,9 @@ import Pagination from "./Pagination.astro";
   </ul>
   <Pagination page={page} maxSize={maxSize} isHome={isHome} />
 </div>
+
+<style is:global>
+  .dark #article-container ul {
+    background-color: var(--color-slate-700);
+  }
+</style>

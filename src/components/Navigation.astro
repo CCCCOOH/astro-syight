@@ -27,6 +27,14 @@ a::after {
 a:hover {
   color: var(--color-blue-400);
 }
+/* 暗色主题 */
+:global(.dark) :global(#navigation) {
+  background-color: var(--color-slate-800);
+}
+
+:global(.dark) :global(#navigation) a {
+  color: var(--color-gray-400);
+}
 </style>
 
 <script>

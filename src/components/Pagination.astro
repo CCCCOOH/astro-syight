@@ -9,19 +9,21 @@ const nextUrl = page ? `/blogs/${(page+1 <= maxSize) ? page+1 : page}` : "/blogs
 
 {!article.show_all && 
 <div class="flex justify-center h-10 -translate-y-2">
-  {page > 1 && page !== undefined && <a href={lastUrl} class="shadow flex-1 flex justify-center items-center bg-white hover:cursor-pointer transition">
-    <span class="text-xl text-slate-500 hover:text-slate-400 transition">{"Last Page"}</span>
+  {page > 1 && page !== undefined && 
+  <a href={lastUrl} class="shadow flex-1 flex justify-center items-center bg-white hover:cursor-pointer transition">
+    <span class="text-xl text-slate-500 transition">{"Last Page"}</span>
   </a>}
 
-  {(page < maxSize || page === undefined) && <a href={nextUrl} class="shadow flex-1 flex justify-center items-center bg-white hover:cursor-pointer transition">
-    <span class="text-xl text-slate-500 hover:text-slate-400 transition">{"Next Page"}</span>}
+  {(page < maxSize || page === undefined) && 
+  <a href={nextUrl} class="shadow flex-1 flex justify-center items-center bg-white hover:cursor-pointer transition">
+    <span class="text-xl text-slate-500 transition">{"Next Page"}</span>}
   </a>
 </div>
 }
 
 
 <style>
-  {/* a::after {
-    border-radius: var(--radius-xl);
-  } */}
+  :global(.dark) a {
+    background-color: var(--color-slate-700);
+  }
 </style>

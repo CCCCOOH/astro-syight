@@ -1,5 +1,5 @@
 export const music = {
-  enabled: true,
+  enabled: false,
   list: [
     {
       src: 'https://music.apple.com/cn/album/center-of-attention/1795960500?i=1795960507',

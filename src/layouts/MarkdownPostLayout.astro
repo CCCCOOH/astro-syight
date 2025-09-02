@@ -25,7 +25,7 @@ const photos_height = frontmatter?.ph_height
 
     {frontmatter?.image?.url && <img src={frontmatter?.image?.url} width="300" alt={frontmatter?.image?.alt} />}
     <!-- 文章标题 -->
-    <h1 class="text-center border-b-0!"><span class="inset-shadow-sm bg-gray-50 inset-shadow-gray-200 px-2">{article.use_frontmatter_title ? frontmatter?.title || title : title}</span></h1>
+    <h1 class="text-center border-b-0!"><span id="title" class="inset-shadow-sm bg-gray-50 inset-shadow-gray-200 px-2">{article.use_frontmatter_title ? frontmatter?.title || title : title}</span></h1>
     <p><em>{frontmatter?.description}</em></p>
     <p>{frontmatter?.pubDate?.toString().slice(0, 10)}</p>
     <!-- 作者名 -->
@@ -53,5 +53,9 @@ a {
 h1 {
   padding: 0;
   margin: 0;
+}
+:global(.dark) #title {
+  background-color: var(--color-slate-700);
+  box-shadow: none;
 }
 </style>

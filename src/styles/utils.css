@@ -1,0 +1,79 @@
+
+/* 工具css */
+
+.back-grid {
+  --color: var(--color-slate-200);
+  background-image: 
+    linear-gradient(to bottom,transparent 29px,var(--color) 1px),
+    linear-gradient(to right,transparent 29px,var(--color) 1px) ;
+  background-size: 30px 30px;
+  background-repeat: repeat;
+}
+
+.dark .back-grid {
+ --color: var(--color-slate-600);
+ background-image: 
+    linear-gradient(to bottom,transparent 29px,var(--color) 1px),
+    linear-gradient(to right,transparent 29px,var(--color) 1px) ;
+  background-size: 30px 30px;
+  background-repeat: repeat;
+}
+
+.min-page-y {
+  min-height: calc(100vh - 70px);
+}
+
+.min-article-y {
+  min-height: calc(100vh);
+}
+
+.born {
+  animation: born .4s ease-out;
+}
+
+.born-full {
+  animation: born-full .3s ease-out;
+}
+
+.fade-in {
+  animation: fade-in .4s ease-in;
+}
+
+.born-blur {
+  animation: born-blur .3s ease-in;
+}
+
+@keyframes born-blur {
+  from {
+    filter: blur(var(--blur-sm));
+  }
+  to {
+    filter: blur(0);
+  }
+}
+
+@keyframes born {
+  from {
+    transform: scale(.8);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes born-full {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

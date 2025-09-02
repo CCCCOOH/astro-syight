@@ -4,5 +4,14 @@ const { title, url, month } = Astro.props;
 
 <li class="list-none! text-xl">
   <span>{month}月</span>
-  <a class="text-slate-500!" href={url}>{title}</a>
+  <a href={url}>{title}</a>
 </li>
+
+<style>
+  a {
+    color: var(--color-slate-500);
+  }
+  :global(.dark) a {
+    color: var(--color-slate-300);
+  }
+</style>

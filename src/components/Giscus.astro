@@ -1,7 +1,6 @@
-<div class="giscus">
+<div id="giscus" class="giscus transition">
 
 </div>
-
 
 <script src="https://giscus.app/client.js"
         data-repo="ccccooh/astro-syight"
@@ -13,8 +12,16 @@
         data-reactions-enabled="1"
         data-emit-metadata="0"
         data-input-position="bottom"
-        data-theme="light"
+        data-theme="catppuccin_latte"
         data-lang="zh-CN"
         crossorigin="anonymous"
         async>
 </script>
+
+<style is:global>
+.dark #giscus {
+	background-color: var(--color-slate-300);
+	padding: 20px;
+	border-radius: var(--radius-md);
+}
+</style>
