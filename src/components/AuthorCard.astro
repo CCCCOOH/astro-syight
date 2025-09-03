@@ -1,27 +1,34 @@
 ---
-import {author_info} from '../config/site.js'
-import AuthorTag from './AuthorTag.astro'
+import { author_info } from "../config/site.js";
+import AuthorTag from "./AuthorTag.astro";
+import BasicCard from "./BasicCard.astro";
 ---
-<div class="born">
-  <div id="author-card" class="gap-2 shadow bg-white rounded flex flex-col items-center p-2!">
-    <img src={author_info?.avatar} class="transition -translate-y-10 w-30 object-cover shadow rounded-full! hover:scale-105 hover:transition hover:rotate-180" alt="Avatar">
-    <!-- 除了头像外的widget -->
-    <aside class="relative -top-10 flex flex-col items-center gap-2">
-      <!-- 作者名称 -->
-      <h1 class="text-shadow-2xs transition cursor-pointer hover:text-indigo-500! text-center">
-        <a id="author-name" href="#" class="text-slate-600">{author_info?.name}</a>
-      </h1>
-      <!-- 简介 -->
-      <p id="author-description" class="text-sm text-slate-500">{author_info?.description}</p>
-      <ul class="flex gap-2 flex-wrap justify-around">
-        <!-- 标签列表 -->
-        {author_info.tags.map(tag => 
-          <AuthorTag tag={tag} />
-        )}
-      </ul>
-    </aside>
-  </div>
-</div>
+
+<BasicCard class="gap-2 flex flex-col items-center">
+  <img
+    src={author_info?.avatar}
+    class="transition -translate-y-10 w-30 object-cover shadow rounded-full! hover:scale-105 hover:transition hover:rotate-180"
+    alt="Avatar"
+  />
+  <!-- 除了头像外的 侧边组件 -->
+  <aside class="relative -top-10 flex flex-col items-center gap-2">
+    <!-- 作者名称 -->
+    <h1
+      class="text-shadow-2xs transition cursor-pointer hover:text-indigo-500! text-center"
+    >
+      <a id="author-name" href="#" class="text-slate-600">{author_info?.name}</a
+      >
+    </h1>
+    <!-- 简介 -->
+    <p id="author-description" class="text-sm text-slate-500">
+      {author_info?.description}
+    </p>
+    <ul id="tag-list" class="flex gap-2 flex-wrap justify-around">
+      <!-- 标签列表 -->
+      {author_info.tags.map((tag) => <AuthorTag tag={tag} />)}
+    </ul>
+  </aside>
+</BasicCard>
 
 <style>
   * {
@@ -32,9 +39,6 @@ import AuthorTag from './AuthorTag.astro'
   h1 {
     border-bottom: none;
   }
-  :global(.dark) #author-card {
-    background-color: var(--color-slate-700);
-  }
   :global(.dark) #author-name {
     color: var(--color-gray-300);
   }
@@ -43,5 +47,8 @@ import AuthorTag from './AuthorTag.astro'
   }
   :global(.dark) #author-description {
     color: var(--color-slate-400);
+  }
+  #tag-list {
+    padding: 10px 20px;
   }
 </style>

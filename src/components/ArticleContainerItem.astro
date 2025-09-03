@@ -7,11 +7,15 @@ const title = get_title(p);
 ---
 { p.data?.visible !== false &&
 <li class="list-none! born">
-  <a class="float-left p-5 mr-5 shadow hover:shadow-md hover:transition transition" href={p.url}>
+  {/* 左侧封面 */}
+  <a id="left-img" class="float-left shadow hover:shadow-md hover:transition transition" href={'/posts/'+p.slug}>
     <!-- 文章封面 -->
     <img loading="lazy" class="w-50 max-w-50! h-30 object-cover" src={p.data?.thumb || p.data?.index_img || cover_default} alt="文章封面">
   </a>
-  <div class="">
+
+  {/* 右侧文章信息 */}
+
+  <div>
     <h2 class="cursor-pointer text-xl hover:transition text-shadow-2xs">
       {/* 文章标题 */}
       <a href={'/posts/'+p.slug}>{article.use_frontmatter_title ? p.data?.title || title : title}</a>
@@ -22,8 +26,7 @@ const title = get_title(p);
       p.data?.excerpt || p.data?.description || p.body?.split('<!-- more -->')[0].slice(0,article.excerpt_size)
     }</p>}
   </div>
-</li>
-}
+</li>}
 
 <style>
   h2 {
@@ -54,5 +57,10 @@ const title = get_title(p);
   }
   :global(.dark) p {
     color: var(--color-slate-400);
+  }
+  #left-img {
+    --offset: 20px;
+    margin-right: var(--offset);
+    margin-bottom: var(--offset);
   }
 </style>

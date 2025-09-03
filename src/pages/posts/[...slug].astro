@@ -29,15 +29,16 @@ const headings = post?.rendered?.metadata?.headings;
 
 <!-- 第四部分：使用布局渲染页面 -->
 <MarkdownPostLayout post={post} frontmatter={post?.rendered?.metadata?.frontmatter}>
-  <div id="main" class="flex justify-center gap-10">
-    <article class="flex-2 max-w-[70vw]">
-      <div class="min-article-y">
-        <Content />
-      </div>
-      {ifComment && <Giscus />}
-    </article>
-    <aside class="">
-      <TOC headings={headings}/>
-    </aside>
+<div id="main" class="flex flex-col items-center w-full max-w-full">
+    <!-- ################################################## 文章内容 ################################################## -->
+    <div class="w-full max-w-full min-page-y"><Content /></div>
+    <!-- ################################################## 评论系统 ################################################## -->
+    <article class="w-full">{ifComment && <Giscus />}</article>
   </div>
 </MarkdownPostLayout>
+
+<style>
+  article {
+    margin-top: 300px;
+  }
+</style>

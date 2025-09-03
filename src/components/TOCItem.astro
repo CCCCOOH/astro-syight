@@ -1,0 +1,55 @@
+---
+const { heading, headings } = Astro.props;
+const {slug, depth, text} = heading;
+const ifH1 = headings.find(h => h.depth === 1);
+const ifH2 = headings.find(h => h.depth === 2);
+const ifH3 = headings.find(h => h.depth === 3);
+const ifH4 = headings.find(h => h.depth === 4);
+const ifH5 = headings.find(h => h.depth === 5);
+let depth_final = depth;
+
+if (!ifH1) {
+  depth_final--;
+}
+
+if (!ifH1 && !ifH2) {
+  depth_final--;
+}
+
+if (!ifH1 && !ifH2 && !ifH3) {
+  depth_final--;
+}
+
+if (!ifH1 && !ifH2 && !ifH3 && !ifH4) {
+  depth_final--;
+}
+
+if (!ifH1 && !ifH2 && !ifH3 && !ifH4 && !ifH5) {
+  depth_final--;
+}
+
+const offset = 15;
+const marginLeft = `${(depth_final-1) * offset}px`;
+---
+
+<a href={`#${slug}`}>{text}</a>
+
+<style define:vars={{marginLeft}}>
+  a {
+    padding-left: var(--marginLeft);
+  }
+  a::after {
+    content: none;
+  }
+  a:hover {
+    background: var(--color-indigo-300);
+    color: white;
+  }
+  :global(.dark) a {
+    color: var(--color-slate-400);
+  }
+  :global(.dark) a:hover {
+    background-color: var(--color-slate-800);
+    color: var(--color-slate-300);
+  }
+</style>

@@ -1,18 +1,25 @@
 ---
-const {posts, page, maxSize, isHome} = Astro.props;
-
-import ArticleContainerItem from './ArticleContainerItem.astro';
+const { posts, page, maxSize, class:className } = Astro.props;
+import BasicCard from "../components/BasicCard.astro";
+import ArticleContainerItem from "./ArticleContainerItem.astro";
 import Pagination from "./Pagination.astro";
 ---
-<div id="article-container" class="flex flex-col">
-  <ul class="flex rounded flex-col gap-5 shadow p-10 bg-white backdrop-blur-xl m-0!">
-    {posts.filter(p => !p.data?.hidden).map((p:any) => <div class="item"><ArticleContainerItem post={p} /></div>)}
-  </ul>
-  <Pagination page={page} maxSize={maxSize} isHome={isHome} />
-</div>
 
-<style is:global>
-  .dark #article-container ul {
-    background-color: var(--color-slate-700);
+<BasicCard id="home-article-container" class={"flex flex-col gap-5 "+className} >
+    {
+      posts
+        .filter((p) => !p.data?.hidden)
+        .map((p: any) => (
+          <div class="item">
+            <ArticleContainerItem post={p} />
+          </div>
+        ))
+    }
+  <Pagination page={page} maxSize={maxSize} />
+</BasicCard>
+
+<style>
+  #home-article-container {
+    padding: 30px;
   }
 </style>

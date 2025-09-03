@@ -1,7 +1,7 @@
 ---
 title: Categories
 date: 2013-12-24 23:30:09
-hidden: true
+visible: false
 categories:
   - Foo
   - Bar

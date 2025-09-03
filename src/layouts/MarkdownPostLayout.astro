@@ -3,12 +3,14 @@ import BaseLayout from "./BaseLayout.astro";
 import { author_info, article } from "../config/site.js";
 import Tag from "../components/Tag.astro";
 import ImagesGallery from "../components/ImagesGallery.astro";
+import TOC from "../components/TOC.astro";
 const { frontmatter, post } = Astro.props;
 const title = post?.id.split("/")?.at(-1)?.split(".")[0];
+const headins = post?.rendered?.metadata?.headings;
 const photos_height = frontmatter?.ph_height;
 ---
 
-{
+<!-- 加入head是为了为每一篇文章单独引入latex包 -->{
   frontmatter?.latex && (
     <head>
       <meta charset="utf-8" />
@@ -29,56 +31,66 @@ const photos_height = frontmatter?.ph_height;
     </head>
   )
 }
-<!-- 加入head是为了为每一篇文章单独引入latex包 -->
+
 <BaseLayout pageTitle={title}>
-  <div id="markdown-container" class="back-grid my-2 p-2 rounded">
-    {
-      frontmatter?.photos?.length > 0 && (
-        <div class="w-full h-50 my-30 px-50">
-          <ImagesGallery
-            img_width={frontmatter?.img_width}
-            height={frontmatter?.height}
-            radius={frontmatter?.radius}
-            photos={frontmatter?.photos}
-          />
-        </div>
-      )
-    }
-
-    {
-      frontmatter?.image?.url && (
-        <img
-          src={frontmatter?.image?.url}
-          width="300"
-          alt={frontmatter?.image?.alt}
-        />
-      )
-    }
-    <!-- 文章标题 -->
-    <h1 class="text-center border-b-0!">
-      <span
-        id="title"
-        class="inset-shadow-sm bg-gray-50 inset-shadow-gray-200 px-2"
-        >{
-          article.use_frontmatter_title ? frontmatter?.title || title : title
-        }</span>
-    </h1>
-    <p><em>{frontmatter?.description}</em></p>
-    <p>{frontmatter?.pubDate?.toString().slice(0, 10)}</p>
-    <!-- 作者名 -->
-    <p class="text-slate-400 text-sm text-center">
-      作者：{frontmatter?.author || author_info?.name}
-    </p>
-
-    <slot />
-
-    <div class="flex justify-center gap-5 flex-wrap py-5">
+  <!-- ################################################## ImagesGallery ################################################## -->
+  <div id="markdown-container" class="back-grid flex w-full p-20">
+    <!-- 左侧内容模块 -->
+    <div class="flex-6 inline-flex flex-col items-center min-w-0">
       {
-        Array.isArray(frontmatter?.tags) &&
-          frontmatter?.tags?.map((tag: string) => <Tag tag={tag} />)
+        // 文章头图模块
+        frontmatter?.photos?.length > 0 && (
+          <div class="h-fit max-h-full px-10">
+            <ImagesGallery
+              img_width={frontmatter?.img_width}
+              height={frontmatter?.height}
+              radius={frontmatter?.radius}
+              photos={frontmatter?.photos}
+            />
+          </div>
+        )
       }
+
+      <!--  ################################################## 文章信息 ################################################## -->
+      <div>
+        <!-- 文章标题 -->
+        <h1 class="text-center border-b-0!">
+          <span
+            id="title"
+            class="inset-shadow-sm bg-gray-50 inset-shadow-gray-200 px-2"
+            >{
+              article.use_frontmatter_title
+                ? frontmatter?.title || title
+                : title
+            }</span
+          >
+        </h1>
+        <p><em>{frontmatter?.description}</em></p>
+        <p>{frontmatter?.pubDate?.toString().slice(0, 10)}</p>
+        <!-- 作者名 -->
+        <p class="text-slate-400 text-sm text-center">
+          作者：{frontmatter?.author || author_info?.name}
+        </p>
+      </div>
+      <!-- ################################################### 容器插槽 ################################################### -->
+      <div class="w-full max-w-full">
+        <slot />
+      </div>
+
+      <!-- ################################################## 底部标签列表 ###################################################### -->
+      <div class="flex-2 flex justify-center gap-5 flex-wrap py-5">
+        {
+          Array.isArray(frontmatter?.tags) &&
+            frontmatter?.tags?.map((tag: string) => <Tag tag={tag} />)
+        }
+      </div>
     </div>
+    <!-- ################################################## 右侧目录 ################################################## -->
+
+    <TOC class="flex-2" headings={headins} />
+
   </div>
+  <!-- ################################################## 结束 ######################################################### -->
 </BaseLayout>
 
 <style define:vars={{ photos_height }}>
@@ -93,5 +105,8 @@ const photos_height = frontmatter?.ph_height;
   :global(.dark) #title {
     background-color: var(--color-slate-700);
     box-shadow: none;
+  }
+  #markdown-container {
+    padding: 100px;
   }
 </style>

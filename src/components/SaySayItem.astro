@@ -1,0 +1,67 @@
+---
+const { say } = Astro.props;
+import { get_title, format_say_date } from "../scripts/utils";
+import { info } from "../config/says.js";
+import ImagesGallery from "../components/ImagesGallery.astro";
+
+function avatar_style(say: any) {
+  return `background-image: url(${say.data?.avatar || info.avatar});`;
+}
+---
+
+<li class="born">
+  <!-- 上半部分信息 -->
+  <aside class="flex">
+    {/* 头像 */}
+    <div id="avatar" style={avatar_style(say)} class="bg-cover size-20 rounded"></div>
+    <div class="flex flex-col justify-center">
+      {/* 作者名 */}
+      <span id="nickname" class="author-name text-xl! font-mono! text-slate-800"
+        >{say.data?.author || info.author}</span
+      >
+      {/* 描述 */}
+      <span class="description text-sm! font-mono text-slate-500"
+        >{say.data?.description || info.description}</span
+      >
+    </div>
+  </aside>
+  <!-- 说说标题 -->
+  <h1 class="text-2xl!">{say.data?.title || get_title(say)}</h1>
+  <!-- 说说内容 -->
+  <p class="text-base!">{say.body}</p>
+  <div class="flex justify-center">
+    <div>
+      <ImagesGallery
+        img_width={say.data?.img_width}
+        height={say.data?.height}
+        radius={say.data?.radius}
+        photos={say.data?.photos}
+      />
+    </div>
+  </div>
+  <!-- 日期 -->
+  <div class="date text-slate-500 text-center">
+    Date: {format_say_date(say.data?.date)}
+  </div>
+</li>
+
+<style>
+  li::before {
+    content: none;
+  }
+  :global(.dark) .author-name {
+    color: var(--color-slate-100);
+  }
+  :global(.dark) .description {
+    color: var(--color-slate-400);
+  }
+  :global(.dark) .date {
+    color: var(--color-slate-400);
+  }
+  #avatar+div {
+    padding: 10px;
+  }
+  #nickname {
+    padding-bottom: 10px;
+  }
+</style>

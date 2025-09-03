@@ -1,66 +1,77 @@
 ---
-import { nav } from '../config/nav.js'
-import { site } from '../config/site'
+import { nav } from "../config/nav.js";
+import { site } from "../config/site";
 ---
-<div id="top-holder" class="w-full h-15"> </div>
 
-<div id="navigation" class="born opacity-100 shadow scale-100 py-2 z-10 fixed top-2 left-[50%] -translate-x-[50%] bg-white flex gap-2 outline-1 outline-indigo-400/50 rounded-3xl px-2 text-slate-500" >
-  <a href="/" id="site-title" class="font-mono text-2xl cursor-pointer">{site.title}</a>
+<div id="top-holder" class="w-full h-15"></div>
+
+<div
+  id="navigation"
+  class="born opacity-100 shadow scale-100 py-2 z-10 fixed top-6 left-[50%] -translate-x-[50%] bg-white flex gap-2 outline-2 outline-indigo-400/30 rounded-3xl px-2 text-slate-500"
+>
+  <a href="/" id="site-title" class="font-mono text-2xl cursor-pointer"
+    >{site.title}</a
+  >
   <nav id="nav-item" class="flex justify-center items-center gap-2">
-    {nav.map(item => <a class="text-2xl px-1" href={item.src}>
-      {item?.icon && <i class={item.icon+" born"}></i>}
-      <span class="">{item.title}</span>
-    </a>)}
+    {
+      nav.map((item) => (
+        <a class="text-2xl px-1" href={item.src}>
+          {item?.icon && <i class={item.icon + " born"} />}
+          <span class="">{item.title}</span>
+        </a>
+      ))
+    }
   </nav>
-</div> 
+</div>
 
 <style>
-#top-holder {
-  margin-bottom: none;
-}
-a {
-  transition: color 0.2s ease-out;
-  color: var(--color-slate-600);
-  text-decoration: none !important;
-}
-a::after {
-  border-radius: var(--radius-2xl);
-}
-a:hover {
-  color: var(--color-blue-400);
-}
-/* 暗色主题 */
-:global(.dark) :global(#navigation) {
-  background-color: var(--color-slate-800);
-}
+  #top-holder {
+    margin-bottom: none;
+  }
+  a {
+    transition: color 0.2s ease-out;
+    color: var(--color-slate-600);
+    text-decoration: none !important;
+  }
+  a::after {
+    border-radius: var(--radius-2xl);
+  }
+  a:hover {
+    color: var(--color-blue-400);
+  }
+  /* 暗色主题 */
+  :global(.dark) :global(#navigation) {
+    background-color: var(--color-slate-800);
+  }
 
-:global(.dark) :global(#navigation) a {
-  color: var(--color-gray-400);
-}
+  :global(.dark) :global(#navigation) a {
+    color: var(--color-gray-400);
+  }
 </style>
 
 <script>
-  const nav = document.querySelector('#navigation');
+  const nav = document.querySelector("#navigation");
   const top = document.documentElement.scrollTop;
-  
+
   let last = top;
-  window.addEventListener('scroll', () => {
+  window.addEventListener("scroll", () => {
     const cur = window.pageYOffset;
     if (cur > last) {
-      nav?.classList.add('nav-hide')
+      nav?.classList.add("nav-hide");
     } else if (cur < last) {
-      nav?.classList.remove('nav-hide')
+      nav?.classList.remove("nav-hide");
     }
     last = cur;
-  })
+  });
 </script>
 
 <style>
   #navigation {
-    transition: all .4s ease-out;
+    transition: all 0.4s ease-out;
+    padding: 5px 10px;
   }
   .nav-hide {
-    transition: all .4s ease-out;
+    transition: all 0.4s ease-out;
     transform: translateY(-200px) scale(0);
     opacity: 0;
   }

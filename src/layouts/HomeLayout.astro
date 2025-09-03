@@ -1,0 +1,42 @@
+---
+import BaseLayout from "./BaseLayout.astro"
+import HomeBackground from "../components/HomeBackground.astro"
+import HomeArticleContainer from "../components/HomeArticleContainer.astro";
+import AuthorCard from "../components/AuthorCard.astro";
+import MusicPlayer from "../components/MusicPlayer.astro";
+import VideoPlayer from "../components/VideoPlayer.astro";
+import Announcement from "../components/Announcement.astro";
+
+const {pageTitle, allPosts, maxSize, page} = Astro.props;
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <HomeBackground />
+  <div id="home-container" class="flex gap-5 justify-center w-full">
+    <!-- 左侧文章信息容器 -->
+    {
+      allPosts.length > 0 && (
+        <HomeArticleContainer
+          page={page}
+          class="flex-2 min-w-0"
+          posts={allPosts.slice(0, maxSize)}
+          isHome={true}
+          maxSize={maxSize}
+        />
+      )
+    }
+    <!-- 右侧侧边栏组件 -->
+    <aside id="right-container" class="flex min-w-0 flex-1 flex-col gap-5">
+      <AuthorCard />
+      <MusicPlayer />
+      <VideoPlayer />
+      <Announcement />
+    </aside>
+  </div>
+</BaseLayout>
+
+<style>
+  #home-container {
+    padding: 200px;
+  }
+</style>

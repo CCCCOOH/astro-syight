@@ -3,53 +3,72 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogPost from "../components/BlogPost.astro";
 import HomeBackground from "../components/HomeBackground.astro";
 import { getCollection } from "astro:content";
+import BasicCard from "../components/BasicCard.astro";
 const pageTitle = "Archive";
 
-const allPosts = await getCollection('blog');
+const allPosts = await getCollection("blog");
 const formatPosts = {};
 // 利用filter去掉undefined
 
-const years = [...new Set(allPosts.map(post => (new Date(post.data?.date)).getFullYear()))].filter(year => year !== undefined);
+const years = [
+  ...new Set(allPosts.map((post) => new Date(post.data?.date).getFullYear())),
+].filter((year) => year !== undefined);
 
-years.forEach( (year) => { formatPosts[year] = [] } )
+years.forEach((year) => {
+  formatPosts[year] = [];
+});
 
 for (let year of years) {
   // 遍历每一年的文章筛选出来
-  const correspondPosts = allPosts.filter(post => post.data.date?.getFullYear() == year);
-  formatPosts[year] = [... correspondPosts, ...formatPosts[year]];
+  const correspondPosts = allPosts.filter(
+    (post) => post.data.date?.getFullYear() == year
+  );
+  formatPosts[year] = [...correspondPosts, ...formatPosts[year]];
 }
 
 // Assuming each post is of type 'any', you can type posts as 'any[]'
 for (let posts of Object.values(formatPosts) as any[]) {
   let res = posts.sort((a: any, b: any) => {
-      return b.data.date - a.data.date;
-  })  
+    return b.data.date - a.data.date;
+  });
 }
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <HomeBackground />
-  { allPosts.length > 0 && <article id="archive-container" class="flex mt-20 flex-col items-center">
-    <div id="blog-container" class="fade-in bg-white min-w-[50vw] inset-shadow inset-shadow-gray-500 rounded p-5">
-      {
-        Object.keys(formatPosts).map((year: any) => 
-          <div class="max-w-cal[100vw-30px] text-xl text-shadow-2xs">
-            <span class="year text-slate-600 text-2xl">{year}年</span>
-            <ul>{formatPosts[year].map((post: any) => <BlogPost title={post?.id.split('/')?.at(-1)?.split('.')[0]} url={`/posts/${post.slug}`} month={post.data?.date?.getMonth()+1} />)}</ul>
-          </div>
-        )
-      }
-    </div>
-  </article>}
+  {
+    allPosts.length > 0 && (
+      <article id="archive-container" class="flex flex-col items-center">
+        <BasicCard
+          id="blog-container"
+          class="fade-in w-[40%]"
+        >
+          {Object.keys(formatPosts).map((year: any) => (
+            <div class="max-w-cal[100vw-30px] text-xl text-shadow-2xs">
+              <span class="year text-slate-600 text-2xl">{year}年</span>
+              <ul>
+                {formatPosts[year].map((post: any) => (
+                  <BlogPost
+                    title={post?.id.split("/")?.at(-1)?.split(".")[0]}
+                    url={`/posts/${post.slug}`}
+                    month={post.data?.date?.getMonth() + 1}
+                  />
+                ))}
+              </ul>
+            </div>
+          ))}
+        </BasicCard>
+      </article>
+    )
+  }
 </BaseLayout>
 
 <style>
-  :global(.dark) #blog-container {
-    background-color: var(--color-slate-700);
-  }
   :global(.dark) .year {
     color: var(--color-slate-400);
   }
+  #blog-container {
+    padding: 30px;
+    margin-top: 50px;
+  }
 </style>
-
-

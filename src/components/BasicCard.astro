@@ -1,0 +1,13 @@
+---
+const {class:className, id, ...rest} = Astro.props;
+---
+
+<div id={id} class={"transition bg-white rounded ring-2 ring-indigo-200/20 shadow born "+className} {...rest} >
+  <slot />
+</div>
+
+<style>
+  :global(.dark) div {
+    background-color: var(--color-slate-700);
+  }
+</style>

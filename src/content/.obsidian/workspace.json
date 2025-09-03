@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "ee51d8b8c46c405d",
+        "id": "7ea0f9e236d0828c",
         "type": "tabs",
         "children": [
           {
-            "id": "043236d87fa886e8",
+            "id": "ac0742e4e259de88",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -165,10 +165,15 @@
       "bases:创建新数据库": false
     }
   },
-  "active": "115eeca3c23af60b",
+  "active": "ac0742e4e259de88",
   "lastOpenFiles": [
-    "blog/测试文章/hello-world.md",
+    "says/屎山代码糊自己头上了.md",
+    "blog/测试文章/testTOC.md",
+    "says/测试说说功能.md",
+    "blog/Syight 使用文档.md",
     "blog/Syight更新日志.md",
+    "blog/测试文章/categories.md",
+    "blog/测试文章/hello-world.md",
     "blog/测试文章/videos.md",
     "blog/测试文章/tags.md",
     "blog/测试文章/tag-plugins.md",
@@ -180,11 +185,9 @@
     "blog/测试文章/excerpts.md",
     "blog/测试文章/elements.md",
     "blog/测试文章/code-highlight.md",
-    "blog/测试文章/categories.md",
     "blog/测试文章/中文測試.md",
     "blog/测试文章/日本語テスト.md",
     "says/也是返上校了.md",
-    "says/测试说说功能.md",
     "says/为什么每条说说都可以设置单独的Avatar.md",
     "says/说说时间排序测试.md",
     "says/测试时间排序.md",

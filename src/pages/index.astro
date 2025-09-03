@@ -1,29 +1,10 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import HomeBackground from "../components/HomeBackground.astro"
-import HomeArticleContainer from '../components/HomeArticleContainer.astro'
 import { getCollection } from "astro:content";
 import { article, site } from "../config/site";
 import { sticky_sort } from "../scripts/utils";
-import AuthorCard from "../components/AuthorCard.astro";
-import MusicPlayer from "../components/MusicPlayer.astro";
-import VideoPlayer from "../components/VideoPlayer.astro";
-import Announcement from "../components/Announcement.astro";
-const allPosts = sticky_sort(await getCollection('blog'));
+import HomeLayout from "../layouts/HomeLayout.astro";
+const allPosts = sticky_sort(await getCollection("blog"));
 const size = article.page_size;
 ---
 
-<BaseLayout pageTitle={site.title}>
-  <HomeBackground />
-  <div class="flex px-50 gap-5 justify-center mt-10">
-    <div id="left-container" class="flex-2">
-      { allPosts.length > 0 && <HomeArticleContainer posts={allPosts.slice(0, size)} isHome={true} />}
-    </div>
-    <aside id="right-container" class="flex flex-1 flex-col gap-5">
-      <AuthorCard />
-      <MusicPlayer />
-      <VideoPlayer />
-      <Announcement />
-    </aside>
-  </div>
-</BaseLayout>
+<HomeLayout pageTitle="Home" allPosts={allPosts} size={size} page="1" />

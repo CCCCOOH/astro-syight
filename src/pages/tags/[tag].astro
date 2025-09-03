@@ -2,33 +2,37 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogPost from "../../components/BlogPost.astro";
 import { getCollection } from "astro:content";
+import BasicCard from "../../components/BasicCard.astro";
 // 生成页面：tags/astro...tags/success...
 // 对每个页面都会传入参数(params)，比如这里的tag，但貌似不是所有的param都能被成功使用》。。
 // 也就是说[]中的每一个{}都是一个页面对象
 
 export async function getStaticPaths() {
-  const collection = await getCollection('blog');
-  const  allPosts = collection.filter((item: any) => item?.rendered?.metadata?.frontmatter?.tags);
+  const collection = await getCollection("blog");
+  const allPosts = collection.filter(
+    (item: any) => item?.rendered?.metadata?.frontmatter?.tags
+  );
 
-  allPosts.forEach((post: any) => {
-    
-  })
-  
+  allPosts.forEach((post: any) => {});
+
   let uniqueTags = [
-    ...new Set(allPosts.map((post: any) => {
-      let res = Array.isArray(post?.rendered?.metadata?.frontmatter?.tags) ? post?.rendered?.metadata?.frontmatter?.tags : [post?.rendered?.metadata?.frontmatter?.tags];
+    ...new Set(
+      allPosts.map((post: any) => {
+        let res = Array.isArray(post?.rendered?.metadata?.frontmatter?.tags)
+          ? post?.rendered?.metadata?.frontmatter?.tags
+          : [post?.rendered?.metadata?.frontmatter?.tags];
 
-      return res.flat()
-    }))
+        return res.flat();
+      })
+    ),
   ];
 
   uniqueTags = uniqueTags.flat();
-  
-  
+
   // 通过map得到 allPosts 中每一篇文章的标签列表，由于有多篇文章，这些标签就构成了一个二维标签列表，通过 flat()将他们平摊在集合中进行去重，最后数组中就得到了独一无二的标签组。
   return uniqueTags.map((tag) => {
     const filteredPosts = allPosts.filter((post: any) =>
-      post?.rendered.metadata.frontmatter?.tags?.includes(tag),
+      post?.rendered.metadata.frontmatter?.tags?.includes(tag)
     );
 
     return {
@@ -44,21 +48,30 @@ const { posts } = Astro.props;
 ---
 
 <BaseLayout pageTitle={tag}>
-  <div class="born transition mt-10 inset-shadow-sm inset-shadow-gray-500 rounded w-1/2 m-auto p-5">
-    <p class="text-slate-500 text-sm">标签：「{tag}」</p>
-    <ul class="flex flex-col p-0! cursor-pointer ">
-      {
-        posts.map((post: any) => (
-          <BlogPost title={post?.id.split('/')?.at(-1)?.split('.')[0]} month={post.data.date.getMonth()} url={`/posts/${post?.slug}`} />
-        ))
-      }
-    </ul>
+  <div class="w-full flex justify-center items-center">
+    <BasicCard
+      id="tag-container"
+      class="inset-shadow-sm inset-shadow-slate-800 w-1/2"
+    >
+      <p class="text-slate-500 text-sm">标签：「{tag}」</p>
+      <ul class="flex flex-col p-0!">
+        {
+          posts.map((post: any) => (
+            <BlogPost
+              title={post?.id.split("/")?.at(-1)?.split(".")[0]}
+              month={post.data.date.getMonth()}
+              url={`/posts/${post?.slug}`}
+            />
+          ))
+        }
+      </ul>
+    </BasicCard>
   </div>
 </BaseLayout>
 
 <style>
-  :global(.dark) div {
-    box-shadow: inset 0px  0px 10px 5px var(--color-slate-800);
+  #tag-container {
     padding: 20px;
+    margin-top: 30px;
   }
 </style>

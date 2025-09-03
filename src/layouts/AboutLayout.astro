@@ -1,0 +1,26 @@
+---
+import HomeBackground from "../components/HomeBackground.astro";
+import BaseLayout from "./BaseLayout.astro";
+import StackExhibition from "../components/StackExhibition.astro";
+import BasicCard from "../components/BasicCard.astro";
+---
+
+<BaseLayout pageTitle="About">
+  <HomeBackground />
+  <StackExhibition />
+  <div class="flex justify-center items-center">
+    <BasicCard
+      id="main-container"
+      class="fade-in transition w-1/2 ring-2"
+    >
+      <slot />
+    </BasicCard>
+  </div>
+</BaseLayout>
+
+<style>
+  #main-container {
+    padding: 40px;
+    margin-bottom: 30px;
+  }
+</style>

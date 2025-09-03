@@ -1,34 +1,35 @@
 ---
+import BasicCard from "./BasicCard.astro";
 const {tag} = Astro.props;
 ---
-<p class="born rounded-xl p-2 m-0! bg-slate-200 relative transition">
+<BasicCard id="tag" class="relative transition">
   <a id="tag-text" class="transition" href={`/tags/${tag}`}>{tag}</a>
-</p>
+</BasicCard>
 
 <style>
   a::after {
     content: none;
   }
-  :global(.dark) p {
-    background-color: var(--color-slate-800);
+  #tag {
+    padding: 5px 10px;
   }
-  p:hover {
+  #tag:hover {
     cursor: pointer;
     background: var(--color-slate-800);
   }
-  p>a {
+  #tag>a {
     color: var(--color-slate-600);
   }
-  p:hover>a {
+  #tag:hover>a {
     color: var(--color-slate-300);
   }
-  :global(.dark) p>a   {
+  :global(.dark) #tag>a   {
     color: var(--color-slate-300);
   }
-  :global(.dark) p:hover {
-    background-color: var(--color-slate-400);
+  :global(.dark) #tag:hover {
+    background-color: var(--color-slate-200);
   }
-  :global(.dark) p:hover #tag-text {
+  :global(.dark) #tag:hover #tag-text {
     color: var(--color-slate-600);
   }
 </style>

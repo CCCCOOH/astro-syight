@@ -22,12 +22,10 @@ body {
   background-color: var(--color-indigo-100);
 }
 
-html,body {
-  max-width: 100vw;
-}
-
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -171,8 +169,8 @@ pre {
   font-size: var(--text-xl);
   border-radius: 5px;
   margin-bottom: 16px;
+  max-width: 100%;
 }
-
 code {
   padding: 0.2em 0.4em;
   margin: 0;

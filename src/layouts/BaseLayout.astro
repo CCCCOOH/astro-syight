@@ -10,7 +10,7 @@ import ThemeSwitchButton from "../components/ThemeSwitchButton.astro"
 const { pageTitle } = Astro.props;
 ---
 
-<html lang="zh-CN">
+<html lang="zh-CN" class="w-full max-w-full">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -19,11 +19,13 @@ const { pageTitle } = Astro.props;
     <script src="https://kit.fontawesome.com/18093c370e.js" crossorigin="anonymous"></script>
     <title>{pageTitle}</title> 
   </head>
-  <body>
+  <body class="w-full max-w-full">
     <ToTop />
-    <div class="content min-page-y">
+    <div class="min-page-y w-full">
       <Header />
-      <slot />
+      <div>
+        <slot />
+      </div>
     </div>
 
     <footer class="h-[50px]">

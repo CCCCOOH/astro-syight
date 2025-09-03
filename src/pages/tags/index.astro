@@ -1,31 +1,47 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Tag from '../../components/Tag.astro'
+import Tag from "../../components/Tag.astro";
 import HomeBackground from "../../components/HomeBackground.astro";
-const posts = await getCollection('blog');
-const allPosts = posts.filter((post: any) => post?.rendered?.metadata?.frontmatter?.tags);
+import BasicCard from "../../components/BasicCard.astro";
+const posts = await getCollection("blog");
+const allPosts = posts.filter(
+  (post: any) => post?.rendered?.metadata?.frontmatter?.tags
+);
 
 const tags = [
-  ...new Set(allPosts.map((post: any) => post?.rendered?.metadata?.frontmatter.tags).flat()),
+  ...new Set(
+    allPosts
+      .map((post: any) => post?.rendered?.metadata?.frontmatter.tags)
+      .flat()
+  ),
 ];
 
-const pageTitle = "Tags"
+const pageTitle = "Tags";
 ---
 
 <!-- 这里发现不能使用forEach，因为forEach不能返回一个标签，而map可以。 -->
 <BaseLayout pageTitle={pageTitle}>
   <HomeBackground />
-  { allPosts.length > 0 && <div class="flex justify-center items-center mx-5 mt-10">
-    <div id="tags-container" class="flex outline-2 outline-slate-200 shadow gap-10 rounded-xl justify-center items-center bg-white z-2 p-5 flex-wrap">
-      {tags.map((tag: any) => <Tag tag={tag} />)}
-    </div>
-  </div>}
+  {
+    allPosts.length > 0 && (
+      <div class="flex justify-center items-center">
+        <BasicCard
+          id="tags-container"
+          class="flex gap-10 justify-center items-center flex-wrap"
+        >
+          {tags.map((tag: any) => (
+            <Tag tag={tag} />
+          ))}
+        </BasicCard>
+      </div>
+    )
+  }
 </BaseLayout>
 
 <style>
-  :global(.dark) #tags-container {
-    background-color: var(--color-slate-600);
-    outline: 2px solid var(--color-slate-500);
+  #tags-container {
+    margin-top: 30px;
+    padding: 20px;
   }
 </style>

@@ -1,13 +1,8 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import HomeBackground from "../../components/HomeBackground.astro"
-import HomeArticleContainer from '../../components/HomeArticleContainer.astro'
 import { getCollection } from "astro:content";
-import { article } from "../../config/site";
-import AuthorCard from "../../components/AuthorCard.astro";
-import MusicPlayer from "../../components/MusicPlayer.astro";
-import VideoPlayer from "../../components/VideoPlayer.astro";
+import { article, site } from "../../config/site";
 import { sticky_sort } from "../../scripts/utils";
+import HomeLayout from "../../layouts/HomeLayout.astro";
 
 
 export async function getStaticPaths() {
@@ -36,19 +31,7 @@ export async function getStaticPaths() {
 
 // 每页中获取到的数据
 
-const { allPosts: posts, page, maxSize } = Astro.props;
+const { allPosts, page, maxSize } = Astro.props;
 ---
 
-<BaseLayout>
-  <HomeBackground />
-  <div class="flex px-50 gap-5 justify-center mt-10">
-    <div id="left-container" class="flex-2">
-      { posts.length > 0 && <HomeArticleContainer posts={posts} page={page} isHome={false} maxSize={maxSize} />}
-    </div>
-    <aside id="right-container" class="flex flex-1 flex-col gap-5">
-      <AuthorCard />
-      <MusicPlayer />
-      <VideoPlayer />
-    </aside>
-  </div>
-</BaseLayout>
+<HomeLayout pageTitle={`${site.title}｜第${page}页`}, allPosts={allPosts} maxSize={maxSize} page={page} />
