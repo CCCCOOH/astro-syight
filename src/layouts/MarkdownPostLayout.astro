@@ -34,13 +34,13 @@ const photos_height = frontmatter?.ph_height;
 
 <BaseLayout pageTitle={title}>
   <!-- ################################################## ImagesGallery ################################################## -->
-  <div id="markdown-container" class="back-grid flex w-full p-20">
+  <div id="markdown-container" class="back-grid flex w-full">
     <!-- 左侧内容模块 -->
     <div class="flex-6 inline-flex flex-col items-center min-w-0">
       {
         // 文章头图模块
         frontmatter?.photos?.length > 0 && (
-          <div class="h-fit max-h-full px-10">
+          <div id="gallery" class="h-fit max-h-full">
             <ImagesGallery
               img_width={frontmatter?.img_width}
               height={frontmatter?.height}
@@ -108,5 +108,8 @@ const photos_height = frontmatter?.ph_height;
   }
   #markdown-container {
     padding: 100px;
+  }
+  #gallery {
+    margin-bottom: 30px;
   }
 </style>

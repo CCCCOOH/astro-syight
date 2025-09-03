@@ -1,10 +1,10 @@
 ---
 import { getCollection } from "astro:content";
-import { article, site } from "../config/site";
+import { article } from "../config/site";
 import { sticky_sort } from "../scripts/utils";
 import HomeLayout from "../layouts/HomeLayout.astro";
 const allPosts = sticky_sort(await getCollection("blog"));
-const size = article.page_size;
+const maxSize = article.page_size;
 ---
 
-<HomeLayout pageTitle="Home" allPosts={allPosts} size={size} page="1" />
+<HomeLayout pageTitle="Home" allPosts={allPosts} maxSize={maxSize} page={1} />

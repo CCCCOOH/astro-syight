@@ -4,12 +4,11 @@ import { article, site } from "../../config/site";
 import { sticky_sort } from "../../scripts/utils";
 import HomeLayout from "../../layouts/HomeLayout.astro";
 
-
 export async function getStaticPaths() {
   const allPosts = sticky_sort(await getCollection('blog'));
   const size = article.page_size;
   const maxSize = Math.ceil(allPosts.length / size);
-
+  
   let res: array = [];
   let page_num = Math.ceil(allPosts.length / size);
   for (let page = 1; page <= page_num; page ++) {
