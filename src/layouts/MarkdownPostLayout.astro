@@ -8,6 +8,7 @@ const { frontmatter, post } = Astro.props;
 const title = post?.id.split("/")?.at(-1)?.split(".")[0];
 const headins = post?.rendered?.metadata?.headings;
 const photos_height = frontmatter?.ph_height;
+
 ---
 
 <!-- 加入head是为了为每一篇文章单独引入latex包 -->{

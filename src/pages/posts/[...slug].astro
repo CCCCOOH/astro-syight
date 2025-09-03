@@ -23,8 +23,8 @@ export async function getStaticPaths() {
 
 // 第三部分：接收数据并准备渲染
 const { post } = Astro.props; // 从 getStaticPaths 接收到的文章数据
-const { Content } = await post?.render(); // 将 Markdown 转换为 HTML
-const headings = post?.rendered?.metadata?.headings;
+const { Content } = await post?.render(); // 将x Markdown 转换为 HTML
+
 ---
 
 <!-- 第四部分：使用布局渲染页面 -->

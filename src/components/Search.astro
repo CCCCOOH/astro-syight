@@ -1,0 +1,40 @@
+---
+import BasicCard from "./BasicCard.astro";
+
+const {allPosts} = Astro.props;
+---
+
+<BasicCard id="search" class="w-full flex items-center h-15 gap-3">
+  <i class="fa-solid fa-search" ></i>
+  <div class="flex-1 relative">
+    <input class="outline-0 flex-1 w-full" type="text" />
+  </div>
+</BasicCard>
+
+<style>
+  input {
+    transition: border-color .3s ease-out;
+  }
+  #search {
+    --padding: 20px;
+    padding-left: var(--padding);
+    padding-right: var(--padding);
+  }
+  #search div::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: var(--color-slate-700);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: .4s ease-out;
+  }
+  #search div:hover::after {
+    width: 100%;
+  }
+  input:focus {
+    border-bottom: 2px solid var(--color-slate-700);
+  }
+
+</style>

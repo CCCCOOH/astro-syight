@@ -9,6 +9,7 @@ photos:
 ph_height: 300px
 radius: 30px
 sticky: 2
+thumb: https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509031317864.jpg
 ---
 
 This post contains 4 photos:

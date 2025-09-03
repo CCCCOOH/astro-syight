@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "says/屎山代码糊自己头上了.md",
+                "file": "blog/Syight更新日志.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "屎山代码糊自己头上了"
+              "title": "Syight更新日志"
             }
           }
         ]
@@ -169,11 +169,13 @@
       "bases:创建新数据库": false
     }
   },
-  "active": "115eeca3c23af60b",
+  "active": "ac0742e4e259de88",
   "lastOpenFiles": [
     "blog/Syight 使用文档.md",
-    "says/屎山代码糊自己头上了.md",
+    "blog/测试文章/elements.md",
+    "blog/测试文章/gallery-post.md",
     "blog/Syight更新日志.md",
+    "says/屎山代码糊自己头上了.md",
     "blog/测试文章/testTOC.md",
     "says/测试说说功能.md",
     "blog/测试文章/categories.md",
@@ -185,9 +187,7 @@
     "blog/测试文章/markdown.md",
     "blog/测试文章/long-title.md",
     "blog/测试文章/images.md",
-    "blog/测试文章/gallery-post.md",
     "blog/测试文章/excerpts.md",
-    "blog/测试文章/elements.md",
     "blog/测试文章/code-highlight.md",
     "blog/测试文章/中文測試.md",
     "blog/测试文章/日本語テスト.md",

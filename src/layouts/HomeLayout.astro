@@ -6,6 +6,7 @@ import AuthorCard from "../components/AuthorCard.astro";
 import MusicPlayer from "../components/MusicPlayer.astro";
 import VideoPlayer from "../components/VideoPlayer.astro";
 import Announcement from "../components/Announcement.astro";
+import Search from "../components/Search.astro";
 
 const {pageTitle, allPosts, maxSize, page} = Astro.props;
 ---
@@ -31,6 +32,7 @@ const {pageTitle, allPosts, maxSize, page} = Astro.props;
       <MusicPlayer />
       <VideoPlayer />
       <Announcement />
+      <Search allPosts={allPosts} />
     </aside>
   </div>
 </BaseLayout>

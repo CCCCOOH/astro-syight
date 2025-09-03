@@ -7,6 +7,7 @@ photos:
   - https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509030619106.png
   - https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509030619474.png
 height: 500px
+thumb: https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509031316680.jpg
 ---
 Syight 博客模板文档。
 
@@ -26,3 +27,5 @@ Syight 博客模板文档。
 - 极致简约的风格
 - Astro 框架倾心打造，易于二次开发
 - 搭配 Vercel 使用效果极佳
+
+> 作者正在努力更新中...
