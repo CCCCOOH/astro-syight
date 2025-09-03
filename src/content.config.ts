@@ -5,32 +5,36 @@ import { defineCollection, getCollection, z } from 'astro:content';
 const blog = defineCollection({
   type: 'content',
   schema: z.object({
-    title: z.string().optional(),
-    excerpt: z.string().optional(),
-    date: z.coerce.date(),
-    sticky: z.number().optional(),
-    tags: z.array(z.string()).optional(),
-    author: z.string().optional(),
-    photos: z.array(z.string()).optional(),
-    ph_height: z.string().optional(),
-    latex: z.boolean().optional(),
-    visible: z.boolean().optional()
+    title: z.string().optional(), // 标题
+    excerpt: z.string().optional(), // 摘要
+    date: z.coerce.date(),  // 日期
+    sticky: z.number().optional(), // 置顶级别（越大越置顶）
+    tags: z.array(z.string()).optional(), // 标签
+    author: z.string().optional(), // 作者
+    photos: z.array(z.string()).optional(), // 文章内顶部海报组
+    ph_height: z.string().optional(), // photos 海报的高度
+    radius: z.string().optional(), // 海报圆角
+    thumb: z.string().optional(), // 首页文章封面
+    index_img: z.string().optional(), // 首页文章封面（兼容其他主题）优先使用thumb > index_img > 默认封面
+    latex: z.boolean().optional(), // 是否对文章啊启用 latex，启用则加载 latex包，单个页面会变慢，其他页面不受影响
+    visible: z.boolean().optional() // 文章在首页列表是否可见
   })
 });
 
+// 说说文章下frontmatter 范式
 const says = defineCollection({
   type: 'content',
   schema: z.object({
-    title: z.string().optional(),
-    says: z.boolean(),
-    photos: z.array(z.string()).optional(),
-    author: z.string().optional(),
-    avatar: z.string().optional(),
-    description: z.string().optional(),
-    img_width: z.string().optional(),
-    height: z.string().optional(),
-    radius: z.string().optional(),
-    date: z.coerce.date().optional(),
+    title: z.string().optional(), // 说说标题
+    says: z.boolean(),  // 是否启用说说，必须项
+    photos: z.array(z.string()).optional(), // 说说下海报数组
+    author: z.string().optional(),  // 作者
+    avatar: z.string().optional(), // 头像
+    description: z.string().optional(), // 描述
+    img_width: z.string().optional(), // 海报中单个图像宽度 一般设置高度即可
+    height: z.string().optional(), // 海报图像高度
+    radius: z.string().optional(), // 海报圆角
+    date: z.coerce.date().optional(), // 日期
   })
 })
 
