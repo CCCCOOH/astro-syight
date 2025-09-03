@@ -1,11 +1,10 @@
 ---
 import { getCollection } from "astro:content";
 import { article, site } from "../../config/site";
-import { sticky_sort } from "../../scripts/utils";
-import HomeLayout from "../../layouts/HomeLayout.astro";
+import { sticky_sort, posts_filter } from "../../scripts/utils";
 
 export async function getStaticPaths() {
-  const allPosts = sticky_sort(await getCollection('blog'));
+  const allPosts = posts_filter(sticky_sort(await getCollection('blog')));
   const size = article.page_size;
   const maxSize = Math.ceil(allPosts.length / size);
   
@@ -31,6 +30,8 @@ export async function getStaticPaths() {
 // 每页中获取到的数据
 
 const { allPosts, page, maxSize } = Astro.props;
+import HomeLayout from "../../layouts/HomeLayout.astro";
+
 ---
 
-<HomeLayout pageTitle={`${site.title}｜第${page}页`}, allPosts={allPosts} maxSize={maxSize} page={page} />
+<HomeLayout pageTitle={`${site.title}｜第${page}页`} allPosts={allPosts} maxSize={maxSize} page={page} />

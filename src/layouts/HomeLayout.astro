@@ -9,6 +9,7 @@ import Announcement from "../components/Announcement.astro";
 import Search from "../components/Search.astro";
 
 const {pageTitle, allPosts, maxSize, page} = Astro.props;
+
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -20,7 +21,7 @@ const {pageTitle, allPosts, maxSize, page} = Astro.props;
         <HomeArticleContainer
           page={page}
           class="flex-2 min-w-0"
-          posts={allPosts.slice(0, maxSize)}
+          posts={allPosts}
           isHome={true}
           maxSize={maxSize}
         />

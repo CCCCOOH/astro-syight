@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "blog/Syight更新日志.md",
+                "file": "blog/测试文章/gallery-post.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Syight更新日志"
+              "title": "gallery-post"
             }
           }
         ]
@@ -171,10 +171,12 @@
   },
   "active": "ac0742e4e259de88",
   "lastOpenFiles": [
+    "blog/测试文章/【测试标题】.md",
+    "blog/测试文章/gallery-post.md",
+    "blog/测试文章/excerpts.md",
+    "blog/Syight更新日志.md",
     "blog/Syight 使用文档.md",
     "blog/测试文章/elements.md",
-    "blog/测试文章/gallery-post.md",
-    "blog/Syight更新日志.md",
     "says/屎山代码糊自己头上了.md",
     "blog/测试文章/testTOC.md",
     "says/测试说说功能.md",
@@ -187,7 +189,6 @@
     "blog/测试文章/markdown.md",
     "blog/测试文章/long-title.md",
     "blog/测试文章/images.md",
-    "blog/测试文章/excerpts.md",
     "blog/测试文章/code-highlight.md",
     "blog/测试文章/中文測試.md",
     "blog/测试文章/日本語テスト.md",

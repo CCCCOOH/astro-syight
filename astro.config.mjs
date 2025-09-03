@@ -1,6 +1,5 @@
 // @ts-check
 import { defineConfig } from "astro/config";
-import preact from "@astrojs/preact";
 import tailwindcss from "@tailwindcss/vite";
 import remarkMath from 'remark-math';
  import rehypeKatex from 'rehype-katex';
@@ -10,7 +9,7 @@ import remarkMath from 'remark-math';
 // https://astro.build/config
 export default defineConfig({
   site: "https://syight.site",
-  integrations: [mdx(), sitemap(), preact()],
+  integrations: [mdx(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
   },

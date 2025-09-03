@@ -1,40 +1,95 @@
 ---
 import BasicCard from "./BasicCard.astro";
-
-const {allPosts} = Astro.props;
 ---
 
-<BasicCard id="search" class="w-full flex items-center h-15 gap-3">
-  <i class="fa-solid fa-search" ></i>
-  <div class="flex-1 relative">
-    <input class="outline-0 flex-1 w-full" type="text" />
+<BasicCard id="search" class="w-full flex flex-col h-fit gap-3">
+  <div class="flex items-center w-full">
+    <i class="fa-solid fa-search"></i>
+    <div id="input-box" class="flex-1 relative">
+      <input class="outline-0 flex-1 w-full" type="text" />
+    </div>
+  </div>
+  <div id="res-box" class="hidden flex flex-col transition">
   </div>
 </BasicCard>
 
 <style>
   input {
-    transition: border-color .3s ease-out;
+    transition: border-color 0.3s ease-out;
   }
   #search {
-    --padding: 20px;
-    padding-left: var(--padding);
-    padding-right: var(--padding);
+    padding: 20px;
+    --width: 0;
   }
-  #search div::after {
-    content: '';
-    width: 0;
+  #search #input-box::after {
+    content: "";
+    width: var(--width);
     height: 2px;
     background-color: var(--color-slate-700);
     position: absolute;
     left: 0;
     bottom: 0;
-    transition: .4s ease-out;
+    transition: 0.4s ease-out;
   }
-  #search div:hover::after {
+  #search:hover #input-box::after {
     width: 100%;
   }
-  input:focus {
-    border-bottom: 2px solid var(--color-slate-700);
+  :global(#res-box)>:global(a)::after {
+    display: none;
   }
-
+  :global(.dark) :global(#res-box)>:global(a) {
+    color: var(--color-slate-200);
+  }
+  :global(#res-box)>:global(a):hover {
+    background-color: var(--color-slate-200);
+  }
+  :global(.dark) :global(#res-box)>:global(a):hover {
+    background-color: var(--color-slate-800);
+  }
 </style>
+
+<script>
+  const input = document.querySelector("input");
+  const search = document.querySelector('#search')
+  const data = await getData();
+  const resBox = document.querySelector("#res-box");
+
+  // console.log(data);
+  
+  input.onfocus = function() {
+    search.style.setProperty('--width', '100%');
+  }
+  search?.addEventListener('mouseleave', () => {
+    search.style.setProperty('--width', '0');
+  }) 
+
+  input.onkeyup = async function () {
+    clearChild();
+    const value = input?.value;
+    console.log(value);
+    const filterData = data.filter((d) => value !== "" && d.title.includes(value));
+    const len = filterData.length;
+    if (len > 0) {
+      resBox?.classList.remove('hidden');
+    } else {
+      resBox?.classList.add('hidden');
+      return;
+    }
+    filterData.forEach(item => {
+      const node = document.createElement('a');
+      node.href = `/posts/${item?.slug}`;
+      node.innerText = item.title;
+      node.classList.add('fade-in')
+      resBox?.appendChild(node);
+    })
+  };
+
+  function clearChild() {
+    resBox.innerHTML = "";
+  }
+  async function getData() {
+    const response = await fetch("/all-content.json");
+    const data = await response.json();
+    return data;
+  }
+</script>

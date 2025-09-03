@@ -7,9 +7,7 @@ import Pagination from "./Pagination.astro";
 
 <BasicCard id="home-article-container" class={"flex flex-col gap-5 "+className} >
     {
-      posts
-        .filter((p) => !p.data?.hidden)
-        .map((p: any) => (
+      posts.map((p: any) => (
           <div class="item">
             <ArticleContainerItem post={p} />
           </div>

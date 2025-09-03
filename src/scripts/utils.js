@@ -29,3 +29,7 @@ export function date_sort(posts) {
     return y - x;
   });
 }
+
+export function posts_filter(posts) {
+  return posts.filter(post => post?.data?.hidden !== true && post?.data?.visible !== false);
+}

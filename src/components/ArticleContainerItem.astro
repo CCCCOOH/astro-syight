@@ -5,8 +5,7 @@ import { article } from '../config/site.js'
 const cover_default = article.default_cover;
 const title = get_title(p);
 ---
-{ p.data?.visible !== false &&
-<li class="list-none! born">
+{ <li class="list-none! born">
   {/* 左侧封面 */}
   <a id="left-img" class="float-left shadow hover:shadow-md hover:transition transition" href={'/posts/'+p.slug}>
     <!-- 文章封面 -->
