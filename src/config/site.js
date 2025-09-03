@@ -1,17 +1,17 @@
 export const article = {
-  default_cover: 'https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508041157020.gif',
-  page_size: 5,
-  show_all: false,
-  // excerpt_size: 50
-  use_frontmatter_title: true,
-  comment: true
+  default_cover: 'https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508041157020.gif',  // 首页文章默认封面
+  page_size: 5, // 每页显示的文章数
+  show_all: false,  // 是否一次性显示所有文章
+  use_frontmatter_title: true, // 启用frontmatter.title，会覆盖自动生成的标题
+  comment: true // 启用评论功能
 }
 
+// 首页作者信息卡片
 export const author_info = {
   avatar: 'https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508041157020.gif',
-  name: 'Sy_ovo',
-  description: '对世界充满好奇...',
-  tags: ['夜猫子', '程序猿', '前端', 'ComputerGraphic', 'EVA', '二刺螈'],
+  name: 'Sy_OvO',
+  description: '充满好奇...',
+  tags: ['Front End', 'ComputerGraphic', 'EVA', 'Hollow Knight', '404'],
   announcement: {
     title: '公告牌',
     icon: 'fa-solid fa-bell',
@@ -22,10 +22,12 @@ export const author_info = {
   }
 }
 
+// 站点配置
 export const site ={
   title: 'Syight'
 }
 
+// 页脚标签
 export const footer = [
   // { name, icon, link, color, dark_color }
   // {

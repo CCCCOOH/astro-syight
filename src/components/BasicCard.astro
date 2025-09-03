@@ -1,8 +1,9 @@
 ---
 const {class:className, id, ...rest} = Astro.props;
+import {card} from '../config/style.js';
 ---
 
-<div id={id} class={"transition bg-white rounded ring-2 ring-indigo-200/20 shadow born "+className} {...rest} >
+<div id={id} class={`transition bg-white ${card.radius} ring-2 ring-indigo-200/20 shadow born `+className} {...rest} >
   <slot />
 </div>
 
