@@ -9,7 +9,7 @@ const title = get_title(p);
   {/* 左侧封面 */}
   <a id="left-img" class="float-left shadow hover:shadow-md hover:transition transition" href={'/posts/'+p.slug}>
     <!-- 文章封面 -->
-    <img loading="lazy" class="w-50 max-w-50! h-30 object-cover" src={p.data?.thumb || p.data?.index_img || cover_default} alt="文章封面">
+    <img loading="lazy" class="w-50 max-w-50! h-30 object-cover" src={p.data?.thumb || cover_default} alt="文章封面">
   </a>
 
   {/* 右侧文章信息 */}

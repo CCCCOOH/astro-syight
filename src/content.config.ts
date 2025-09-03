@@ -15,7 +15,6 @@ const blog = defineCollection({
     ph_height: z.string().optional(), // photos 海报的高度
     radius: z.string().optional(), // 海报圆角
     thumb: z.string().optional(), // 首页文章封面
-    index_img: z.string().optional(), // 首页文章封面（兼容其他主题）优先使用thumb > index_img > 默认封面
     latex: z.boolean().optional(), // 是否对文章啊启用 latex，启用则加载 latex包，单个页面会变慢，其他页面不受影响
     visible: z.boolean().optional(), // 文章在首页列表是否可见
     hidden: z.boolean().optional() // 文章在首页列表是否隐藏
