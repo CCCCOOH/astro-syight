@@ -11,10 +11,14 @@
             "id": "0931696d6c32b1e8",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "blog/Syight 使用文档.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "Syight 使用文档"
             }
           }
         ]
@@ -165,7 +169,7 @@
       "bases:创建新数据库": false
     }
   },
-  "active": "0931696d6c32b1e8",
+  "active": "115eeca3c23af60b",
   "lastOpenFiles": [
     "blog/Syight更新日志.md",
     "blog/测试文章/gallery-post.md",
