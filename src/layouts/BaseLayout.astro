@@ -6,7 +6,6 @@ import "../styles/color.css"
 import "../styles/utils.css"
 import ToTop from "../components/ToTop.astro";
 import ThemeSwitchButton from "../components/ThemeSwitchButton.astro"
-
 const { pageTitle } = Astro.props;
 ---
 
@@ -45,3 +44,26 @@ const { pageTitle } = Astro.props;
     margin-bottom: 10px;
   }
 </style>
+
+
+<script>
+  const data = await getData('/config.json');
+  const {default_cover} = data;
+  
+  const images = document.querySelectorAll('img');
+  function loadImages(image) {
+    const src = image.getAttribute('src');
+    image.setAttribute('src', default_cover)
+    image.onload = () => {
+      image.setAttribute('src', src);
+    }
+  }
+  images.forEach(img => {
+    loadImages(img)
+  })
+  export async function getData(url) {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  }
+</script>

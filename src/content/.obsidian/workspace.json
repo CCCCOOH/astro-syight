@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "7ea0f9e236d0828c",
+        "id": "c79784e64dfedb4f",
         "type": "tabs",
         "children": [
           {
-            "id": "ac0742e4e259de88",
+            "id": "0931696d6c32b1e8",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blog/测试文章/gallery-post.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "gallery-post"
+              "title": "新标签页"
             }
           }
         ]
@@ -169,12 +165,12 @@
       "bases:创建新数据库": false
     }
   },
-  "active": "ac0742e4e259de88",
+  "active": "0931696d6c32b1e8",
   "lastOpenFiles": [
-    "blog/测试文章/【测试标题】.md",
-    "blog/测试文章/gallery-post.md",
-    "blog/测试文章/excerpts.md",
     "blog/Syight更新日志.md",
+    "blog/测试文章/gallery-post.md",
+    "blog/测试文章/【测试标题】.md",
+    "blog/测试文章/excerpts.md",
     "blog/Syight 使用文档.md",
     "blog/测试文章/elements.md",
     "says/屎山代码糊自己头上了.md",

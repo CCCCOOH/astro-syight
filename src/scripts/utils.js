@@ -2,6 +2,7 @@ export function get_title(content) {
   return content?.id?.split('/')?.at(-1)?.split('.')[0];
 }
 
+
 export function get_frontmatter(content) {
   return content.data?.frontmatter;
 }

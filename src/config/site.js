@@ -1,5 +1,5 @@
 export const article = {
-  default_cover: 'https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202508041157020.gif',  // 首页文章默认封面
+  default_cover: 'https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509031715479.jpg',  // 首页文章默认封面
   page_size: 5, // 每页显示的文章数
   show_all: false,  // 是否一次性显示所有文章
   use_frontmatter_title: true, // 启用frontmatter.title，会覆盖自动生成的标题

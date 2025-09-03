@@ -8,7 +8,7 @@ const radius_style = radius || "0px";
 <div class="flex born justify-center items-center h-full">
   <!-- 文章内 photos 滑动头图 -->
   <ul class="flex gap-0! w-full h-full p-0! justify-center items-center">
-    {photos?.length > 0 && photos.map((url:any) => <li class="post-img h-full hover:cursor-pointer list-none! bg-cover bg-center" style={`background-image: url(${url});`}></li>) }
+    {photos?.length > 0 && photos.map((url:any) => <li title="gallery" class="post-img h-full hover:cursor-pointer list-none! bg-cover bg-center" style={`background-image: url(${url});`}></li>) }
   </ul>
 </div>
 
