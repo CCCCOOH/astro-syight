@@ -7,7 +7,8 @@ const blog = defineCollection({
   schema: z.object({
     title: z.string().optional(), // 标题
     excerpt: z.string().optional(), // 摘要
-    date: z.coerce.date(),  // 日期
+    createdTime: z.coerce.date(),  // 日期
+    updatedTime: z.date().optional(),  // 日期
     sticky: z.number().optional(), // 置顶级别（越大越置顶）
     tags: z.array(z.string()).optional(), // 标签
     author: z.string().optional(), // 作者
@@ -26,7 +27,7 @@ const says = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string().optional(), // 说说标题
-    says: z.boolean(),  // 是否启用说说，必须项
+    says: z.coerce.boolean(),  // 是否启用说说，必须项
     photos: z.array(z.string()).optional(), // 说说下海报数组
     author: z.string().optional(),  // 作者
     avatar: z.string().optional(), // 头像
@@ -34,7 +35,7 @@ const says = defineCollection({
     img_width: z.string().optional(), // 海报中单个图像宽度 一般设置高度即可
     height: z.string().optional(), // 海报图像高度
     radius: z.string().optional(), // 海报圆角
-    date: z.coerce.date().optional(), // 日期
+    createdTime: z.date().optional(), // 日期
   })
 })
 
