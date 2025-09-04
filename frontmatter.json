@@ -65,7 +65,7 @@
           "name": "thumb",
           "type": "image",
           "isPreviewImage": true,
-          // "default": "https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509031715479.jpg"
+          "default": "/public/default_cover.png"
         },
         {
           "title": "启用Latex",
