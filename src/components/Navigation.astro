@@ -8,17 +8,19 @@ import BasicCard from "./BasicCard.astro";
 
 <BasicCard
   id="navigation"
-  class="z-9 fixed top-6 left-[50%] -translate-x-[50%]  flex gap-2"
+  class="z-9 fixed top-6 left-[50%] -translate-x-[50%] flex gap-2 max-md:w-full max-md:top-0"
 >
   <a href="/" id="site-title" class="font-mono text-2xl cursor-pointer"
     >{site.title}</a
   >
-  <nav id="nav-item" class="flex justify-center items-center gap-10 max-md:gap-2">
+  <nav id="nav-item" class="flex items-center gap-10 max-md:gap-2 max-md:w-full max-md:justify-around">
     {
       nav.map((item) => (
         <a class="text-2xl px-1 flex items-center" href={item.src}>
-          {item?.icon && <i class={item.icon + " born"} />}
-          <span class="max-md:hidden whitespace-nowrap">{item.title}</span>
+          {item?.icon && 
+            <i class={item.icon + " born"} />
+          }
+          <span class="whitespace-nowrap max-md:hidden">{item.title}</span>
         </a>
       ))
     }
@@ -60,9 +62,18 @@ import BasicCard from "./BasicCard.astro";
   #site-title::after {
     content: none;
   }
-  @media screen and (width < 48rem) {
+  @media screen and (max-width: 48rem) {
+    #navigation {
+      border-radius: 0;
+    }
+    .nav-hide {
+      transform: translateY(-200px);
+    }
     a::after {
       content: none;
+    }
+    a:hover {
+      color: var(--color-slate-600);
     }
   }
 </style>
