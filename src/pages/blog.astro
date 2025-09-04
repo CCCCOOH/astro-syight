@@ -11,7 +11,9 @@ const formatPosts = {};
 // 利用filter去掉undefined
 
 const years = [
-  ...new Set(allPosts.map((post) => new Date(post.data?.createdTime).getFullYear())),
+  ...new Set(
+    allPosts.map((post) => new Date(post.data?.createdTime).getFullYear())
+  ),
 ].filter((year) => year !== undefined);
 
 years.forEach((year) => {
@@ -39,10 +41,7 @@ for (let posts of Object.values(formatPosts) as any[]) {
   {
     allPosts.length > 0 && (
       <article id="archive-container" class="flex flex-col items-center">
-        <BasicCard
-          id="blog-container"
-          class="fade-in w-[40%] max-md:w-full"
-        >
+        <BasicCard id="blog-container" class="fade-in w-[40%] max-sm:w-full max-md:w-3/4 max-lg:w-2/3">
           {Object.keys(formatPosts).map((year: any) => (
             <div class="max-w-cal[100vw-30px] text-xl text-shadow-2xs">
               <span class="year text-slate-600 text-2xl">{year}年</span>

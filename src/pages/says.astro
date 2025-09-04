@@ -10,7 +10,7 @@ const pageTitle = "Says";
 
 <BaseLayout pageTitle={pageTitle}>
   <div class="flex justify-center items-center back-grid">
-    <BasicCard id="say-container" class="w-[50%] max-md:w-full">
+    <BasicCard id="say-container" class="w-1/2 max-md:w-full max-lg:full">
       {says.map((say: any) => <SaySayItem say={say} />)}
     </BasicCard>
   </div>
