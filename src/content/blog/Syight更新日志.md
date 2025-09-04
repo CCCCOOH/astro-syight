@@ -4,11 +4,9 @@ date: 2025-09-01
 author: Sy_
 sticky: 999
 thumb: https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509031316259.jpg
+slug: syight更新日志
+excerpt: 更新日志、更新进度。
 ---
-更新日志、更新进度。
-
-<!-- more -->
-
 
 ## 2025-09-01 前:
 
@@ -69,5 +67,7 @@ thumb: https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509031316259.jpg
 - 特性: 为 Syight 配置 Front Matter CMS 功能, 开箱即用
 - 移除: 统一 Front Matter, 将统一功能的多个 Front Matter 移除, 如：只保留 thumb 作为文章封面, 移除了 index_img（多余）
 - 进度: Syight 尝试开发 CMS 功能中...
+- 新增: Giscus 自动随主题按钮切换主题
+- 优化: 修复主题切换bug
 ```
 
