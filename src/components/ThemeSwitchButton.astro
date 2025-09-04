@@ -30,9 +30,10 @@ const {class:className, ...rest} = Astro.props;
     
 
     function init() {
-        if (localStorage.theme === 'dark' || !localStorage.theme) {
+        if (localStorage.theme === 'dark') {
             setDark();
-        } else if (localStorage.theme === 'light') {
+        } else if (localStorage.theme === 'light' || !localStorage.theme) {
+            // 初次使用默认为亮色
             setLight();
         }
     }
