@@ -42,7 +42,7 @@ frontmatter?.latex && (
 <BaseLayout pageTitle={title}>
 	<div id="markdown-container" class="back-grid flex w-full" >
 		<!-- ################################################## 左侧内容模块 ############################################### -->
-		<div id="left-content" class="flex-6 inline-flex flex-col items-center min-w-0">
+		<div id="left-content" class="flex-3 inline-flex flex-col items-center min-w-0">
 			<!-- ################################################## Post Gallery Component ################################################## -->
 			{frontmatter?.photos?.length > 0 && (
 				<div id="gallery-container" class="w-full h-fit">
@@ -83,7 +83,7 @@ frontmatter?.latex && (
 			</div>
 		</div>
 		<!-- ################################################## 右侧目录 ################################################## -->
-		<TOC class="flex-2 max-md:hidden " headings={headings}/>
+		<TOC class="flex-1 max-md:hidden " headings={headings}/>
 	</div>
 </BaseLayout>
 
@@ -109,7 +109,7 @@ frontmatter?.latex && (
 		box-shadow: none;
 	}
 
-	#markdown-container {
+	#left-content {
 		padding: var(--calculatePadding);
 	}
 
