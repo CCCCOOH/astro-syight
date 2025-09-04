@@ -6,6 +6,7 @@ tags:
   - Bar
 sticky: 1
 updatedTime: 2025-09-04T07:31:43.767Z
+thumb: /default_cover.png
 ---
 
 This post is originated from [here](https://gist.github.com/apackeer/4159268) and is used for testing markdown style. This post contains nearly every markdown usage. Make sure all the markdown elements below show up correctly.

@@ -2,7 +2,7 @@
 title: Elements
 createdTime: 2013-12-24 23:29:08
 sticky: 1
-thumb: https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509031318822.jpg
+thumb: /default_cover.png
 ---
 
 The purpose of this post is to help you make sure all of HTML elements can display properly. If you use CSS reset, don't forget to redefine the style by yourself.
