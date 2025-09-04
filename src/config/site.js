@@ -46,16 +46,10 @@ export const footer = [
   {
     // 请尊重作者
     name: 'Copyright © Astro Syight',
-    link: '/',
+    link: 'https://github.com/CCCCOOH/astro-syight',
     color: 'black',
     dark_color: ''
   },
-  {
-    name: 'Link',
-    link: 'https://sygmail.github.io/',
-    color: '#555',
-    dark_color: ''
-  }
 ]
 
 export const giscus = {
