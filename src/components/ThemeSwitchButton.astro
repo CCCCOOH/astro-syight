@@ -3,7 +3,7 @@ const {class:className, ...rest} = Astro.props;
 ---
 
 <div id="theme-btn"
-     class={"transition size-15 rounded-full fixed z-3 left-5 bg-slate-700 top-5 hover:cursor-pointer "+className} {...rest}>
+     class={"transition max-lg:hidden size-15 rounded-full fixed z-3 left-5 bg-slate-700 top-5 hover:cursor-pointer "+className} {...rest}>
 </div>
 
 <script>
@@ -24,7 +24,7 @@ const {class:className, ...rest} = Astro.props;
             localStorage.theme = 'light';
         } else {
             setDark();
-            localStorage.theme = 'dark';
+            localStorage.theme = 'light';
         }
     }
     
