@@ -8,11 +8,13 @@ import ImageCover from "../components/ImageCover.astro";
 import TOC from "../components/TOC.astro";
 const {frontmatter, post} = Astro.props;
 const title = post?.id.split("/")?.at(-1)?.split(".")[0];
-const headins = post?.rendered?.metadata?.headings;
+const headings = post?.rendered?.metadata?.headings;
+const hasHeadings = headings?.length > 0;
 const photos_height = frontmatter?.ph_height;
 const createdTime = `发布: ${format_date(frontmatter?.createdTime)}`;
 const updatedTime = `更新: ${format_date(frontmatter?.updatedTime)}`;
 const hasUpdatedTime = format_date(frontmatter?.updatedTime);
+const calculatePadding = hasHeadings ? '5rem' : "15rem";
 ---
 
 <!-- 加入head是为了为每一篇文章单独引入latex包 -->{
@@ -38,9 +40,9 @@ frontmatter?.latex && (
 }
 
 <BaseLayout pageTitle={title}>
-	<div id="markdown-container" class="back-grid flex w-full">
+	<div id="markdown-container" class="back-grid flex w-full" >
 		<!-- ################################################## 左侧内容模块 ############################################### -->
-		<div class="flex-6 inline-flex flex-col items-center min-w-0">
+		<div id="left-content" class="flex-6 inline-flex flex-col items-center min-w-0">
 			<!-- ################################################## Post Gallery Component ################################################## -->
 			{frontmatter?.photos?.length > 0 && (
 				<div id="gallery-container" class="w-full h-fit">
@@ -81,11 +83,11 @@ frontmatter?.latex && (
 			</div>
 		</div>
 		<!-- ################################################## 右侧目录 ################################################## -->
-		<TOC class="flex-2 max-md:hidden " headings={headins}/>
+		<TOC class="flex-2 max-md:hidden " headings={headings}/>
 	</div>
 </BaseLayout>
 
-<style define:vars={{photos_height}}>
+<style define:vars={{photos_height, calculatePadding}}>
 	a {
 		olor: #00539f;
 	}
@@ -108,8 +110,9 @@ frontmatter?.latex && (
 	}
 
 	#markdown-container {
-		padding: 5rem;
+		padding: var(--calculatePadding);
 	}
+
 
 	#gallery-container {
 		margin-bottom: 2rem;

@@ -32,7 +32,7 @@ const { Content } = await post?.render(); // 将x Markdown 转换为 HTML
 <MarkdownPostLayout post={post} frontmatter={post?.rendered?.metadata?.frontmatter}>
 <div id="main" class="flex flex-col items-center w-full max-w-full">
     <!-- ################################################## 文章内容 ################################################## -->
-    <div class="w-full max-w-full min-page-y"><Content /></div>
+    <div class="w-full max-w-full"><Content /></div>
     <!-- ################################################## 评论系统 ################################################## -->
     <article class="w-full flex justify-center">{ifComment && <AstroGiscus />}</article>
   </div>
