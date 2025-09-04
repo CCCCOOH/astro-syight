@@ -13,7 +13,7 @@ const blog = defineCollection({
     tags: z.array(z.string()).optional(), // 标签
     author: z.string().optional(), // 作者
     photos: z.array(z.string()).optional(), // 文章内顶部海报组
-    ph_height: z.string().optional(), // photos 海报的高度
+    gallery_h: z.string().optional(), // photos 海报的高度
     radius: z.string().optional(), // 海报圆角
     thumb: z.string().optional(), // 首页文章封面
     latex: z.boolean().optional(), // 是否对文章啊启用 latex，启用则加载 latex包，单个页面会变慢，其他页面不受影响
@@ -32,8 +32,7 @@ const says = defineCollection({
     author: z.string().optional(),  // 作者
     avatar: z.string().optional(), // 头像
     description: z.string().optional(), // 描述
-    img_width: z.string().optional(), // 海报中单个图像宽度 一般设置高度即可
-    height: z.string().optional(), // 海报图像高度
+    gallery_h: z.string().optional(), // 海报中单个图像宽度 一般设置高度即可
     radius: z.string().optional(), // 海报圆角
     createdTime: z.date().optional(), // 日期
   })

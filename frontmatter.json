@@ -14,6 +14,12 @@
           "single": true
         },
         {
+          "title": "Gallery 高度",
+          "name": "gallery_h",
+          "type": "string",
+          "single": true
+        },
+        {
           "title": "摘要",
           "name": "excerpt",
           "type": "string",
@@ -121,7 +127,7 @@
         },
         {
           "title": "图片高度",
-          "name": "height",
+          "name": "gallery_h",
           "type": "string",
           "single": true
         },

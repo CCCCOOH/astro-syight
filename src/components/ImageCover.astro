@@ -1,0 +1,6 @@
+---
+const {url, class:className, ...rest } = Astro.props;
+import { style_img } from "../scripts/utils";
+---
+
+<div style={style_img(url)} class={"min-w-0 min-h-0 shadow transition bg-cover bg-center rounded-2xl"+" "+className} {...rest} ></div>

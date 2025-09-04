@@ -7,6 +7,7 @@ photos:
   - https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509030619106.png
   - https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509030619474.png
 thumb: https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509031316680.jpg
+gallery_h: 20rem
 ---
 Syight 博客模板文档。
 

@@ -59,7 +59,7 @@ const { posts } = Astro.props;
           posts.map((post: any) => (
             <BlogPost
               title={post?.id.split("/")?.at(-1)?.split(".")[0]}
-              month={post.data.date.getMonth()}
+              month={post.data.createdTime.getMonth()}
               url={`/posts/${post?.slug}`}
             />
           ))

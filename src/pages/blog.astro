@@ -11,7 +11,7 @@ const formatPosts = {};
 // 利用filter去掉undefined
 
 const years = [
-  ...new Set(allPosts.map((post) => new Date(post.data?.date).getFullYear())),
+  ...new Set(allPosts.map((post) => new Date(post.data?.createdTime).getFullYear())),
 ].filter((year) => year !== undefined);
 
 years.forEach((year) => {
@@ -21,7 +21,7 @@ years.forEach((year) => {
 for (let year of years) {
   // 遍历每一年的文章筛选出来
   const correspondPosts = allPosts.filter(
-    (post) => post.data.date?.getFullYear() == year
+    (post) => post.data.createdTime?.getFullYear() == year
   );
   formatPosts[year] = [...correspondPosts, ...formatPosts[year]];
 }
