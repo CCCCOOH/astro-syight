@@ -1,6 +1,6 @@
 ---
 const { say } = Astro.props;
-import { get_title, format_say_date } from "../scripts/utils";
+import { get_title, format_date } from "../scripts/utils";
 import { info } from "../config/says.js";
 import ImagesGallery from "../components/ImagesGallery.astro";
 
@@ -35,7 +35,7 @@ const show = say.data?.photos?.length > 0;
   {show && <ImagesGallery radius={say.data?.radius} photos={say.data?.photos} />}
   <!-- 日期 -->
   <div class="date text-slate-500 text-center">
-    Date: {format_say_date(say.data?.date)}
+    日期: {format_date(say.data?.createdTime)}
   </div>
 </li>
 
