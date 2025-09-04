@@ -4,9 +4,10 @@ import BasicCard from "./BasicCard.astro";
 const announcement = author_info.announcement;
 const icon = `${announcement.icon} born`;
 const contents = announcement.content;
+const {class:className, ...rest} = Astro.props;
 ---
 
-<BasicCard id="announcement" class="max-w-200 transition ">
+<BasicCard id="announcement" class={"max-w-200 transition"+" "+className} {...rest} >
   <!-- 公告标题 -->
   <h2>
     <span class="text-slate-600">{announcement.title}</span>
