@@ -48,10 +48,10 @@ const { posts } = Astro.props;
 ---
 
 <BaseLayout pageTitle={tag}>
-  <div class="w-full flex justify-center items-center">
+  <div class="min-w-0 flex justify-center items-center">
     <BasicCard
       id="tag-container"
-      class="inset-shadow-sm inset-shadow-slate-800 w-1/2"
+      class="inset-shadow-sm inset-shadow-slate-800 w-1/2 max-md:w-full"
     >
       <p class="text-slate-500 text-sm">标签：「{tag}」</p>
       <ul class="flex flex-col p-0!">
