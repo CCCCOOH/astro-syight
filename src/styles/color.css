@@ -90,6 +90,13 @@ tr:hover {
 a {
   color: var(--color-sky-700);
 }
+
+@media screen and (max-width: 48rem) {
+  a {
+    color: var(--color-slate-700);
+  }
+}
+
 .dark a {
   color: var(--color-sky-500);
 }
