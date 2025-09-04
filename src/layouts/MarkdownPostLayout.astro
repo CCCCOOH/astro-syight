@@ -9,8 +9,8 @@ const {frontmatter, post} = Astro.props;
 const title = post?.id.split("/")?.at(-1)?.split(".")[0];
 const headins = post?.rendered?.metadata?.headings;
 const photos_height = frontmatter?.ph_height;
-const createdTime = `发布时间: ${format_date(frontmatter?.createdTime)}`;
-const updatedTime = `更新时间: ${format_date(frontmatter?.updatedTime)}`;
+const createdTime = `发布: ${format_date(frontmatter?.createdTime)}`;
+const updatedTime = `更新: ${format_date(frontmatter?.updatedTime)}`;
 const hasUpdatedTime = format_date(frontmatter?.updatedTime);
 ---
 
@@ -60,9 +60,9 @@ frontmatter?.latex && (
 					</span>
 				</h1>
 				<!-- 创建时间 -->
-				<p class="text-sm!"><em>{createdTime}</em></p>
+				<p class="text-sm! text-slate-400 time"><em>{createdTime}</em></p>
 				<!-- 更新时间 -->
-				{hasUpdatedTime && <p class="text-sm!"><em>{updatedTime}</em></p>}
+				{hasUpdatedTime && <p class="text-sm! text-slate-400 time"><em>{updatedTime}</em></p>}
 				<!-- 作者名 -->
 				<p class="text-slate-400 text-sm text-center">作者：{frontmatter?.author || author_info?.name}</p>
 			</div>
@@ -115,5 +115,8 @@ frontmatter?.latex && (
 		#markdown-container {
 			padding: 20px;
 		}
+	}
+	.time {
+		padding: 5px 0;
 	}
 </style>
