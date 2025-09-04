@@ -7,7 +7,7 @@ const {class:className, ...rest} = Astro.props;
 </div>
 
 <script>
-    const themeBtn = document.querySelector('#theme-btn')
+    const themeBtn = document.querySelector('#theme-btn');
     document.addEventListener('DOMContentLoaded', () => {
         init();
         themeBtn?.addEventListener("click", () => {
@@ -32,9 +32,13 @@ const {class:className, ...rest} = Astro.props;
     function init() {
         if (localStorage.theme === 'dark') {
             setDark();
-        } else if (localStorage.theme === 'light' || !localStorage.theme) {
+        } else if (localStorage.theme === 'light' || localStorage.theme === undefined) {
             // 初次使用默认为亮色
+            
             setLight();
+            if (localStorage.theme === undefined) {
+                localStorage.theme = 'light';
+            }
         }
     }
     function setDark() {

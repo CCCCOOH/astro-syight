@@ -2,9 +2,10 @@
 import { author_info } from "../config/site.js";
 import AuthorTag from "./AuthorTag.astro";
 import BasicCard from "./BasicCard.astro";
+const {class:className, ...rest} = Astro.props;
 ---
 
-<BasicCard class="gap-2 flex flex-col items-center">
+<BasicCard class={"gap-2 flex flex-col items-center"+" "+className} {...rest} >
   <img
     src={author_info?.avatar}
     class="transition -translate-y-10 w-30 object-cover shadow rounded-full! hover:scale-105 hover:transition hover:rotate-180"
