@@ -6,7 +6,7 @@ const {tag} = Astro.props;
   <a id="tag-text" class="transition" href={`/tags/${tag}`}>{tag}</a>
 </BasicCard>
 
-<style>
+<style lang="stylus">
   a::after {
     content: none;
   }
@@ -15,7 +15,7 @@ const {tag} = Astro.props;
   }
   #tag:hover {
     cursor: pointer;
-    background: var(--color-slate-800);
+    background-color: var(--color-slate-800);
   }
   #tag>a {
     color: var(--color-slate-600);
@@ -31,5 +31,23 @@ const {tag} = Astro.props;
   }
   :global(.dark) #tag:hover #tag-text {
     color: var(--color-slate-600);
+  }
+  @media (max-width: 48rem) {
+    #tag:hover {
+      background-color: white;
+    }
+    #tag:hover>a {
+      color: var(--color-slate-600);
+    }
+    :global(.dark) {
+      #tag:hover {
+        & {
+          background-color: var(--color-slate-700) !important;
+        }
+        &>a {
+          color: var(--color-slate-300) !important;
+        }
+      }
+    }
   }
 </style>
