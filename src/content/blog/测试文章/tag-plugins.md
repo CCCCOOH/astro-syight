@@ -1,7 +1,6 @@
 ---
 title: Tag Plugins
 createdTime: 2013-12-25 00:14:39
-visible: false
 sticky: 1
 ---
 

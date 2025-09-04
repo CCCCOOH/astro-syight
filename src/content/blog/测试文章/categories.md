@@ -1,8 +1,7 @@
 ---
 title: Categories
 createdTime: 2013-12-24 23:30:09
-visible: false
-categories:
+tags:
   - Foo
   - Bar
   - Baz

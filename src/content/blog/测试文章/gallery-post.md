@@ -6,7 +6,6 @@ photos:
   - https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509010550655.jpg
   - https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509010550474.jpeg
   - https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509010550047.jpg
-ph_height: 300px
 radius: 30px
 sticky: 2
 thumb: https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509031317864.jpg
