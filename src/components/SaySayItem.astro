@@ -32,7 +32,7 @@ const show = say.data?.photos?.length > 0;
   <!-- 说说内容 -->
   <p class="text-base!">{say.body}</p>
   <!-- 说说海报 -->
-  {show && <ImagesGallery height={say.data?.gallery_h} radius={say.data?.radius} photos={say.data?.photos} />}
+  {show && <ImagesGallery margin="1rem 0" height={say.data?.gallery_h} radius={say.data?.radius} photos={say.data?.photos} />}
   <!-- 日期 -->
   <div class="date text-slate-500 text-center">
     日期: {format_date(say.data?.createdTime)}

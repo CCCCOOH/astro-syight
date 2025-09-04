@@ -1,5 +1,5 @@
 ---
-const { photos, radius, class: className, height, ...rest } = Astro.props;
+const { photos, margin, radius, class: className, height, ...rest } = Astro.props;
 const radius_style = radius || "0px";
 const height_style = height || "450px"
 ---
@@ -22,7 +22,7 @@ const height_style = height || "450px"
   </ul>
 </div>
 
-<style define:vars={{ radius_style, height_style }}>
+<style define:vars={{ radius_style, height_style, margin }}>
   li::before {
     content: none;
   }
@@ -31,6 +31,7 @@ const height_style = height || "450px"
   }
   #gallery {
     height: var(--height_style);
+    margin: var(--margin);
   }
   .post-img {
     flex: 1;
