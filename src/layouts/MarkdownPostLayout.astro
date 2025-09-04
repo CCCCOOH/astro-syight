@@ -1,12 +1,12 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import {author_info, article} from "../config/site.js";
-import {format_date} from "../scripts/utils.js";
+import { author_info, article } from "../config/site.js";
+import { format_date } from "../scripts/utils.js";
 import Tag from "../components/Tag.astro";
 import ImagesGallery from "../components/ImagesGallery.astro";
 import ImageCover from "../components/ImageCover.astro";
 import TOC from "../components/TOC.astro";
-const {frontmatter, post} = Astro.props;
+const { frontmatter, post } = Astro.props;
 const title = post?.id.split("/")?.at(-1)?.split(".")[0];
 const headings = post?.rendered?.metadata?.headings;
 const hasHeadings = headings?.length > 0;
@@ -14,118 +14,175 @@ const photos_height = frontmatter?.ph_height;
 const createdTime = `发布: ${format_date(frontmatter?.createdTime)}`;
 const updatedTime = `更新: ${format_date(frontmatter?.updatedTime)}`;
 const hasUpdatedTime = format_date(frontmatter?.updatedTime);
-const calculatePadding = hasHeadings ? '5rem' : "15rem";
+const calculatePadding = hasHeadings ? "5rem" : "15rem";
 ---
 
 <!-- 加入head是为了为每一篇文章单独引入latex包 -->{
-frontmatter?.latex && (
-<head>
-	<meta charset="utf-8"/>
-	<link
-		rel="stylesheet"
-		href="https://fastly.jsdelivr.net/npm/katex@0.15.1/dist/katex.css"
-		integrity="sha384-WsHMgfkABRyG494OmuiNmkAOk8nhO1qE+Y6wns6v+EoNoTNxrWxYpl5ZYWFOLPCM"
-		crossorigin="anonymous"
-	/>
-	<meta name="viewport" content="width=device-width"/>
-	<meta name="generator" content={Astro.generator}/>
-	<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-	<script
-		src="https://kit.fontawesome.com/18093c370e.js"
-		crossorigin="anonymous"
-	/>
-	<title>{title}</title>
-</head>
-)
+  frontmatter?.latex && (
+    <head>
+      <meta charset="utf-8" />
+      <link
+        rel="stylesheet"
+        href="https://fastly.jsdelivr.net/npm/katex@0.15.1/dist/katex.css"
+        integrity="sha384-WsHMgfkABRyG494OmuiNmkAOk8nhO1qE+Y6wns6v+EoNoTNxrWxYpl5ZYWFOLPCM"
+        crossorigin="anonymous"
+      />
+      <meta name="viewport" content="width=device-width" />
+      <meta name="generator" content={Astro.generator} />
+      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      <script
+        src="https://kit.fontawesome.com/18093c370e.js"
+        crossorigin="anonymous"
+      />
+      <title>{title}</title>
+    </head>
+  )
 }
 
 <BaseLayout pageTitle={title}>
-	<div id="markdown-container" class="back-grid flex w-full" >
-		<!-- ################################################## 左侧内容模块 ############################################### -->
-		<div id="left-content" class="flex-3 inline-flex flex-col items-center min-w-0">
-			<!-- ################################################## Post Gallery Component ################################################## -->
-			{frontmatter?.photos?.length > 0 && (
-				<div id="gallery-container" class="w-full h-fit">
-				<ImagesGallery
-					radius={frontmatter?.radius}
-					photos={frontmatter?.photos}
-					height={frontmatter?.gallery_h}
-				/>
-			</div>)}
-			<!--  ################################################## 文章信息 ################################################## -->
-			<!-- 文章封面 -->
-			{ frontmatter?.thumb && <ImageCover id="imgCover" url={frontmatter?.thumb} class="max-lg:w-[calc(100%-5rem)] w-2/3 min-h-100 max-md:w-full fade-in" />}
-			<div id="article-info" class="flex flex-col items-center w-full">
-				<!-- 文章标题 -->
-				<h1>
-					<span
-						id="title"
-						class="inset-shadow-sm bg-gray-50 inset-shadow-gray-200 px-2">
-						{ article.use_frontmatter_title ? frontmatter?.title || title : title }
-					</span>
-				</h1>
-				<!-- 创建时间 -->
-				<p class="text-sm! text-slate-400 time"><em>{createdTime}</em></p>
-				<!-- 更新时间 -->
-				{hasUpdatedTime && <p class="text-sm! text-slate-400 time"><em>{updatedTime}</em></p>}
-				<!-- 作者名 -->
-				<p class="text-slate-400 text-sm text-center">作者：{frontmatter?.author || author_info?.name}</p>
-			</div>
-			<!-- ################################################### 容器插槽 ################################################### -->
-			<div class="w-full max-w-full">
-				<slot/>
-			</div>
+  <div id="markdown-container" class="back-grid justify-center flex w-full">
+    <!-- ################################################## 左侧内容模块 ############################################### -->
+    <div
+      id="left-content"
+      class="flex-3 inline-flex flex-col items-center min-w-0 max-w-[1300px]"
+    >
+      <!-- ################################################## Post Gallery Component ################################################## -->
+      {
+        frontmatter?.photos?.length > 0 && (
+          <div id="gallery-container" class="w-full h-fit">
+            <ImagesGallery
+              radius={frontmatter?.radius}
+              photos={frontmatter?.photos}
+              height={frontmatter?.gallery_h}
+            />
+          </div>
+        )
+      }
+      <!--  ################################################## 文章信息 ################################################## -->
+      <!-- 文章封面 -->
+      {
+        frontmatter?.thumb && (
+          <ImageCover
+            id="imgCover"
+            url={frontmatter?.thumb}
+            class="max-lg:w-[calc(100%-5rem)] w-2/3 min-h-100 max-md:w-full fade-in"
+          />
+        )
+      }
+      <div id="article-info" class="flex flex-col items-center w-full">
+        <!-- 文章标题 -->
+        <h1>
+          <span
+            id="title"
+            class="inset-shadow-sm bg-gray-50 inset-shadow-gray-200 px-2"
+          >
+            {
+              article.use_frontmatter_title
+                ? frontmatter?.title || title
+                : title
+            }
+          </span>
+        </h1>
+        <!-- 创建时间 -->
+        <p class="text-sm! text-slate-400 time"><em>{createdTime}</em></p>
+        <!-- 更新时间 -->
+        {
+          hasUpdatedTime && (
+            <p class="text-sm! text-slate-400 time">
+              <em>{updatedTime}</em>
+            </p>
+          )
+        }
+        <!-- 作者名 -->
+        <p class="text-slate-400 text-sm text-center">
+          作者：{frontmatter?.author || author_info?.name}
+        </p>
+      </div>
+      <!-- ################################################### 容器插槽 ################################################### -->
+      <div class="w-full max-w-full">
+        <slot />
+      </div>
 
-			<!-- ################################################## 底部标签列表 ###################################################### -->
-			<div class="flex-2 flex justify-center gap-5 flex-wrap py-5">
-				{ Array.isArray(frontmatter?.tags) &&
-					frontmatter?.tags?.map((tag: string) => <Tag tag={tag}/>) }
-			</div>
-		</div>
-		<!-- ################################################## 右侧目录 ################################################## -->
-		<TOC class="flex-1 max-md:hidden " headings={headings}/>
-	</div>
+      <!-- ################################################## 底部标签列表 ###################################################### -->
+      <div class="flex-2 flex justify-center gap-5 flex-wrap py-5">
+        {
+          Array.isArray(frontmatter?.tags) &&
+            frontmatter?.tags?.map((tag: string) => <Tag tag={tag} />)
+        }
+      </div>
+    </div>
+    <!-- ################################################## 右侧目录 ################################################## -->
+		<div id="toc-placeholder" class="flex-0 bg-slate-100 min-w-0 xl:flex-1"></div>
+    <TOC
+			id="TOC-fix-container"
+      headings={headings}
+			class="fixed"
+    />
+  </div>
 </BaseLayout>
 
-<style define:vars={{photos_height, calculatePadding}}>
-	a {
-		olor: #00539f;
-	}
-	#article-info {
-		margin: 0;
-		padding: 0;
-	}
-	#article-info p {
-		margin: 0;
-	}
-
-	h1 {
-		padding: 0;
-		margin: 0;
-	}
-
-	:global(.dark) #title {
-		background-color: var(--color-slate-700);
-		box-shadow: none;
-	}
-
-	#left-content {
-		padding: var(--calculatePadding);
-	}
-
-
+<style lang="stylus" define:vars={{ photos_height, calculatePadding }}>
+  a {
+    olor: #00539f;
+  }
+  #article-info {
+    margin: 0;
+    padding: 0;
+  }
+  #article-info p {
+    margin: 0;
+  }
+	.time {
+    padding: 5px 0;
+  }
+  #imgCover {
+    margin: 2rem 0;
+  }
+  h1 {
+    padding: 0;
+    margin: 0;
+  }
+  :global(.dark) #title {
+    background-color: var(--color-slate-700);
+    box-shadow: none;
+  }
+  #left-content {
+    padding: var(--calculatePadding);
+  }
 	#gallery-container {
-		margin-bottom: 2rem;
+    margin-bottom: 2rem;
+  }
+	@media screen and (max-width: 48rem) {
+    #left-content {
+      padding: 0px;
+    }
+  }
+  @media screen and (max-width: 64rem) {
+    #left-content {
+      padding: 10px;
+    }
+  }
+	/* ==================== 目录样式 ==================== */
+	/* 按钮配色 */
+	:global(.dark) #toc-button {
+    background-color: var(--color-slate-700);
+    outline-color: var(--color-slate-600);
+  }
+	// 暗色 placeholder 颜色
+	:global(.dark) #toc-placeholder {
+		background-color: var(--color-slate-800);
 	}
-	@media screen and (width < 48rem) {
-		#markdown-container {
-			padding: 20px;
+	@media screen and (max-width: 80rem) {
+    #toc-button {
+      display: none;
+    } 
+  }*/
+	/* ==================== 小屏幕时折叠目录 ==================== */
+	@media screen and (max-width: 1150px) {
+		#toc-placeholder {
+			flex: 0;
+			width: 0;
 		}
 	}
-	.time {
-		padding: 5px 0;
-	}
-	#imgCover {
-		margin: 2rem 0;
-	}
+	
 </style>

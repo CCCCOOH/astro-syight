@@ -15,10 +15,13 @@
 
 .dark .back-grid {
  --color: var(--color-slate-600);
+  --size: 10px;
+  --begin: 1px;
+  --end: 9px;
  background-image: 
-    linear-gradient(to bottom,transparent 29px,var(--color) 1px),
-    linear-gradient(to right,transparent 29px,var(--color) 1px) ;
-  background-size: 30px 30px;
+    linear-gradient(to bottom,transparent var(--end),var(--color) var(--begin)),
+    linear-gradient(to right,transparent var(--end),var(--color) var(--begin)) ;
+  background-size: var(--size) var(--size);
   background-repeat: repeat;
 }
 

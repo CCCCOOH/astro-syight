@@ -7,81 +7,44 @@ import TOCItem from "./TOCItem.astro";
 
 {
   show && (
-    <div id="TOC" class={" " + className} {...rest}>
-      <div class="fixed top-[30%] right-10 run-left w-fit min-w-0">
-        <div id="btn-box" class="flex justify-center">
-          <button
-            id="toc-button"
-            class="transition-all w-full -translate-y-2 h-10 outline-2 outline-slate-200 text-slate-500 bg-white rounded hover:text-slate-600 cursor-pointer"
-          >
-            收起
-          </button>
-        </div>
-        <BasicCard id="toc-container" class="flex w-full flex-col">
+    // 绝对定位目录
+    <nav id="TOC" class={"max-w-100 h-full min-w-100 right-0 top-0 flex items-center"+" "+className} {...rest}>
+      {/* 目录元素容器 */}
+        <BasicCard id="toc-container" class="flex w-full h-fit max-h-[calc(100%-6rem)] flex-col">
           {headings.map((heading: any) => (
             <TOCItem heading={heading} headings={headings} />
           ))}
         </BasicCard>
-      </div>
-    </div>
+    </nav>
   )
 }
 
-<style>
+<style lang="stylus">
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-  #toc-container {
-    padding: 10px;
-  }
-  #TOC.toc-collapse {
-    flex: 1;
-  }
-  .toc-collapse #toc-container {
-    transform: translateX(100px);
-    opacity: 0;
-  }
-  .toc-collapse #toc-button {
-    width: 50px;
-    opacity: 0.4;
-    transition: all 0.4s ease-out;
-  }
-  .toc-collapse #btn-box {
-    justify-content: end;
-  }
-  .run-left {
-    animation: run-left 0.4s ease-out;
-  }
-  @keyframes run-left {
-    from {
-      transform: translateX(100px);
+  #TOC {
+    padding: 2rem;
+    transition: transform .4s ease-out;
+    /* 目录元素容器 */
+    #toc-container {
+      padding: 10px;
+      word-break: break-word;
+      overflow-x: auto;
     }
-    to {
-      transform: translateX(0);
+    & {
+      transform: translateX(30rem);
+    }
+    
+  }
+  @media (min-width: 80rem) {
+    #TOC {
+      transform: none;
     }
   }
-  :global(.dark) #toc-button {
-    background-color: var(--color-slate-700);
-    outline-color: var(--color-slate-600);
+  @media (min-width: 64rem) {
   }
 </style>
 
-<script>
-  const toc = document.querySelector("#TOC");
-  const toc_btn = document.querySelector("#toc-button");
-
-  function deal_collapse() {
-    toc?.classList.toggle("toc-collapse");
-    if (toc_btn?.textContent == "收起") {
-      toc_btn.textContent = "展开";
-    } else if (toc_btn?.textContent == "展开") {
-      toc_btn.textContent = "收起";
-    }
-  }
-
-  toc_btn?.addEventListener("click", () => {
-    deal_collapse();
-  });
-</script>

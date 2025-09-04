@@ -17,6 +17,7 @@
     "astro": "^5.13.2",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
+    "stylus": "^0.64.0",
     "tailwindcss": "^4.1.12"
   },
   "devDependencies": {
