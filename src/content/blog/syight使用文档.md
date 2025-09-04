@@ -6,7 +6,6 @@ photos:
   - https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509030618916.png
   - https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509030619106.png
   - https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509030619474.png
-height: 500px
 thumb: https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509031316680.jpg
 ---
 Syight 博客模板文档。

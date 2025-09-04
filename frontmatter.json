@@ -1,0 +1,139 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "blog",
+      "previewPath": "posts",
+      "pageBundle": false,
+      "clearEmpty": true,
+      "fields": [
+        {
+          "name": "title",
+          "type": "string",
+          "single": true
+        },
+        {
+          "name": "excerpt",
+          "type": "string",
+          "single": true
+        },
+        {
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "required": true
+        },
+        {
+          "name": "sticky",
+          "type": "number"
+        },
+        {
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "name": "author",
+          "type": "string",
+          "single": true
+        },
+        {
+          "name": "photos",
+          "type": "list"
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "single": true
+        },
+        {
+          "name": "thumb",
+          "type": "image",
+          "isPreviewImage": true
+        },
+        {
+          "name": "latex",
+          "type": "boolean"
+        },
+        {
+          "name": "visible",
+          "type": "boolean"
+        },
+        {
+          "name": "hidden",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "says",
+      "pageBundle": false,
+      "clearEmpty": true,
+      "fields": [
+        {
+          "name": "title",
+          "type": "string",
+          "single": true
+        },
+        {
+          "name": "says",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "name": "photos",
+          "type": "list"
+        },
+        {
+          "name": "author",
+          "type": "string",
+          "single": true
+        },
+        {
+          "name": "avatar",
+          "type": "string",
+          "single": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "single": true
+        },
+        {
+          "name": "height",
+          "type": "string",
+          "single": true
+        },
+        {
+          "name": "radius",
+          "type": "string",
+          "single": true
+        },
+        {
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}"
+        }
+      ]
+    }
+  ],
+  "frontMatter.framework.id": "astro",
+  "frontMatter.preview.host": "http://localhost:4321",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "blog",
+      "path": "[[workspace]]/src/content/blog",
+      "contentTypes": [
+        "blog"
+      ]
+    },
+    {
+      "title": "says",
+      "path": "[[workspace]]/src/content/says",
+      "contentTypes": [
+        "says"
+      ]
+    }
+  ],
+  "frontMatter.content.publicFolder": "public",
+  "frontMatter.git.enabled": true
+}
