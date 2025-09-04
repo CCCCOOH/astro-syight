@@ -1,8 +1,9 @@
 ---
 import BasicCard from "./BasicCard.astro";
+const {class:className, ...rest} = Astro.props;
 ---
 
-<BasicCard id="search" class="w-full flex flex-col h-fit gap-3 max-w-100">
+<BasicCard id="search" class={"flex flex-col h-fit gap-3 max-w-120"+" "+className} {...rest} >
   <div class="flex items-center w-full">
     <i class="fa-solid fa-search"></i>
     <div id="input-box" class="flex-1 relative">
