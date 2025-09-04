@@ -8,66 +8,75 @@
       "clearEmpty": true,
       "fields": [
         {
+          "title": "标题",
           "name": "title",
           "type": "string",
           "single": true
         },
         {
+          "title": "摘要",
           "name": "excerpt",
           "type": "string",
           "single": true
         },
         {
-          "name": "createTime",
+          "title": "发布日期",
+          "name": "createdTime",
           "type": "datetime",
           "default": "{{now}}",
           "required": true
         },
         {
-          "name": "updateTime",
+          "title": "更新日期",
+          "name": "updatedTime",
           "type": "datetime",
           "default": "{{now}}",
           "required": false
         },
         {
+          "title": "置顶级别",
           "name": "sticky",
           "type": "number"
         },
         {
+          "title": "标签组",
           "name": "tags",
           "type": "tags"
         },
         {
+          "title": "作者",
           "name": "author",
           "type": "string",
           "single": true
         },
         {
+          "title": "照片组",
           "name": "photos",
           "type": "list"
         },
         {
+          "title": "gallery圆角",
           "name": "radius",
           "type": "string",
           "single": true
         },
         {
+          "title": "封面",
           "name": "thumb",
           "type": "image",
-          "isPreviewImage": true
+          "isPreviewImage": true,
+          "default": "https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509031715479.jpg"
         },
         {
+          "title": "启用Latex",
           "name": "latex",
           "type": "boolean"
         },
         {
-          "name": "visible",
-          "type": "boolean"
-        },
-        {
+          "title": "隐藏文章",
           "name": "hidden",
           "type": "boolean"
-        }
+        },
       ]
     },
     {
@@ -76,47 +85,55 @@
       "clearEmpty": true,
       "fields": [
         {
+          "title": "标题",
           "name": "title",
           "type": "string",
           "single": true
         },
         {
+          "title": "作为说说",
           "name": "says",
           "type": "boolean",
           "required": true
         },
         {
+          "title": "照片组",
           "name": "photos",
           "type": "list"
         },
         {
+          "title": "作者",
           "name": "author",
           "type": "string",
           "single": true
         },
         {
+          "title": "头像",
           "name": "avatar",
           "type": "string",
           "single": true
         },
         {
+          "title": "描述",
           "name": "description",
           "type": "string",
           "single": true
         },
         {
+          "title": "图片高度",
           "name": "height",
           "type": "string",
           "single": true
         },
         {
+          "title": "图片圆角",
           "name": "radius",
           "type": "string",
           "single": true
         },
         {
-          "title": "createTime",
-          "name": "createTime",
+          "title": "发布日期",
+          "name": "createdTime",
           "type": "datetime"
         }
       ]
