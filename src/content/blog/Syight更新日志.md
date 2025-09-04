@@ -1,6 +1,6 @@
 ---
 title: 🚀 Astro-Syight 更新日志
-date: 2025-09-01
+createdTime: 2025-09-01
 author: Sy_
 sticky: 999
 thumb: https://ccccooh.oss-cn-hangzhou.aliyuncs.com/img/202509031316259.jpg
