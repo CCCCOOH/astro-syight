@@ -41,7 +41,7 @@ for (let posts of Object.values(formatPosts) as any[]) {
       <article id="archive-container" class="flex flex-col items-center">
         <BasicCard
           id="blog-container"
-          class="fade-in w-[40%]"
+          class="fade-in w-[40%] max-md:w-full"
         >
           {Object.keys(formatPosts).map((year: any) => (
             <div class="max-w-cal[100vw-30px] text-xl text-shadow-2xs">

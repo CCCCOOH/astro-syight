@@ -14,7 +14,7 @@ const {pageTitle, allPosts, maxSize, page} = Astro.props;
 
 <BaseLayout pageTitle={pageTitle}>
   <HomeBackground />
-  <div id="home-container" class="flex gap-5 justify-center w-full">
+  <div id="home-container" class="flex gap-5 justify-center w-full max-md:p-0!">
     <!-- 左侧文章信息容器 -->
     {
       allPosts.length > 0 && (
@@ -28,7 +28,7 @@ const {pageTitle, allPosts, maxSize, page} = Astro.props;
       )
     }
     <!-- 右侧侧边栏组件 -->
-    <aside id="right-container" class="flex min-w-0 flex-1 flex-col gap-5">
+    <aside id="right-container" class="flex min-w-0 flex-1 flex-col gap-5 max-md:hidden">
       <AuthorCard />
       <MusicPlayer />
       <VideoPlayer />
@@ -40,6 +40,6 @@ const {pageTitle, allPosts, maxSize, page} = Astro.props;
 
 <style>
   #home-container {
-    padding: 200px;
+    padding: 10%;
   }
 </style>

@@ -1,13 +1,14 @@
 ---
 import { nav } from "../config/nav.js";
 import { site } from "../config/site";
+import BasicCard from "./BasicCard.astro";
 ---
 
-<div id="top-holder" class="w-full h-15"></div>
+<div id="top-holder" class="w-full h-15 max-md:h-30"></div>
 
-<div
+<BasicCard
   id="navigation"
-  class="born opacity-100 shadow scale-100 py-2 z-10 fixed top-6 left-[50%] -translate-x-[50%] bg-white flex gap-2 outline-2 outline-indigo-400/30 rounded-3xl px-2 text-slate-500"
+  class="z-9 fixed top-6 left-[50%] -translate-x-[50%]  flex gap-2"
 >
   <a href="/" id="site-title" class="font-mono text-2xl cursor-pointer"
     >{site.title}</a
@@ -17,16 +18,16 @@ import { site } from "../config/site";
       nav.map((item) => (
         <a class="text-2xl px-1" href={item.src}>
           {item?.icon && <i class={item.icon + " born"} />}
-          <span class="">{item.title}</span>
+          <span class="max-md:hidden">{item.title}</span>
         </a>
       ))
     }
   </nav>
-</div>
+</BasicCard>
 
 <style>
   #top-holder {
-    margin-bottom: none;
+    margin-bottom: 0;
   }
   a {
     transition: color 0.2s ease-out;
@@ -77,5 +78,10 @@ import { site } from "../config/site";
   }
   #site-title::after {
     content: none;
+  }
+  @media screen and (width < 48rem) {
+    a::after {
+      content: none;
+    }
   }
 </style>

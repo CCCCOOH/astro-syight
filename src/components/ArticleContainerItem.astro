@@ -1,16 +1,13 @@
 ---
 const {post: p} = Astro.props;
-import { get_title } from "../scripts/utils.js";
+import { get_title, style_img } from "../scripts/utils.js";
 import { article } from '../config/site.js'
 const cover_default = article.default_cover;
 const title = get_title(p);
 ---
-{ <li class="list-none! born">
+{ <li class="list-none! born max-md:flex max-md:flex-col">
   {/* 左侧封面 */}
-  <a id="left-img" class="float-left shadow hover:shadow-md hover:transition transition" href={'/posts/'+p.slug}>
-    <!-- 文章封面 -->
-    <img loading="lazy" class="w-50 max-w-50! h-30 object-cover" src={p.data?.thumb || cover_default} alt="文章封面">
-  </a>
+  <a id="left-img" style={style_img(p.data?.thumb || cover_default)} class="float-left max-md:h-50 max-md:w-full w-50 h-30 shadow hover:shadow-md hover:transition transition bg-cover bg-center" href={'/posts/'+p.slug}></a>
 
   {/* 右侧文章信息 */}
 

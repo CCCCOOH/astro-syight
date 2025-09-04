@@ -1,42 +1,45 @@
 ---
+const {class:className, ...rest} = Astro.props;
 ---
 
-<div id="theme-btn" class="transition size-15 rounded-full fixed z-3 left-5 bg-slate-700 top-5 hover:cursor-pointer"></div>
+<div id="theme-btn"
+     class={"transition size-15 rounded-full fixed z-3 left-5 bg-slate-700 top-5 hover:cursor-pointer "+className} {...rest}>
+</div>
 
 <script>
-const themeBtn = document.querySelector('#theme-btn')
+    const themeBtn = document.querySelector('#theme-btn')
 
-init();
+    init();
 
-themeBtn?.addEventListener("click", () => {
-  toggleDark();
-  updateStorage();
-})
+    themeBtn?.addEventListener("click", () => {
+        toggleDark();
+        updateStorage();
+    })
 
-function updateStorage() {
-  const isDark = document.documentElement.classList.contains("dark");
-  if (isDark) {
-    localStorage.dark = 'true';
-  } else {
-    localStorage.dark = 'false';
-  }
-}
+    function updateStorage() {
+        const isDark = document.documentElement.classList.contains("dark");
+        if (isDark) {
+            localStorage.dark = 'true';
+        } else {
+            localStorage.dark = 'false';
+        }
+    }
 
-function toggleDark() {
-  document.documentElement.classList.toggle('dark');
-}
+    function toggleDark() {
+        document.documentElement.classList.toggle('dark');
+    }
 
-function init() {
-  if (localStorage.dark === 'true') {
-    toggleDark();
-  } else if (localStorage.dark !== 'true') {
-    localStorage.dark = 'false';
-  }
-}
+    function init() {
+        if (localStorage.dark === 'true') {
+            toggleDark();
+        } else if (localStorage.dark !== 'true') {
+            localStorage.dark = 'false';
+        }
+    }
 </script>
 
 <style>
-  :global(.dark) #theme-btn {
-    background-color: var(--color-slate-300);
-  }
+    :global(.dark) #theme-btn {
+        background-color: var(--color-slate-300);
+    }
 </style>

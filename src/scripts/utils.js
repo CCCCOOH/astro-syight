@@ -2,6 +2,9 @@ export function get_title(content) {
   return content?.id?.split('/')?.at(-1)?.split('.')[0];
 }
 
+export function style_img(url) {
+  return `background-image: url("${url}");`;
+}
 
 export function get_frontmatter(content) {
   return content.data?.frontmatter;
