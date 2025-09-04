@@ -41,12 +41,12 @@ crossorigin="anonymous"
 		// 文章头图模块
 
 		frontmatter?.photos?.length > 0 && (
-			<!--<div id="gallery" class="h-fit max-h-full">-->
+			<div id="gallery-container" class="w-full h-full">
 			<ImagesGallery
 				radius={frontmatter?.radius}
 				photos={frontmatter?.photos}
 			/>
-			<!--</div>-->
+		</div>
 		)
 }
 
@@ -112,7 +112,7 @@ box-shadow: none;
 	padding: 100px;
 }
 
-#gallery {
+#gallery-container {
 margin-bottom: 30px;
 }
 @media screen and (width < 48rem) {

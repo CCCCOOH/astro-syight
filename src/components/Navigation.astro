@@ -13,12 +13,12 @@ import BasicCard from "./BasicCard.astro";
   <a href="/" id="site-title" class="font-mono text-2xl cursor-pointer"
     >{site.title}</a
   >
-  <nav id="nav-item" class="flex justify-center items-center gap-2">
+  <nav id="nav-item" class="flex justify-center items-center gap-10">
     {
       nav.map((item) => (
-        <a class="text-2xl px-1" href={item.src}>
+        <a class="text-2xl px-1 flex items-center" href={item.src}>
           {item?.icon && <i class={item.icon + " born"} />}
-          <span class="max-md:hidden">{item.title}</span>
+          <span class="max-md:hidden whitespace-nowrap">{item.title}</span>
         </a>
       ))
     }
@@ -48,25 +48,6 @@ import BasicCard from "./BasicCard.astro";
   :global(.dark) :global(#navigation) a {
     color: var(--color-gray-400);
   }
-</style>
-
-<script>
-  const nav = document.querySelector("#navigation");
-  const top = document.documentElement.scrollTop;
-
-  let last = top;
-  window.addEventListener("scroll", () => {
-    const cur = window.pageYOffset;
-    if (cur > last) {
-      nav?.classList.add("nav-hide");
-    } else if (cur < last) {
-      nav?.classList.remove("nav-hide");
-    }
-    last = cur;
-  });
-</script>
-
-<style>
   #navigation {
     transition: all 0.4s ease-out;
     padding: 5px 10px;
@@ -85,3 +66,19 @@ import BasicCard from "./BasicCard.astro";
     }
   }
 </style>
+
+<script>
+  const nav = document.querySelector("#navigation");
+  const top = document.documentElement.scrollTop;
+
+  let last = top;
+  window.addEventListener("scroll", () => {
+    const cur = window.pageYOffset;
+    if (cur > last) {
+      nav?.classList.add("nav-hide");
+    } else if (cur < last) {
+      nav?.classList.remove("nav-hide");
+    }
+    last = cur;
+  });
+</script>

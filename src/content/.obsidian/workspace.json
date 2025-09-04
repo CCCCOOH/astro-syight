@@ -11,14 +11,10 @@
             "id": "0931696d6c32b1e8",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blog/Syight 使用文档.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Syight 使用文档"
+              "title": "新标签页"
             }
           }
         ]
