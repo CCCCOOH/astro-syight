@@ -1,0 +1,76 @@
+---
+interface Props {
+  category?: string;
+  categoryId?: string;
+}
+const { category, categoryId } = Astro.props;
+---
+
+<astro-giscus class="w-full h-full" data-category={category} data-category-id={categoryId}>
+  <div class="giscus"></div>
+</astro-giscus>
+
+<script>
+  class AstroGiscus extends HTMLElement {
+    constructor() {
+      super();
+      this.initializeGiscus();
+    }
+
+    initializeGiscus() {
+      document.addEventListener('DOMContentLoaded', () => {
+        this.setupThemeToggle();
+        this.loadGiscusScript();
+      });
+    }
+
+    setupThemeToggle() {
+      const toggle = document.querySelector('#theme-btn');
+      // if (toggle) {
+        // 监听自己的主题切换按钮点击事件
+      toggle?.addEventListener('click', this.handleThemeToggle);
+      // }
+    }
+
+    handleThemeToggle() {
+      const currentTheme = localStorage.getItem('theme') || 'light';
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      AstroGiscus.setGiscusTheme(newTheme);
+    }
+
+    static setGiscusTheme(theme) {
+      console.log(theme);
+      
+      const iframe = document.querySelector('iframe.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme } } }, 'https://giscus.app');
+    }
+
+    async loadGiscusScript() {
+      const theme = localStorage.getItem('theme') || 'light';
+      const category = this.dataset.category || 'Show and tell';
+      const categoryId = this.dataset.categoryId || 'DIC_kwDOPnDlCc4Cu2dZ';
+      
+      
+      const script = document.createElement('script');
+      script.src = 'https://giscus.app/client.js';
+      script.setAttribute('data-repo', 'ccccooh/astro-syight');
+      script.setAttribute('data-repo-id', 'R_kgDOPnDlCQ');
+      script.setAttribute('data-category', category);
+      script.setAttribute('data-category-id', categoryId);
+      script.setAttribute('data-mapping', 'pathname');
+      script.setAttribute('data-strict', '0');
+      script.setAttribute('data-reactions-enabled', '1');
+      script.setAttribute('data-emit-metadata', '0');
+      script.setAttribute('data-input-position', 'bottom');
+      script.setAttribute('data-theme', theme);
+      script.setAttribute('data-lang', 'zh-CN');
+      script.setAttribute('crossorigin', 'anonymous');
+      script.async = true;
+
+      document.head.appendChild(script);
+    }
+  }
+
+  customElements.define('astro-giscus', AstroGiscus);
+</script>

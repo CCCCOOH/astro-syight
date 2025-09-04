@@ -8,32 +8,39 @@ const {class:className, ...rest} = Astro.props;
 
 <script>
     const themeBtn = document.querySelector('#theme-btn')
-    init();
-
-    themeBtn?.addEventListener("click", () => {
-        toggleDark();
-        updateStorage();
+    document.addEventListener('DOMContentLoaded', () => {
+        init();
+        themeBtn?.addEventListener("click", () => {
+            updateTheme();
+        })
     })
 
-    function updateStorage() {
-        const isDark = document.documentElement.classList.contains("dark");
-        if (isDark) {
-            localStorage.dark = 'true';
+    
+
+    function updateTheme() {
+        const hasDark = document.documentElement.classList.contains("dark");
+        if (hasDark) {
+            setLight();
+            localStorage.theme = 'light';
         } else {
-            localStorage.dark = 'false';
+            setDark();
+            localStorage.theme = 'dark';
         }
     }
-
-    function toggleDark() {
-        document.documentElement.classList.toggle('dark');
-    }
+    
 
     function init() {
-        if (localStorage.dark === 'true') {
-            toggleDark();
-        } else if (localStorage.dark !== 'true') {
-            localStorage.dark = 'false';
+        if (localStorage.theme === 'dark' || !localStorage.theme) {
+            setDark();
+        } else if (localStorage.theme === 'light') {
+            setLight();
         }
+    }
+    function setDark() {
+        document.documentElement.classList.add('dark');
+    }
+    function setLight() {
+        document.documentElement.classList.remove('dark');
     }
 </script>
 

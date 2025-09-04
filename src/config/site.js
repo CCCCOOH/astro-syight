@@ -57,3 +57,20 @@ export const footer = [
     dark_color: ''
   }
 ]
+
+export const giscus = {
+  src: "https://giscus.app/client.js",
+  "data-repo": "ccccooh/astro-syight",
+  "data-repo-id": "R_kgDOPnDlCQ",
+  "data-category": "Show and tell",
+  "data-category-id": "DIC_kwDOPnDlCc4Cu2dZ",
+  "data-mapping": "pathname",
+  "data-strict": "0",
+  "data-reactions-enabled": "1",
+  "data-emit-metadata": "0",
+  "data-input-position": "bottom",
+  "data-theme": "catppuccin_latte",
+  "data-lang": "zh-CN",
+  crossorigin: "anonymous",
+  async: true
+}
