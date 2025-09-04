@@ -34,12 +34,12 @@ const { category, categoryId } = Astro.props;
 
     handleThemeToggle() {
       const currentTheme = localStorage.getItem('theme') || 'light';
+      
       const newTheme = currentTheme === 'light' ? 'dark' : 'light';
       AstroGiscus.setGiscusTheme(newTheme);
     }
 
     static setGiscusTheme(theme) {
-      console.log(theme);
       
       const iframe = document.querySelector('iframe.giscus-frame');
       if (!iframe) return;

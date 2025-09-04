@@ -19,12 +19,13 @@ const {class:className, ...rest} = Astro.props;
 
     function updateTheme() {
         const hasDark = document.documentElement.classList.contains("dark");
+        // 如何目前是暗色了
         if (hasDark) {
             setLight();
             localStorage.theme = 'light';
         } else {
             setDark();
-            localStorage.theme = 'light';
+            localStorage.theme = 'dark';
         }
     }
     
@@ -34,17 +35,18 @@ const {class:className, ...rest} = Astro.props;
             setDark();
         } else if (localStorage.theme === 'light' || localStorage.theme === undefined) {
             // 初次使用默认为亮色
-            
-            setLight();
             if (localStorage.theme === undefined) {
                 localStorage.theme = 'light';
             }
+            setLight();
         }
     }
     function setDark() {
         document.documentElement.classList.add('dark');
     }
     function setLight() {
+        console.log("设置亮色");
+        
         document.documentElement.classList.remove('dark');
     }
 </script>
