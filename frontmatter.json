@@ -18,10 +18,16 @@
           "single": true
         },
         {
-          "name": "date",
+          "name": "createTime",
           "type": "datetime",
           "default": "{{now}}",
           "required": true
+        },
+        {
+          "name": "updateTime",
+          "type": "datetime",
+          "default": "{{now}}",
+          "required": false
         },
         {
           "name": "sticky",
@@ -109,9 +115,9 @@
           "single": true
         },
         {
-          "name": "date",
-          "type": "datetime",
-          "default": "{{now}}"
+          "title": "createTime",
+          "name": "createTime",
+          "type": "datetime"
         }
       ]
     }
