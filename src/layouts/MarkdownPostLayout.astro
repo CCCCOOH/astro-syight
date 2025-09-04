@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import {author_info, article} from "../config/site.js";
+import {format_date} from "../scripts/utils.js";
 import Tag from "../components/Tag.astro";
 import ImagesGallery from "../components/ImagesGallery.astro";
 import TOC from "../components/TOC.astro";
@@ -8,6 +9,9 @@ const {frontmatter, post} = Astro.props;
 const title = post?.id.split("/")?.at(-1)?.split(".")[0];
 const headins = post?.rendered?.metadata?.headings;
 const photos_height = frontmatter?.ph_height;
+const createdTime = `发布时间: ${format_date(frontmatter?.createdTime)}`;
+const updatedTime = `更新时间: ${format_date(frontmatter?.updatedTime)}`;
+const hasUpdatedTime = format_date(frontmatter?.updatedTime);
 ---
 
 <!-- 加入head是为了为每一篇文章单独引入latex包 -->{
@@ -33,91 +37,83 @@ frontmatter?.latex && (
 }
 
 <BaseLayout pageTitle={title}>
-<!-- ################################################## ImagesGallery ################################################## -->
-<div id="markdown-container" class="back-grid flex w-full">
-<!-- 左侧内容模块 -->
-<div class="flex-6 inline-flex flex-col items-center min-w-0">
-{
-		// 文章头图模块
+	<div id="markdown-container" class="back-grid flex w-full">
+		<!-- ################################################## 左侧内容模块 ############################################### -->
+		<div class="flex-6 inline-flex flex-col items-center min-w-0">
+			<!-- Post Gallery Component -->
+			{frontmatter?.photos?.length > 0 && (
+				<div id="gallery-container" class="w-full h-full">
+				<ImagesGallery
+					radius={frontmatter?.radius}
+					photos={frontmatter?.photos}
+				/>
+			</div>)}
 
-		frontmatter?.photos?.length > 0 && (
-			<div id="gallery-container" class="w-full h-full">
-			<ImagesGallery
-				radius={frontmatter?.radius}
-				photos={frontmatter?.photos}
-			/>
+			<!--  ################################################## 文章信息 ################################################## -->
+			<div id="article-info" class="flex flex-col items-center w-full">
+				<!-- 文章标题 -->
+				<h1>
+					<span
+						id="title"
+						class="inset-shadow-sm bg-gray-50 inset-shadow-gray-200 px-2">
+						{ article.use_frontmatter_title ? frontmatter?.title || title : title }
+					</span>
+				</h1>
+				<!-- 创建时间 -->
+				<p class="text-sm!"><em>{createdTime}</em></p>
+				<!-- 更新时间 -->
+				{hasUpdatedTime && <p class="text-sm!"><em>{updatedTime}</em></p>}
+				<!-- 作者名 -->
+				<p class="text-slate-400 text-sm text-center">作者：{frontmatter?.author || author_info?.name}</p>
+			</div>
+			<!-- ################################################### 容器插槽 ################################################### -->
+			<div class="w-full max-w-full">
+				<slot/>
+			</div>
+
+			<!-- ################################################## 底部标签列表 ###################################################### -->
+			<div class="flex-2 flex justify-center gap-5 flex-wrap py-5">
+				{ Array.isArray(frontmatter?.tags) &&
+					frontmatter?.tags?.map((tag: string) => <Tag tag={tag}/>) }
+			</div>
 		</div>
-		)
-}
-
-<!--  ################################################## 文章信息 ################################################## -->
-<div>
-<!-- 文章标题 -->
-<h1 class="text-center border-b-0!">
-<span
-id="title"
-class="inset-shadow-sm bg-gray-50 inset-shadow-gray-200 px-2"
->{
-article.use_frontmatter_title
-? frontmatter?.title || title
-: title
-}</span
->
-</h1>
-<p><em>{frontmatter?.description}</em></p>
-<p>{frontmatter?.pubDate?.toString().slice(0, 10)}</p>
-<!-- 作者名 -->
-<p class="text-slate-400 text-sm text-center">
-作者：{frontmatter?.author || author_info?.name}
-</p>
-</div>
-<!-- ################################################### 容器插槽 ################################################### -->
-<div class="w-full max-w-full">
-<slot/>
-</div>
-
-<!-- ################################################## 底部标签列表 ###################################################### -->
-<div class="flex-2 flex justify-center gap-5 flex-wrap py-5">
-				{
-						Array.isArray(frontmatter?.tags) &&
-						frontmatter?.tags?.map((tag: string) =>
-		<Tag tag={tag}/>)
-				}
-</div>
-</div>
-<!-- ################################################## 右侧目录 ################################################## -->
-
-<TOC class="flex-2 max-md:hidden " headings={headins}/>
-
-</div>
-<!-- ################################################## 结束 ######################################################### -->
+		<!-- ################################################## 右侧目录 ################################################## -->
+		<TOC class="flex-2 max-md:hidden " headings={headins}/>
+	</div>
 </BaseLayout>
 
 <style define:vars={{photos_height}}>
-a {
-color: #00539f;
-}
-
-h1 {
-padding: 0;
-margin: 0;
-}
-
-:global(.dark) #title {
-background-color: var(--color-slate-700);
-box-shadow: none;
-}
-
-#markdown-container {
-	padding: 100px;
-}
-
-#gallery-container {
-margin-bottom: 30px;
-}
-@media screen and (width < 48rem) {
-	#markdown-container {
-		padding: 20px;
+	a {
+		olor: #00539f;
 	}
-}
+	#article-info {
+		margin: 0;
+		padding: 0;
+	}
+	#article-info p {
+		margin: 0;
+	}
+
+	h1 {
+		padding: 0;
+		margin: 0;
+	}
+
+	:global(.dark) #title {
+		background-color: var(--color-slate-700);
+		box-shadow: none;
+	}
+
+	#markdown-container {
+		padding: 100px;
+	}
+
+	#gallery-container {
+		margin-bottom: 30px;
+	}
+	@media screen and (width < 48rem) {
+		#markdown-container {
+			padding: 20px;
+		}
+	}
 </style>

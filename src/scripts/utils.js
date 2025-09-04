@@ -10,7 +10,9 @@ export function get_frontmatter(content) {
   return content.data?.frontmatter;
 }
 
-export function format_say_date(dateStr) {
+export function format_date(dateStr) {
+  if (dateStr === undefined) return false;
+  
   const date = new Date(dateStr);
   const year = date.getFullYear()
   const month = date.getMonth() + 1;
@@ -28,8 +30,8 @@ export function sticky_sort(posts) {
 
 export function date_sort(posts) {
   return posts.sort((a, b) =>  {
-    const x = new Date(a.data?.date);
-    const y = new Date(b.data?.date);
+    const x = new Date(a.data?.createdTime);
+    const y = new Date(b.data?.createdTime);
     return y - x;
   });
 }
