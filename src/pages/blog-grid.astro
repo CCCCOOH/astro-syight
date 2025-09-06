@@ -1,0 +1,17 @@
+---
+import FullContainer from "../components/FullContainer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import {config} from '../config/blog-grid'
+import ArticleContainerItem from "../components/ArticleContainerItem.astro";
+import { getCollection } from "astro:content";
+const {column: col} = config;
+const allBlogs = await getCollection('blog');
+---
+
+<BaseLayout pageTitle="Home">
+    <FullContainer class={`grid grid-cols-${col} px-20`}>
+			{
+				allBlogs.map(blog => <ArticleContainerItem post={blog} isRow={true} height={50} img_h={50} />)
+			}
+    </FullContainer>
+</BaseLayout>

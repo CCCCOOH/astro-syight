@@ -1,14 +1,15 @@
 ---
-const {post: p} = Astro.props;
+import ImageCover from "./ImageCover.astro";
+const {post: p, isRow, class: className, img_h, height, ...rest} = Astro.props;
 import { get_title, style_img } from "../scripts/utils.js";
 import { article } from '../config/site.js'
-const cover_default = article.default_cover;
 const title = get_title(p);
 ---
-{ <li class="list-none! born max-md:flex max-md:flex-col">
+{ <li class={`list-none! born max-md:flex max-md:flex-col ${isRow && "flex-col"} w-full h-full ${height && `h-${height}`}`+" "+className}>
   {/* 左侧封面 */}
-  <a id="left-img" style={style_img(p.data?.thumb || cover_default)} class="float-left max-md:h-50 max-md:w-full w-50 h-30 shadow rounded hover:shadow-md hover:transition transition bg-cover bg-center" href={'/posts/'+p.slug}></a>
-
+  <a href={'/posts/'+p.slug}>
+    <ImageCover id="left-img" url={p.data?.thumb} class=`float-left max-md:h-50 max-md:w-full w-50 h-${img_h || "30"} ${isRow && "w-full"}` ></ImageCover>
+  </a>
   {/* 右侧文章信息 */}
 
   <div>
@@ -18,7 +19,7 @@ const title = get_title(p);
       {p.data?.sticky && <i class="fa-solid fa-thumbtack born-full"></i>}
     </h2>
     {/* 文章摘要 */}
-    {<p class="text-sm text-slate-500">{
+    {<p class="text-sm text-slate-500 h-full">{
       p.data?.excerpt || p.data?.description || p.body?.split('<!-- more -->')[0].slice(0,article.excerpt_size)
     }</p>}
   </div>

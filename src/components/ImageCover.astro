@@ -1,6 +1,8 @@
 ---
 const {url, class:className, ...rest } = Astro.props;
 import { style_img } from "../scripts/utils";
+import { article } from '../config/site.js'
+const cover_default = article.default_cover;
 ---
 
-<div style={style_img(url)} class={"min-w-0 min-h-0 shadow transition bg-cover bg-center rounded-2xl"+" "+className} {...rest} ></div>
+<div style={style_img(url || cover_default)} class={"min-w-0 min-h-0 transition bg-cover bg-center rounded-2xl"+" "+className} {...rest} ></div>

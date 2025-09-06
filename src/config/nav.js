@@ -23,5 +23,10 @@ export const nav = [
     title: '说说',
     src: '/says',
     icon: 'fa-solid fa-comment'
-  }
+  },
+  // {
+  //   title: '网格',
+  //   src: '/blog-grid',
+  //   icon: 'fa-solid fa-smile'
+  // }
 ];

@@ -8,6 +8,7 @@ import remarkMath from 'remark-math';
 
 // https://astro.build/config
 export default defineConfig({
+  prefetch: true,
   // 替换为你自己的站点地址
   site: "https://syight.site",
   integrations: [mdx(), sitemap()],
