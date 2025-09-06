@@ -1,17 +1,16 @@
 ---
 import ImageCover from "./ImageCover.astro";
 const {post: p, isRow, class: className, img_h, height, ...rest} = Astro.props;
-import { get_title, style_img } from "../scripts/utils.js";
+import { get_title } from "../scripts/utils.js";
 import { article } from '../config/site.js'
 const title = get_title(p);
 ---
-{ <li class={`list-none! born max-md:flex max-md:flex-col ${isRow && "flex-col"} w-full h-full ${height && `h-${height}`}`+" "+className}>
+{ <li class={`list-none! born max-md:flex max-md:flex-col w-full h-full ${height && `h-${height}`}`+" "+className}>
   {/* 左侧封面 */}
   <a href={'/posts/'+p.slug}>
-    <ImageCover id="left-img" url={p.data?.thumb} class=`float-left max-md:h-50 max-md:w-full w-50 h-${img_h || "30"} ${isRow && "w-full"}` ></ImageCover>
+    <ImageCover id="left-img" width="20rem" height="12rem" url={p.data?.thumb || article.default_cover} class="float-left max-md:h-50 max-md:w-full" ></ImageCover>
   </a>
   {/* 右侧文章信息 */}
-
   <div>
     <h2 class="cursor-pointer text-xl hover:transition text-shadow-2xs">
       {/* 文章标题 */}

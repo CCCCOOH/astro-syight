@@ -1,0 +1,37 @@
+---
+import ImageCover from "./ImageCover.astro";
+import { article } from "../config/site";
+import { get_title } from "../scripts/utils";
+import BasicCard from "./BasicCard.astro";
+const {blog} = Astro.props;
+const title = get_title(blog);
+const ImageLink = 'a';
+const BlogTitle = 'a';
+const Excerpt = 'div';
+---
+
+<BasicCard class="w-80 max-md:h-60 max-md:w-full ring-0! inline-flex flex-col shadow-none">
+  <ImageLink id="cover" href={'/posts/'+blog.slug}>
+    <ImageCover class="w-full max-md:h-65 h-50" url={blog.data?.thumb || article.default_cover}></ImageCover>
+  </ImageLink>
+  <BlogTitle class="text-xl text-ellipsis" id="title" href={'/posts/'+blog.slug}>{article.use_frontmatter_title ? (blog.data?.title || title ): title}</BlogTitle>
+  <Excerpt>
+    {blog.data?.excerpt}
+  </Excerpt>
+</BasicCard>
+
+<style>
+  a::after {
+    content: none;
+  }
+  #title {
+    margin-top: 20px;
+  }
+  :global(.dark) a {
+    color: var(--color-slate-200);
+    font-weight: bold;
+  }
+  a {
+    color: var(--color-slate-800);
+  }
+</style>

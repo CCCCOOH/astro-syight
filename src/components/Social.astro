@@ -2,11 +2,12 @@
 const { name, link, color, dark_color:darkColor } = Astro.props;
 ---
 
-<a class="text-white! rounded shadow" href={link}>{name}</a>
+<a class="rounded shadow" href={link}>{name}</a>
 
 <style define:vars={{color, darkColor}}>
 a {
   padding: 5px 10px;
+  color: white !important;
   background-color: var(--color);
 }
 :global(.dark) a {

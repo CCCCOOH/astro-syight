@@ -1,17 +1,77 @@
 ---
 import FullContainer from "../components/FullContainer.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import {config} from '../config/blog-grid'
-import ArticleContainerItem from "../components/ArticleContainerItem.astro";
+import BlogGridContainer from "../components/BlogGridContainer.astro";
 import { getCollection } from "astro:content";
-const {column: col} = config;
-const allBlogs = await getCollection('blog');
+const allBlogs = await getCollection("blog");
+import { article } from "../config/site";
+import ImageCover from "../components/ImageCover.astro";
+import { format_date, get_title } from "../scripts/utils";
+const TopBlog = "div";
+const ImageLink = 'a';
+const TopBlogTitle = "a";
+const topBlog = allBlogs[0];
+const topTitle = get_title(topBlog);
+const Excerpt = "div";
+const Right = "div";
+const frontmatter = topBlog.data;
+const updatedTime = `更新时间: ${format_date(frontmatter?.updatedTime)}`;
+const hasUpdatedTime = format_date(frontmatter?.updatedTime);
+const UpdatedTime = "div";
 ---
 
 <BaseLayout pageTitle="Home">
-    <FullContainer class={`grid grid-cols-${col} px-20`}>
-			{
-				allBlogs.map(blog => <ArticleContainerItem post={blog} isRow={true} height={50} img_h={50} />)
-			}
-    </FullContainer>
+  <FullContainer id="full-container" class="flex flex-col items-center">
+    <TopBlog id="top-blog" class="w-full max-md:grid-cols-1 h-100 inline-grid grid-cols-3 grid-rows-1 gap-x-8" >
+			<!-- 封面 -->
+      <ImageLink id="cover" class="col-span-2 col-start-1 " href={"/posts/" + topBlog.slug}>
+        <ImageCover
+          class="fade-in w-full h-full	"
+          url={allBlogs[0].data?.thumb || article.default_cover}
+        />
+      </ImageLink>
+			<!-- 右侧文章信息 -->
+			<Right class="max-md:pt-5!">
+				<!-- 更新时间 -->
+				<UpdatedTime class="text-slate-400" id="udpated-time" >{hasUpdatedTime ? updatedTime : ''}</UpdatedTime>
+				<!-- 文章标题 -->
+				<TopBlogTitle class="block text-xl text-ellipsis" id="title" href={'/posts/'+topBlog.slug}>
+					{article.use_frontmatter_title ? (allBlogs[0].data?.title || topTitle ): topTitle}
+				</TopBlogTitle>
+				<!-- 文章摘要 -->
+				<Excerpt class="text-slate-400" >
+					{topBlog.data?.excerpt}
+				</Excerpt>
+			</Right>
+    </TopBlog>
+    <BlogGridContainer allBlogs={allBlogs} />
+  </FullContainer>
 </BaseLayout>
+
+<style>
+  a::after {
+    content: none;
+  }
+  #top-blog {
+    margin: 5rem 0;
+  }
+	#full-container {
+		padding: 0 20rem;
+	}
+	#title {
+		margin-top: 15px;
+		margin-bottom: 10px;
+	}
+	a {
+		color: var(--color-slate-700);
+		font-size: 2em;
+	}
+	:global(.dark) a {
+		color: var(--color-slate-100);
+	}
+	@media (max-width: 48rem) {
+		#full-container {
+			padding: 0 2rem;
+		}
+	}
+</style>

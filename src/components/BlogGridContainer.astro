@@ -1,0 +1,11 @@
+---
+import BlogGridItem from "./BlogGridItem.astro";
+const {allBlogs} = Astro.props;
+const GridContainer = 'div'
+---
+
+<GridContainer id="grid-container" class=`inline-grid w-full grid-cols-3 justify-items-center place-content-center gap-x-8 gap-y-12 max-lg:grid-cols-2 max-md:grid-cols-1`>
+  {
+    allBlogs.slice(1, allBlogs.length).map(blog => <BlogGridItem blog={blog} />)
+  }
+</GridContainer>
