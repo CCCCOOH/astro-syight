@@ -158,6 +158,8 @@
     {
       "title": "says",
       "path": "[[workspace]]/src/content/says",
+      "previewPath": "/says",
+      "trailingSlash": false,
       "contentTypes": [
         "says"
       ]
