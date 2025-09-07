@@ -49,7 +49,7 @@ Syight 有哪些特色：
 
 > 由于学业原因，开学会停止更新项目。
 
-## 2. 文章模块
+## 2. Article
 
 > 如何发布一篇文章？
 
@@ -60,13 +60,13 @@ Syight 有哪些特色：
 
 撰写博客只需要加上frontmatter.date即可，如要撰写说说需要加上frontmatter.says=true。特别地，说说类型会在说说页显示。
 
-## 3. 优雅地撰写文章
+## 3. Plugin
 
 通过使用 VisualStudioCode 插件 [FrontMatter](https://frontmatter.codes/) 以高效、轻松地管理本地博客。
 
 FrontMatter 提供后台管理功能，Syight 为你提供好了所需要的 frontmatter.json 配置，开箱即用。
 
-## 4. 配置
+## 4. Configs
 
 `src/config` 文件夹下提供了几乎所有的配置，目前已提供的：
 - about.js —— 关于页配置
@@ -81,7 +81,7 @@ FrontMatter 提供后台管理功能，Syight 为你提供好了所需要的 fro
 
 但你仍可以通过修改源代码的方式修改他们。
 
-## 5. frontmatter
+## 5. Frontmatter
 
 所有的 frontmatter 可在 `src/content.config.ts` 中查看规定范式。
 
@@ -111,7 +111,7 @@ const says = defineCollection({
 
 需要注意的是，随着项目的不断更新 FrontMatter 规范可能会改变——这意味着文档可能不是最新的。但你永远可以在本地的 `content.config.ts` 中看到最正确的规范。
 
-## 6. 安装和部署
+## 6. Install&Deploy
 
 前提：在本地安装 node.js 环境，确保可以使用 npm 命令。
 
@@ -130,7 +130,7 @@ Syight 推荐你通过 Vercel 进行部署，只需要在 Vercel 中创建一个
 
 每一次推送到 Github 仓库，Vercel 都会自动构建你的网站，通过 Vercel 访问即可。
 
-## 7. 其他
+## 7. Other
 
 你可以在 Syight 轻松潜入你的 Youtube、Bilibili 视频。
 
