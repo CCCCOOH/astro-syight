@@ -132,9 +132,9 @@ Syight 推荐你通过 Vercel 进行部署，只需要在 Vercel 中创建一个
 
 ## 7. Other
 
-你可以在 Syight 轻松潜入你的 Youtube、Bilibili 视频。
+你可以在 Syight 轻松嵌入你的 Youtube、Bilibili 视频。
 
-只需要复制对应的网页端潜入代码即可。特别的，对于bilibili，你需要为标签加上 `title="bilibili"` 属性来确保 CSS 生效。
+只需要复制对应的网页端嵌入代码即可。特别的，对于bilibili，你需要为标签加上 `title="bilibili"` 属性来确保 CSS 生效。
 
 ```html
 <!-- raw data -->

@@ -264,10 +264,6 @@ iframe[title='YouTube video player'], iframe[title="bilibili"] {
   transition: all .4s ease-out;
 }
 
-iframe[title='YouTube video player']:hover, iframe[title="bilibili"]:hover {
-  box-shadow: var(--shadow-2xl);
-}
-
 @media (max-width: 48rem) {
   iframe[title='YouTube video player'], iframe[title="bilibili"] {
     width: 98%;
