@@ -259,7 +259,7 @@ img {
 iframe[title='YouTube video player'], iframe[title="bilibili"] {
   margin: auto;
   border-radius: 10px;
-  width: 50vw;
+  width: 70%;
   height: 450px;
   transition: all .4s ease-out;
 }
