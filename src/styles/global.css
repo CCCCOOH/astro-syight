@@ -267,3 +267,13 @@ iframe[title='YouTube video player'], iframe[title="bilibili"] {
 iframe[title='YouTube video player']:hover, iframe[title="bilibili"]:hover {
   box-shadow: var(--shadow-2xl);
 }
+
+@media (max-width: 48rem) {
+  iframe[title='YouTube video player'], iframe[title="bilibili"] {
+    width: 98%;
+    height: 350px;
+  }
+  iframe[title='YouTube video player']:hover, iframe[title="bilibili"]:hover {
+    outline: 2px solid rgb(241, 57, 124);
+  }
+}
